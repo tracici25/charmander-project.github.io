@@ -8,12 +8,16 @@ Liu(yl4613), Mufeng Xu(mx2241), Angeline Chen(mc4959).
 
 # Project Title
 
-Forest fire comparison in Portugal & California
+Forest Fire Comparison of Portugal & California
 
 # Motivation
 
-Australia BushFire, California CampFire attract us to weather conditions
-associated with fire.
+Two major wildfire disasters occurs recently: Australia BushFire,
+California CampFire. The severe consequence of wildfires on environment
+and health catches our attention. Therefore, this study will be
+conducted to see the potential factors of wildfire and compare the
+weather and climate conditions in Montesinho National Park, Portugal and
+California, US.
 
 # The intended final products
 
