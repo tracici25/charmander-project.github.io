@@ -1,8 +1,0 @@
----
-title: "Chek-Yuechen"
-author: "YuechenLiu"
-date: "11/6/2020"
-output: github_document
----
-
-##Check--Yuechen
