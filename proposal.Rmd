@@ -3,6 +3,27 @@ title: "Proposal"
 output: github_document
 ---
 
-```{r setup}
+# Group Members
+The "" Team has 4 awesome members: Yanhan Li(yl4612), Yuechen Liu(yl4613), Mufeng Xu(mx2241), Angeline Chen(mc4959).
 
-```
+# Project Title
+Forest fire comparison in Portugal & California
+
+# Motivation
+Australia BushFire, California CampFire attract us to weather conditions associated with fire.
+
+# The intended final products
+Descriptive statistics of the dataset.  Interactive plots including visual information. Analysis result of related variables. Abstract of similarities and differences in two regions.
+
+# The anticipated data sources
+https://archive.ics.uci.edu/ml/datasets/forest+fires
+
+# The planned analyses / visualizations / coding challenges
+Linear regression, looking for causal inference
+Maps with information. 
+Challenges; Two datasets might be hard to merge or correctly related. Datasets need to be comparable.
+
+
+
+
+
