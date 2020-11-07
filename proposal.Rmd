@@ -4,26 +4,49 @@ output: github_document
 ---
 
 # Group Members
-The "" Team has 4 awesome members: Yanhan Li(yl4612), Yuechen Liu(yl4613), Mufeng Xu(mx2241), Angeline Chen(mc4959).
+Team Charmander has 4 awesome members: Yanhao Li(yl4612), Yuechen Liu(yl4613), Mufeng Xu(mx2241), Angeline Chen(mc4959).
 
 # Project Title
 Forest Fire Comparison of Portugal & California
 
 # Motivation
-Two major wildfire disasters occurs recently: Australia BushFire, California CampFire. The severe consequence of wildfires on environment and health catches our attention. Therefore, this study will be conducted to see the potential factors of wildfire and compare the weather and climate conditions in Montesinho National Park, Portugal and California, US.
+Two major wildfire disasters occurred recently: Australia BushFire, California CampFire. The severe consequence of wildfires on the environment and health catches our attention. Therefore, this study will be conducted to see the potential factors of wildfire and compare the weather and climate conditions in Montesinho National Park, Portugal and specific locations in California, US.
 
 # The intended final products
-Descriptive statistics of the dataset.  Interactive plots including visual information. Analysis result of related variables. Abstract of similarities and differences in two regions.
+The final product contains the descriptive statistics of the datasets of Portugal and California. Also, interactive graphs will be plotted with appropriate data, and statistical analysis will be conducted with relevant variables.
 
 # The anticipated data sources
-https://archive.ics.uci.edu/ml/datasets/forest+fires
+Weather and Climate dataset/mapping sourse:
+
+https://archive.ics.uci.edu/ml/datasets/forest+fires (Portugal)
+
+https://www.ncdc.noaa.gov/cag/statewide/mapping (California)
 
 # The planned analyses / visualizations / coding challenges
-Linear regression, looking for causal inference
-Maps with information. 
-Challenges; Two datasets might be hard to merge or correctly related. Datasets need to be comparable.
+* Possible analysis methods utilized in this study include ANOVA,  comparing weather-climate info of two locations, and linear regression, looking for causal inference. Visualizations include tables of descriptive statistics, boxplots and histograms. In addition,  we will create maps with information. 
 
+* Possible coding challenges: Two datasets come from different sources, so it might be hard to merge or correctly related. We might find challenges in making them comparable.
 
+# The planned timeline
+November 6
+
+* Discuss the topic of team project and form a proposal
+
+November 9, 16, 23
+
+* Project zoom meeting - discuss and tidy  dataset/ make plots/ analyze data and interpret results/ discuss challenges and solve problems
+
+November 25, 27, 30
+
+* Project zoom meeting - 
+
+  * Complete a report giving detailed project description
+
+  * Complete webpage and screencast (Webpage overview of project, with short explanatory online video)
+
+December 7
+
+* Last project zoom meeting - Last check
 
 
 
