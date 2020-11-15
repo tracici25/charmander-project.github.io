@@ -24,3 +24,65 @@ options(
 scale_colour_discrete = scale_color_viridis_d
 scale_fill_discrete = scale_fill_viridis_d
 ```
+
+
+## Introduction
+
+### Forest Fire
+
+---
+
+### Montesinho
+
+The Montesinho Natural Park is one of the largest natural parks in Portugal.
+
+The schist and granite mountains form deep valleys and the clear river water flowing through them. 
+
+The geological diversity of this space and variations in soil characteristics and climate, originate a highly varied plant life, and an ideal habitat for animals such as the wolf, wild boar, roe deer and around 240 other animal species.
+
+Montesinho is home to many different kinds of animals. Its biodiversity includes the Iberian wolf, roe deer, wild boar, Iberian lynx, common genet, red fox and European otter.
+(Add some images of the animals)
+
+
+---
+
+### Dataset
+The forest fire data concerns burned areas of the forests in Montesinho Natural park due to forest fires.
+
+---
+
+### Variables
+
+* X - x-axis spatial coordinate within the Montesinho park map: 1 to 9
+* Y - y-axis spatial coordinate within the Montesinho park map: 2 to 9
+* month - month of the year: 'jan' to 'dec'
+* day - day of the week: 'mon' to 'sun'
+* FFMC - FFMC index from the FWI system: 18.7 to 96.20
+* DMC - DMC index from the FWI system: 1.1 to 291.3
+* DC - DC index from the FWI system: 7.9 to 860.6
+* ISI - ISI index from the FWI system: 0.0 to 56.10
+* temp - temperature in Celsius degrees: 2.2 to 33.30
+* RH - relative humidity in %: 15.0 to 100
+* wind - wind speed in km/h: 0.40 to 9.40
+* rain - outside rain in mm/m2 : 0.0 to 6.4
+* area - the burned area of the forest (in ha): 0.00 to 1090.84
+(this output variable is very skewed towards 0.0, thus it may make
+sense to model with the logarithm transform)
+
+For more information, read [Cortez and Morais, 2007].
+
+---
+
+### Questions
+* Distribution: How is the forest fire distributed in the park? How large can the forest fire be? (put in summary table)
+* Prediction: What are the significant variables to predict forest fire?
+* Associations: How are these variables related to the area of forest fire?
+* Suggestions: What can we suggest from the data? (Ex: For tourists and fire department)
+* Future Plans: How is the variables related to each other? Can we give a more precise prediction of the area based on the variables we have now?
+
+
+
+
+
+
+
