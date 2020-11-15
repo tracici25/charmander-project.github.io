@@ -1,0 +1,20 @@
+name: "Yay internet!"
+output_dir: "."
+navbar:
+  title: "Home"
+  right:
+    - text: "Resume"
+      href: resume.html
+    - text: "Plotly"
+      href: plotly.html
+    - text: "Dashboard"
+      href: dashboard.html
+    - icon: fa-envelope fa-lg
+      href: mailto:<mx2241@cumc.columbia.com>
+    - icon: fa-github fa-lg
+      href: http://github.com/tracici25/
+    - icon: fa-linkedin
+      href: https://www.linkedin.com/in/mufeng-xu-a1388bb5/      
+output:
+  html_document:
+    theme: darkly

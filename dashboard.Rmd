@@ -1,0 +1,91 @@
+---
+title: "Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    source: embed
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)
+
+library(flexdashboard)
+```
+
+```{r}
+data("rest_inspec")
+
+rest_inspec = 
+  rest_inspec %>% 
+  select(grade, boro, cuisine_description, dba, zipcode, score, violation_description, grade) %>% 
+  mutate(
+    cuisine_description = replace(cuisine_description, cuisine_description == 'Latin (Cuban, Dominican, Puerto Rican, South & Central American)', 'Latin'),
+    cuisine_description = replace(cuisine_description, cuisine_description == 'CafÃ©/Coffee/Tea', 'Cafe'),
+    cuisine_description = replace(cuisine_description, cuisine_description == 'Delicatessen', 'Deli')
+    ) %>% 
+  filter(
+    boro == "QUEENS",
+    zipcode == "11101",
+    grade == c("A", "B", "C")
+  )
+```
+
+Column {data-width=500}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+rest_inspec %>% 
+  mutate(cuisine_description = fct_reorder(cuisine_description, score)) %>% 
+  mutate(text_label = str_c("Restaurant Name: ", dba, "\nGrade: ", grade, "\nViolation: ", violation_description)) %>% 
+  plot_ly(
+    x = ~cuisine_description, y = ~score, text = ~text_label, color = ~cuisine_description, colors = "viridis",
+    alpha = 0.5, type = "scatter", mode = "markers"
+  ) %>% 
+  layout(
+    title = "Scatterplot of scores of different cuisine types in Queens(zipcode 11101)",
+    xaxis = list(title = "Cuisine Type"),
+    yaxis = list(title = "Score"))
+```
+
+Column {data-width=500}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+rest_inspec %>% 
+  count(cuisine_description) %>% 
+  mutate(cuisine_description = fct_reorder(cuisine_description, n)) %>% 
+  plot_ly(
+    x = ~cuisine_description, y = ~n, 
+    color = ~cuisine_description, colors = "viridis",
+    type = "bar"
+  ) %>% 
+  layout(
+    title = "Barplot of different cuisine types in Queens(zipcode 11101)",
+    xaxis = list(title = "Cuisine Type"),
+    yaxis = list(title = "Count")
+  )
+```
+
+### Chart C
+
+```{r}
+rest_inspec %>% 
+  mutate(cuisine_description = fct_reorder(cuisine_description, score)) %>% 
+  plot_ly(
+    y = ~score, x = ~cuisine_description, color = ~cuisine_description,
+    colors = "viridis", type = "box"
+  ) %>% 
+  layout(
+    title = "Boxplot of scores of different cuisine types in Queens(zipcode 11101)",
+    xaxis = list(title = "Cuisine Type"),
+    yaxis = list(title = "Count")
+  )
+```
+

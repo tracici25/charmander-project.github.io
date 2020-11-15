@@ -1,0 +1,32 @@
+---
+title: "Wild Fire***"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+# Some pics???
+
+
+# Proposal
+Hi! This is our proposal section
+
+# About the Website
+Maybe add something important here
+
+## About our team
+Member 1
+
+Member 2
+
+Member 3
+
+Member 4
+
+
+# Some data websites? Directory
+Data websites
+
+
+
