@@ -80,9 +80,33 @@ For more information, read [Cortez and Morais, 2007].
 * Suggestions: What can we suggest from the data? (Ex: For tourists and fire department)
 * Future Plans: How is the variables related to each other? Can we give a more precise prediction of the area based on the variables we have now?
 
+### Plots (plotly)
+
+## boxplot (month)
+
+```{r month+group_by area, facet_grid}
+
+```
 
 
+## Scatterplot (geography)
+
+```{r x+y}
+
+```
+
+## scatterplot (rain, RH)
+
+```{r rain+RH}
+
+```
+
+## histogram (month)
+
+```{r month}
+
+```
 
 
-
+### Test (ANOVA)
 
