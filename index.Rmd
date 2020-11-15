@@ -1,21 +1,33 @@
 ---
-title: "Wild Fire***"
+title: "Wild Fire Factors"
+author: "Team Charmander: Yanhao Li(yl4612), Yuechen Liu(yl4613), Mufeng Xu(mx2241), Angeline Chen(mc4959)."
 output: 
   html_document:
     toc: true
     toc_float: true
 ---
 
-# Some pics???
+Add some pics here
 
 
-# Proposal
-Hi! This is our proposal section
+# Motivation
+Two major wildfire disasters occurred recently: Australia BushFire, California CampFire. The severe consequence of wildfires on the environment and health catches our attention. Therefore, this study will be conducted to see the potential factors of wildfire and compare the weather and climate conditions in Montesinho National Park, Portugal and specific locations in California, US.
 
-# About the Website
-Maybe add something important here
 
-## About our team
+# What Questions we are trying to answer?
+Q1: 
+
+Q2:
+
+Q3:
+
+
+
+# Some info about our datasets
+They came from website xxx[websitexxx]
+
+
+# About our team/contact info?
 Member 1
 
 Member 2
@@ -24,9 +36,7 @@ Member 3
 
 Member 4
 
-
-# Some data websites? Directory
-Data websites
+# Our screencast
 
 
 
