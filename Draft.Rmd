@@ -136,7 +136,7 @@ geo_3 =
 
 map = matrix(pull(geo_3, total), nrow = 9, byrow = TRUE)
 rotate = function(x) t(apply(x, 2, rev))
-image(rotate(map))
+image(rotate(map), axes = FALSE)
 
 fire_df %>% 
   filter(area > 0) %>% 
