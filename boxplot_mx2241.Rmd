@@ -1,0 +1,68 @@
+---
+title: "Wild Fire Boxplots (fire vs. no fire)"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    source: embed
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(plotly)
+library(flexdashboard)
+```
+
+```{r, include = FALSE}
+# Load in data
+fire_df = read_csv("./forestfires.csv")
+# select and tidy data
+fire_box = 
+  fire_df %>% 
+  select(FFMC, DMC, DC, ISI, temp, RH, wind, rain, area) %>% 
+  mutate(fire = ifelse(area > 0, "fire", "no fire")) %>% 
+  pivot_longer(FFMC:rain,
+               names_to = "climate",
+               values_to = "value") %>% 
+  mutate(
+    climate = replace(climate, climate == 'temp', 'Temperature'),
+    climate = replace(climate, climate == 'RH', 'Relative Humidity'),
+    climate = replace(climate, climate == 'wind', 'Wind Speed'),
+    climate = replace(climate, climate == 'rain', 'Rain')
+  )
+
+```
+
+Column {.sidebar}
+-----------------------------------------------------------------------
+
+```{r}
+climate = fire_box %>% 
+  pull(climate) %>% 
+  unique()
+
+selectInput(
+  "climate",
+  h3("Climate Variables"),
+  choices = climate
+)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Boxplot With Fire
+
+```{r}
+renderPlotly({
+  fire_box %>% 
+    filter(climate == input[["climate"]]) %>% 
+    group_by(fire) %>% 
+    plot_ly(
+      y = ~value, x = ~fire, color = ~fire,
+      type = "box", colors = "viridis")
+})
+
+```
+

@@ -9,6 +9,7 @@ library(tidyverse)
 library(dplyr)
 library(ggplot2)
 library(patchwork)
+library(plotly)
 
 knitr::opts_chunk$set(
   fig.width = 6,
@@ -82,9 +83,29 @@ For more information, read [Cortez and Morais, 2007].
 
 ### Plots (plotly)
 
+load in data
+```{r}
+fire_df = read_csv("./data/forestfires.csv")
+fire_df
+```
+
 ## boxplot (month)
+Answering the question that whether there is a difference in weather and climate of days that there is a fire and no fire.
 
 ```{r month+group_by area, facet_grid}
+fire_box = 
+  fire_df %>% 
+  select(FFMC, DMC, DC, ISI, temp, RH, wind, rain, area) %>% 
+  mutate(fire = ifelse(area > 0, "fire", "no fire"))
+
+# temperature boxplots
+fire_box %>% 
+  group_by(fire) %>% 
+  plot_ly(
+    y = ~temp, x = ~fire, color = ~fire,
+    type = "box", colors = "viridis"
+  )
+
 
 ```
 

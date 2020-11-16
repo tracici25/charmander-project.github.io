@@ -5,8 +5,8 @@ navbar:
   right:
     - text: "Plotly"
       href: plotly.html
-    - text: "Dashboard"
-      href: dashboard.html
+    - text: "Boxplot"
+      href: boxplot.html
     - icon: fa-envelope fa-lg
       href: mailto:<mx2241@cumc.columbia.com>
     - icon: fa-github fa-lg
