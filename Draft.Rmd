@@ -120,8 +120,7 @@ geo_1 =
   mutate(total = sum(area)) %>% 
   select(-area) %>% 
   distinct() %>% 
-  ungroup() %>% 
-  arrange(X, Y)
+  ungroup() 
 
 geo_2 = 
   expand.grid(
@@ -132,7 +131,12 @@ geo_2 =
 geo_3 = 
   merge(
     geo_2, geo_1, all = TRUE
-  )
+  ) %>% 
+  arrange(Y, X)
+
+map = matrix(pull(geo_3, total), nrow = 9, byrow = TRUE)
+rotate = function(x) t(apply(x, 2, rev))
+image(rotate(map))
 
 fire_df %>% 
   filter(area > 0) %>% 
