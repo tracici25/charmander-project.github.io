@@ -113,14 +113,36 @@ fire_box %>%
 ## Scatterplot (geography)
 
 ```{r x+y}
+geo_1 = 
+  fire_df %>% 
+  select(X, Y, area) %>% 
+  group_by(X, Y) %>% 
+  mutate(total = sum(area)) %>% 
+  select(-area) %>% 
+  distinct() %>% 
+  ungroup() %>% 
+  arrange(X, Y)
+
+geo_2 = 
+  expand.grid(
+    X = unique(pull(geo_1, X)),
+    Y = unique(pull(geo_1, X))
+  )
+
+geo_3 = 
+  merge(
+    geo_2, geo_1, all = TRUE
+  )
+
 fire_df %>% 
   filter(area > 0) %>% 
+  mutate(Y = -Y) %>% 
   group_by(X, Y) %>% 
-  mutate(Total = sum(area)) %>% 
-  mutate(text_label = str_c("Total Area: ", Total)) %>% 
+  mutate(total = sum(area)) %>% 
+  mutate(text_label = str_c("Total Area: ", total)) %>% 
   plot_ly(
-    x = ~X, y = ~Y, text = ~text_label, color = ~Total,
-    type = "scatter", colors = "viridis", mode = "markers")
+    x = ~X, y = ~Y, text = ~text_label, color = ~total,
+    type = "scatter", colors = "viridis", mode = "markers", size = ~total)
 ```
 
 ## scatterplot (rain, RH)
