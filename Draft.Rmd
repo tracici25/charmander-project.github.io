@@ -119,7 +119,14 @@ fire_box %>%
 ## scatterplot (rain, RH)
 
 ```{r rain+RH}
-
+fire_df %>% 
+  mutate(days = ifelse(day %in% c('sat', 'sun'),'weekend', 'weekday')) %>% 
+  plot_ly(
+    y = ~rain, x = ~RH,
+    type = 'scatter', colors = 'viridis', color = ~days, mode = 'markers', hoverinfo = 'text',
+        text = ~paste('</br> Month: ', month,
+                      '</br> Relative Humidity (%): ', RH,
+                      '</br> Rain (mm/m2): ', rain))
 ```
 
 ## histogram (month)
