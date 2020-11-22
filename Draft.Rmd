@@ -162,10 +162,15 @@ fire_df %>%
                       '</br> Rain (mm/m2): ', rain))
 ```
 
-## histogram (month)
+## Bar chart (month)
 
-```{r month}
+```{r}
+fire_mon = 
+  fire_df %>% 
+  mutate(mon_upper = stringi::stri_trans_totitle(month))
 
+ggplot(fire_mon, aes(x = mon_upper)) + 
+  geom_bar() + xlab('Month') + ylab('Count (s)')
 ```
 
 
