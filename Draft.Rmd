@@ -164,15 +164,16 @@ fire_df %>%
 
 ## Bar chart (month)
 
-```{r}
+```{r month}
 fire_mon = 
   fire_df %>% 
   mutate(mon_upper = stringi::stri_trans_totitle(month))
 
-ggplot(fire_mon, aes(x = mon_upper)) + 
-  geom_bar() + xlab('Month') + ylab('Count (s)')
+ggplot(fire_mon, aes(x = mon_upper) + 
+  geom_bar() + xlab('Month') + ylab('Count (s)' ))
 ```
 
+scale_fill_viridis_d() 
 
 ### Test (ANOVA)
 
