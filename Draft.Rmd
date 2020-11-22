@@ -170,7 +170,7 @@ fire_mon =
   mutate(month = stringi::stri_trans_totitle(month))
 
 ggplot(fire_mon, aes(x = month, fill = month)) + 
-  geom_bar() + scale_fill_viridis_d() +
+  geom_bar() + scale_fill_viridis_d(direction = -1) +
   xlab('Month') + ylab('Count (s)')
 ```
 
