@@ -177,6 +177,9 @@ ggplot(fire_mon, aes(x = month, fill = month)) +
   xlab('Month') + ylab('Count (s)')
 ```
 
+Add text label on bar chart.
+change month order.
+
 
 ### Test (ANOVA)
 
