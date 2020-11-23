@@ -164,6 +164,7 @@ fire_df %>%
                       '</br> Relative Humidity (%): ', RH,
                       '</br> Rain (mm/m2): ', rain))
 ```
+calculate the days of fire (weekday and weekend) and compare their ratio to the natural one.
 
 ## Bar chart (month)
 
