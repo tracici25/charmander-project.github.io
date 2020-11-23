@@ -89,6 +89,8 @@ fire_df = read_csv("./data/forestfires.csv")
 fire_df
 ```
 
+Add/Merge the file to website.
+
 ## boxplot (month)
 Answering the question that whether there is a difference in weather and climate of days that there is a fire and no fire.
 
@@ -109,6 +111,7 @@ fire_box %>%
 
 ```
 
+Overlay the plot to map. Add make a rmd file. 
 
 ## Scatterplot (geography)
 
