@@ -81,6 +81,8 @@ For more information, read [Cortez and Morais, 2007].
 * Suggestions: What can we suggest from the data? (Ex: For tourists and fire department)
 * Future Plans: How is the variables related to each other? Can we give a more precise prediction of the area based on the variables we have now?
 
+---
+
 ### Plots (plotly)
 
 load in data
@@ -112,6 +114,8 @@ fire_box %>%
 ```
 
 Overlay the plot to map. Add make a rmd file. 
+
+---
 
 ## Scatterplot (geography)
 
@@ -166,21 +170,122 @@ fire_df %>%
 ```
 calculate the days of fire (weekday and weekend) and compare their ratio to the natural one.
 
+---
+
 ## Bar chart (month)
 
-```{r barchart}
+Comments:
+1. Add text label on bar chart.
+2. change month order.
+
+### barchart (ggplot+ggplotly)
+```{r barchart_ggplot+ggplotly}
 fire_mon = 
   fire_df %>% 
-  mutate(month = stringi::stri_trans_totitle(month))
+  filter(area>0) %>%
+  mutate(month = stringi::stri_trans_totitle(month)) %>%
+  mutate(month = factor(month, 
+                        levels = c('Jan', 'Feb', 'Mar', 'Apr',
+                                   'May', 'Jun', 'Jul', 'Aug',
+                                   'Sep', 'Oct', 'Nov', 'Dec'),
+                        ordered = TRUE))
 
-ggplot(fire_mon, aes(x = month, fill = month)) + 
+bar_plot =
+  fire_mon %>%
+  ggplot(aes(x = month, fill = month)) + 
   geom_bar() + scale_fill_viridis_d(direction = -1) +
   xlab('Month') + ylab('Count (s)')
+
+ggplotly(bar_plot)
 ```
+Problems: text for each month
 
-Add text label on bar chart.
-change month order.
+### barchart (plotly)
+```{r barchart_plotly}
+fire_mon = 
+  fire_df %>% 
+  filter(area > 0) %>%
+  mutate(month = stringi::stri_trans_totitle(month))
 
+fire_mon %>%
+  count(month) %>% 
+  mutate(month = fct_reorder(month, n)) %>% 
+  mutate(month = factor(month, 
+                        levels = c('Jan', 'Feb', 'Mar', 'Apr',
+                                   'May', 'Jun', 'Jul', 'Aug',
+                                   'Sep', 'Oct', 'Nov', 'Dec'),
+                        ordered = TRUE)) %>%
+  plot_ly(x = ~month, y = ~n, color = ~month, type = "bar", colors = "viridis")
+```
+Problems:
+1. Nov
+2. the order fo x-label
+3. cannot change direction of colors
+
+---
 
 ### Test (ANOVA)
 
+```{r anova}
+fire_df_2 = 
+  fire_df %>% 
+  select(FFMC, DMC, DC, ISI, temp, RH, wind, rain, area) %>% 
+  mutate(fire = ifelse(area > 0, "fire", "no fire"))
+
+# FFMC
+fire_ffmc = 
+  fire_df_2 %>%
+  select(FFMC, fire)
+anova_ffmc = lm(FFMC ~ factor(fire), data = fire_ffmc)
+anova(anova_ffmc)
+
+# DMC
+fire_dmc = 
+  fire_df_2 %>%
+  select(DMC, fire)
+anova_dmc = lm(DMC ~ factor(fire), data = fire_dmc)
+anova(anova_dmc)
+
+# DC
+fire_dc = 
+  fire_df_2 %>%
+  select(DC, fire)
+anova_dc = lm(DC ~ factor(fire), data = fire_dc)
+anova(anova_dc)
+
+
+# ISI
+fire_isi = 
+  fire_df_2 %>%
+  select(ISI, fire)
+anova_isi = lm(ISI ~ factor(fire), data = fire_isi)
+anova(anova_isi)
+
+# Temp
+fire_temp = 
+  fire_df_2 %>%
+  select(temp, fire)
+anova_temp = lm(temp ~ factor(fire), data = fire_temp)
+anova(anova_temp)
+
+# RH
+fire_rh = 
+  fire_df_2 %>%
+  select(RH, fire)
+anova_rh = lm(RH ~ factor(fire), data = fire_rh)
+anova(anova_rh)
+
+# Wind
+fire_wind = 
+  fire_df_2 %>%
+  select(wind, fire)
+anova_wind = lm(wind ~ factor(fire), data = fire_wind)
+anova(anova_wind)
+
+# Rain
+fire_rain = 
+  fire_df_2 %>%
+  select(rain, fire)
+anova_rain = lm(rain ~ factor(fire), data = fire_rain)
+anova(anova_rain)
+```
