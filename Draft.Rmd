@@ -10,6 +10,8 @@ library(dplyr)
 library(ggplot2)
 library(patchwork)
 library(plotly)
+library(png)
+library(grid)
 
 knitr::opts_chunk$set(
   fig.width = 6,
@@ -151,12 +153,25 @@ geo_5 =
   geo_4 %>% 
   mutate(text = paste0("x: ", X, "\n", "y: ", -Y, "\n", "Total Area: ", total))
 
-map = 
+area = 
   ggplot(geo_5, aes(X, Y, fill = total, text = text)) +
   geom_tile() +
   scale_fill_gradient(low = "green", high = "red")
 
-ggplotly(map, tooltip = "text")
+area_plot = ggplotly(area, tooltip = "text")
+
+d <- data.frame(x=c(0,2,4), y= c(4,5,100))
+
+r <- png::readPNG('factory.png')
+rg <- grid::rasterGrob(r, width=unit(1,"npc"), height=unit(1,"npc"))
+
+ggplot(d, aes(x,y)) + 
+  annotation_custom(rg) +
+  geom_point(colour="red") +
+  scale_x_continuous(expand=c(0,0), lim=c(0,100)) +
+  scale_y_continuous(expand=c(0,0), lim=c(0,100)) +
+  theme_void() +
+  theme(aspect.ratio = nrow(r)/ncol(r)) 
 ```
 
 ## scatterplot (rain, RH)
