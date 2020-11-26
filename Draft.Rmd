@@ -141,10 +141,22 @@ geo_3 =
   ) %>% 
   arrange(Y, X)
 
-map = matrix(pull(geo_3, total), nrow = 9, byrow = TRUE)
-rotate = function(x) t(apply(x, 2, rev))
-image(rotate(map), axes = FALSE)
+geo_4 = 
+  geo_3 %>% 
+  mutate(
+    Y = -Y
+  )
 
+geo_5 =
+  geo_4 %>% 
+  mutate(text = paste0("x: ", X, "\n", "y: ", -Y, "\n", "Total Area: ", total))
+
+map = 
+  ggplot(geo_5, aes(X, Y, fill = total, text = text)) +
+  geom_tile() +
+  scale_fill_gradient(low = "green", high = "red")
+
+ggplotly(map, tooltip = "text")
 ```
 
 ## scatterplot (rain, RH)
