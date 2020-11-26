@@ -145,15 +145,6 @@ map = matrix(pull(geo_3, total), nrow = 9, byrow = TRUE)
 rotate = function(x) t(apply(x, 2, rev))
 image(rotate(map), axes = FALSE)
 
-fire_df %>% 
-  filter(area > 0) %>% 
-  mutate(Y = -Y) %>% 
-  group_by(X, Y) %>% 
-  mutate(total = sum(area)) %>% 
-  mutate(text_label = str_c("Total Area: ", total)) %>% 
-  plot_ly(
-    x = ~X, y = ~Y, text = ~text_label, color = ~total,
-    type = "scatter", colors = "viridis", mode = "markers", size = ~total)
 ```
 
 ## scatterplot (rain, RH)
