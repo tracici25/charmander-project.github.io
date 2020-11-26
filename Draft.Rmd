@@ -11,7 +11,6 @@ library(ggplot2)
 library(patchwork)
 library(plotly)
 library(png)
-library(grid)
 
 knitr::opts_chunk$set(
   fig.width = 6,
@@ -147,31 +146,21 @@ geo_4 =
   geo_3 %>% 
   mutate(
     Y = -Y
-  )
+  ) 
 
-geo_5 =
-  geo_4 %>% 
-  mutate(text = paste0("x: ", X, "\n", "y: ", -Y, "\n", "Total Area: ", total))
+geo_4[is.na(geo_4)] <- 0
 
-area = 
-  ggplot(geo_5, aes(X, Y, fill = total, text = text)) +
+map_image = png::readPNG("map.png")
+
+map_image_g = grid::rasterGrob(map_image, width = unit(0.89,"npc"), height = unit(0.89,"npc"))
+
+overlap = 
+  ggplot(geo_4, aes(X, Y, fill = total)) + 
+  annotation_custom(map_image_g) +
   geom_tile() +
-  scale_fill_gradient(low = "green", high = "red")
-
-area_plot = ggplotly(area, tooltip = "text")
-
-d <- data.frame(x=c(0,2,4), y= c(4,5,100))
-
-r <- png::readPNG('factory.png')
-rg <- grid::rasterGrob(r, width=unit(1,"npc"), height=unit(1,"npc"))
-
-ggplot(d, aes(x,y)) + 
-  annotation_custom(rg) +
-  geom_point(colour="red") +
-  scale_x_continuous(expand=c(0,0), lim=c(0,100)) +
-  scale_y_continuous(expand=c(0,0), lim=c(0,100)) +
   theme_void() +
-  theme(aspect.ratio = nrow(r)/ncol(r)) 
+  theme(aspect.ratio = nrow(map_image)/ncol(map_image)) +
+  scale_fill_gradient(low = "transparent", high = "red")
 ```
 
 ## scatterplot (rain, RH)
