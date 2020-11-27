@@ -185,7 +185,7 @@ weekday_vs_weekend =
   summarise_at(vars(Freq), list(name = sum))
 ```
 Calculation: num of weekday / num of weekend  = 338 / 179 = 1.89
-
+###Test: Chi-sqr test for homo + Wilcoxon rank-sum test.
 ---
 
 ## Bar chart (month)
