@@ -308,7 +308,7 @@ anova(anova_rain)
 
 ## Website
 
-1. Index: picture, title, member
+1. Index: picture, title, member 
 2. About: motivation, methods, dataset, screencast
 3. Overview: geography, barchart (number of fire, rain, relative humidity)
 4. Data Analysis: shiny
