@@ -2,17 +2,32 @@ name: "Yay internet!"
 output_dir: "."
 navbar:
   title: "Home"
+  left:
+    - text: "About"
+      href: about.html
+  
   right:
-    - text: "Plotly"
-      href: plotly.html
-    - text: "Boxplot"
+    - text: "Overview"
+      menu:
+        - text: "Geography"
+          href: geography.html
+        - text: "something else"
+          href: something_else.html
+        - text: "something else 2"
+          href: something_else_2.html
+    - text: "Data Analysis"
       href: boxplot.html
-    - icon: fa-envelope fa-lg
-      href: mailto:<mx2241@cumc.columbia.com>
+    - text: "Testing"
+      menu:
+        - text: "Geography"
+          href: geography.html
+        - text: "something else"
+          href: something_else.html
+        - text: "something else 2"
+          href: something_else_2.html
     - icon: fa-github fa-lg
-      href: http://github.com/tracici25/
-    - icon: fa-linkedin
-      href: https://www.linkedin.com/in/mufeng-xu-a1388bb5/      
+      href: https://github.com/tracici25/p8105_finalproject.git
+
 output:
   html_document:
-    theme: sandstone
+    theme: united
