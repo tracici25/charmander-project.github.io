@@ -305,3 +305,12 @@ fire_rain =
 anova_rain = lm(rain ~ factor(fire), data = fire_rain)
 anova(anova_rain)
 ```
+
+## Website
+
+1. Index: picture, title, member
+2. About: motivation, methods, dataset, screencast
+3. Overview: geography, barchart (number of fire, rain, relative humidity)
+4. Data Analysis: shiny
+5. Test: ANOVA, Regression
+6. Conclusion
