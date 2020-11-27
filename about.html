@@ -9,10 +9,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Team Charmander: Yanhao Li(yl4612), Yuechen Liu(yl4613), Mufeng Xu(mx2241), Angeline Chen(mc4959)." />
 
 
-<title>Wild Fire in Montesinho National Park</title>
+<title>About</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,6 +19,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -251,6 +253,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -258,6 +323,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -310,16 +385,78 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Wild Fire in Montesinho National Park</h1>
-<h4 class="author">Team Charmander: Yanhao Li(yl4612), Yuechen Liu(yl4613), Mufeng Xu(mx2241), Angeline Chen(mc4959).</h4>
+<h1 class="title toc-ignore">About</h1>
 
 </div>
 
 
-<p><img src="picture/fire.jpg" style="vertical-align:middle;margin:50px 0px"></p>
+<div id="motivation" class="section level1">
+<h1>Motivation</h1>
+<p>Two major wildfire disasters occurred recently: Australia BushFire, California CampFire. The severe consequence of wildfires on the environment and health catches our attention. Therefore, this study will be conducted to see the potential factors of wildfire and compare the weather and climate conditions in Montesinho National Park, Portugal, and give travel suggestions.</p>
+<div id="montesinho-national-park" class="section level3">
+<h3>Montesinho National Park</h3>
+<p>The Montesinho Natural Park is one of the largest natural parks in Portugal. The schist and granite mountains form deep valleys and the clear river water flowing through them. The geological diversity of this space and variations in soil characteristics and climate, originate a highly varied plant life, and an ideal habitat for animals such as the wolf, wild boar, roe deer and around 240 other animal species. Montesinho is home to many different kinds of animals. Its biodiversity includes the Iberian wolf, roe deer, wild boar, Iberian lynx, common genet, red fox and European otter.</p>
+<p><img src="picture/park.jpg" style="width:60%"></p>
+<p>methods, screencast</p>
+</div>
+</div>
+<div id="data" class="section level1">
+<h1>Data</h1>
+<p>The forest fire data concerns burned areas of the forests in Montesinho Natural park due to forest fires.</p>
+<div id="variables" class="section level3">
+<h3>Variables</h3>
+<ul>
+<li>X - x-axis spatial coordinate within the Montesinho park map: 1 to 9</li>
+<li>Y - y-axis spatial coordinate within the Montesinho park map: 2 to 9</li>
+<li>month - month of the year: ‘jan’ to ‘dec’</li>
+<li>day - day of the week: ‘mon’ to ‘sun’</li>
+<li>FFMC - FFMC index from the FWI system: 18.7 to 96.20</li>
+<li>DMC - DMC index from the FWI system: 1.1 to 291.3</li>
+<li>DC - DC index from the FWI system: 7.9 to 860.6</li>
+<li>ISI - ISI index from the FWI system: 0.0 to 56.10</li>
+<li>temp - temperature in Celsius degrees: 2.2 to 33.30</li>
+<li>RH - relative humidity in %: 15.0 to 100</li>
+<li>wind - wind speed in km/h: 0.40 to 9.40</li>
+<li>rain - outside rain in mm/m2 : 0.0 to 6.4</li>
+<li>area - the burned area of the forest (in ha): 0.00 to 1090.84 (this output variable is very skewed towards 0.0, thus it may make sense to model with the logarithm transform)</li>
+</ul>
+<p>For more information about data, read <a href="https://www.nwcg.gov/publications/pms437/cffdrs/fire-weather-index-system">Fire Weather Index (FWI) System</a>.</p>
+</div>
+</div>
+<div id="methods" class="section level1">
+<h1>Methods</h1>
+<div id="what-questions-we-are-trying-to-answer" class="section level3">
+<h3>What Questions we are trying to answer?</h3>
+<ul>
+<li><p>How severe is the fire? Where in the park has the most severe fire?</p></li>
+<li><p>Which climate variable has the largest effect on wild fire?</p></li>
+<li><p>Which month has the largest likelihood to have a wild fire?</p></li>
+</ul>
+</div>
+<div id="statistical-analysis" class="section level3">
+<h3>Statistical Analysis</h3>
+<p>To answer these questions, boxplots were created to show how each variables were different on the days with fire and without fire; ……</p>
+</div>
+</div>
+<div id="our-screencast" class="section level1">
+<h1>Our screencast</h1>
+<iframe width="560" height="315" src="http://www.youtube.com/embed/9bZkp7q19f0?rel=0" frameborder="0" allowfullscreen>
+</iframe>
+</div>
+<div id="about-team-charmander" class="section level1">
+<h1>About Team Charmander</h1>
+<ul>
+<li><p>Angeline Chen (mc4959): <a href="mailto:%3Cmc4959@cumc.columbia.com%3E">email</a>; <a href="https...">linkedin</a>; <a href="https.....">github</a></p></li>
+<li><p>Yanhao Li (yl4612): <a href="mailto:%3Cyl4612@cumc.columbia.com%3E">email</a>; <a href="https...">linkedin</a>; <a href="https.....">github</a></p></li>
+<li><p>Yuechen Liu (yl4613): <a href="mailto:%3Cyl4613@cumc.columbia.com%3E">email</a>; <a href="https...">linkedin</a>; <a href="https.....">github</a></p></li>
+<li><p>Mufeng Xu (mx2241): <a href="mailto:%3Cmx2241@cumc.columbia.com%3E">email</a>; <a href="https://www.linkedin.com/in/mufeng-xu-a1388bb5/">linkedin</a>; <a href="http://github.com/tracici25/">github</a></p></li>
+</ul>
+</div>
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -352,6 +489,32 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

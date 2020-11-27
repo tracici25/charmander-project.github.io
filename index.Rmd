@@ -1,42 +1,8 @@
 ---
-title: "Wild Fire Factors"
+title: "Wild Fire in Montesinho National Park"
 author: "Team Charmander: Yanhao Li(yl4612), Yuechen Liu(yl4613), Mufeng Xu(mx2241), Angeline Chen(mc4959)."
-output: 
-  html_document:
-    toc: true
-    toc_float: true
+output: html_document
 ---
 
-Add some pics here
-
-
-# Motivation
-Two major wildfire disasters occurred recently: Australia BushFire, California CampFire. The severe consequence of wildfires on the environment and health catches our attention. Therefore, this study will be conducted to see the potential factors of wildfire and compare the weather and climate conditions in Montesinho National Park, Portugal and specific locations in California, US.
-
-
-# What Questions we are trying to answer?
-Q1: 
-
-Q2:
-
-Q3:
-
-
-
-# Some info about our datasets
-They came from website xxx[websitexxx]
-
-
-# About our team/contact info?
-Member 1
-
-Member 2
-
-Member 3
-
-Member 4
-
-# Our screencast
-
-
+<img src="picture/fire.jpg" style="vertical-align:middle;margin:50px 0px">
 
