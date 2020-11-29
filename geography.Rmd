@@ -1,0 +1,94 @@
+---
+title: "Geography"
+
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(patchwork)
+library(plotly)
+library(png)
+
+knitr::opts_chunk$set(
+  fig.width = 6,
+  fig.asp = .6,
+  out.width = "90%"
+)
+
+options(
+  ggplot2.continuous.colour = "viridis",
+  ggplot2.continuous.fill = "viridis"
+)
+
+scale_colour_discrete = scale_color_viridis_d
+scale_fill_discrete = scale_fill_viridis_d
+
+fire_df = read_csv("./data/forestfires.csv")
+```
+
+### Question trying to address in this section
+
+* Where in the park has the most severe fire?
+
+### Crude variables involved in this section
+
+* X - x-axis spatial coordinate within the Montesinho park map: 1 to 9
+* Y - y-axis spatial coordinate within the Montesinho park map: 2 to 9
+* area - the burned area of the forest (in ha): 0.00 to 1090.84
+
+### Description on plot
+
+* From the website, we got the map of Montesinho Natural Park with axes. If the variables `X` and `Y`
+
+### Geography plot
+
+```{r x+y}
+geo_1 = 
+  fire_df %>% 
+  select(X, Y, area) %>% 
+  group_by(X, Y) %>% 
+  mutate(total = sum(area)) %>% 
+  select(-area) %>% 
+  distinct() %>% 
+  ungroup() 
+
+geo_2 = 
+  expand.grid(
+    X = unique(pull(geo_1, X)),
+    Y = unique(pull(geo_1, X))
+  )
+
+geo_3 = 
+  merge(
+    geo_2, geo_1, all = TRUE
+  ) %>% 
+  arrange(Y, X)
+
+geo_4 = 
+  geo_3 %>% 
+  mutate(
+    Y = -Y
+  ) 
+
+geo_4[is.na(geo_4)] <- 0
+
+map_image = png::readPNG("map.png")
+
+map_image_g = grid::rasterGrob(map_image, width = unit(0.89,"npc"), height = unit(0.89,"npc"))
+
+overlap = 
+  ggplot(geo_4, aes(X, Y, fill = total)) + 
+  annotation_custom(map_image_g) +
+  geom_tile() +
+  theme_void() +
+  theme(aspect.ratio = nrow(map_image)/ncol(map_image)) +
+  scale_fill_gradient(low = "transparent", high = "red")
+
+overlap
+```
