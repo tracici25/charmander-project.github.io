@@ -45,6 +45,10 @@ fire_df = read_csv("./data/forestfires.csv")
 ### Description on plot
 
 * From the website, we got the map of Montesinho Natural Park with axes. 
+* If variables `X` and `Y` specify the precise coordinates, scatterplot could show forest fire as dots on the map. 
+* However, variables `X` and `Y` specify the grids on map. Consequently, heatmap is used to show severity of fire within each grid.
+* We created a new variable `total`, which represents "total burned area of fire within each grid". 
+* Heatmap visualize variable `total` in corresponding grid by color. Transparent means `NA` or `0`. Red represents upper limit of variable `total`.
 
 ### Geography plot
 

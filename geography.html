@@ -442,6 +442,10 @@ div.tocify {
 <h3>Description on plot</h3>
 <ul>
 <li>From the website, we got the map of Montesinho Natural Park with axes.</li>
+<li>If variables <code>X</code> and <code>Y</code> specify the precise coordinates, scatterplot could show forest fire as dots on the map.</li>
+<li>However, variables <code>X</code> and <code>Y</code> specify the grids on map. Consequently, heatmap is used to show severity of fire within each grid.</li>
+<li>We created a new variable <code>total</code>, which represents “total burned area of fire within each grid”.</li>
+<li>Heatmap visualize variable <code>total</code> in corresponding grid by color. Transparent means <code>NA</code> or <code>0</code>. Red represents upper limit of variable <code>total</code>.</li>
 </ul>
 </div>
 <div id="geography-plot" class="section level3">
