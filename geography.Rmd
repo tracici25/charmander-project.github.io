@@ -44,7 +44,7 @@ fire_df = read_csv("./data/forestfires.csv")
 
 ### Description on plot
 
-* From the website, we got the map of Montesinho Natural Park with axes. If the variables `X` and `Y`
+* From the website, we got the map of Montesinho Natural Park with axes. 
 
 ### Geography plot
 
@@ -68,22 +68,19 @@ geo_3 =
   merge(
     geo_2, geo_1, all = TRUE
   ) %>% 
-  arrange(Y, X)
-
-geo_4 = 
-  geo_3 %>% 
+  arrange(Y, X) %>% 
   mutate(
     Y = -Y
   ) 
 
-geo_4[is.na(geo_4)] <- 0
+geo_3[is.na(geo_3)] <- 0
 
 map_image = png::readPNG("map.png")
 
 map_image_g = grid::rasterGrob(map_image, width = unit(0.89,"npc"), height = unit(0.89,"npc"))
 
 overlap = 
-  ggplot(geo_4, aes(X, Y, fill = total)) + 
+  ggplot(geo_3, aes(X, Y, fill = total)) + 
   annotation_custom(map_image_g) +
   geom_tile() +
   theme_void() +

@@ -441,7 +441,7 @@ div.tocify {
 <div id="description-on-plot" class="section level3">
 <h3>Description on plot</h3>
 <ul>
-<li>From the website, we got the map of Montesinho Natural Park with axes. If the variables <code>X</code> and <code>Y</code></li>
+<li>From the website, we got the map of Montesinho Natural Park with axes.</li>
 </ul>
 </div>
 <div id="geography-plot" class="section level3">
@@ -465,22 +465,19 @@ geo_3 =
   merge(
     geo_2, geo_1, all = TRUE
   ) %&gt;% 
-  arrange(Y, X)
-
-geo_4 = 
-  geo_3 %&gt;% 
+  arrange(Y, X) %&gt;% 
   mutate(
     Y = -Y
   ) 
 
-geo_4[is.na(geo_4)] &lt;- 0
+geo_3[is.na(geo_3)] &lt;- 0
 
 map_image = png::readPNG(&quot;map.png&quot;)
 
 map_image_g = grid::rasterGrob(map_image, width = unit(0.89,&quot;npc&quot;), height = unit(0.89,&quot;npc&quot;))
 
 overlap = 
-  ggplot(geo_4, aes(X, Y, fill = total)) + 
+  ggplot(geo_3, aes(X, Y, fill = total)) + 
   annotation_custom(map_image_g) +
   geom_tile() +
   theme_void() +
