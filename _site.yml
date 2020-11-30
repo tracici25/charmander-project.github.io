@@ -12,15 +12,15 @@ navbar:
         - text: "Geography"
           href: geography.html
         - text: "something else"
-          href: something_else.html
+          href: dashboard.html
         - text: "something else 2"
           href: something_else_2.html
     - text: "Data Analysis"
       href: boxplot.html
     - text: "Testing"
       menu:
-        - text: "Geography"
-          href: geography.html
+        - text: "ANOVA Testing"
+          href: anova.html
         - text: "something else"
           href: something_else.html
         - text: "something else 2"
