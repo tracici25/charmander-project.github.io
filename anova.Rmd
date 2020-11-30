@@ -46,7 +46,7 @@ anova(anova_ffmc) %>%
 ```
 
 **p-value > 0.05**
-, we fail to reject the null hypothesis, and conclude that there is no significant difference between FFMC index and wild fire.
+, we fail to reject the null hypothesis, and conclude that there is no significant difference between FFMC index means in fire days and in no fire days.
 
 ### DMC Index
 
@@ -61,7 +61,7 @@ anova(anova_dmc) %>%
 ```
 
 **p-value > 0.05**
-, we fail to reject the null hypothesis, and conclude that there is no significant difference between DMC index and wild fire.
+, we fail to reject the null hypothesis, and conclude that there is no significant difference between DMC index means in fire days and in no fire days.
 
 ### DC Index
 
@@ -76,7 +76,7 @@ anova(anova_dc) %>%
 ```
 
 **p-value < 0.05**
-, we reject the null hypothesis, and conclude that there is significant difference between DC index and wild fire.
+, we reject the null hypothesis, and conclude that there is significant difference between DC index means in fire days and in no fire days.
 
 ### ISI Index
 
@@ -91,7 +91,7 @@ anova(anova_isi) %>%
 ```
 
 **p-value > 0.05**
-, we fail to reject the null hypothesis, and conclude that there is no significant difference between ISI index and wild fire.
+, we fail to reject the null hypothesis, and conclude that there is no significant difference between ISI index means in fire days and in no fire days.
 
 ### Temperature
 
@@ -106,7 +106,7 @@ anova(anova_temp) %>%
 ```
 
 **p-value > 0.05**
-, we fail to reject the null hypothesis, and conclude that there is no significant difference between temperature and wild fire.
+, we fail to reject the null hypothesis, and conclude that there is no significant difference between temperature means in fire days and in no fire days.
 
 ### Relative Humidity
 
@@ -121,7 +121,7 @@ anova(anova_rh) %>%
 ```
 
 **p-value > 0.05**
-, we fail to reject the null hypothesis, and conclude that there is no significant difference between relative humidity and wild fire.
+, we fail to reject the null hypothesis, and conclude that there is no significant difference between relative humidity means in fire days and in no fire days.
 
 ### Wind Speed
 
@@ -136,7 +136,7 @@ anova(anova_wind) %>%
 ```
 
 **p-value > 0.05**
-, we fail to reject the null hypothesis, and conclude that there is no significant difference between wind speed and wild fire.
+, we fail to reject the null hypothesis, and conclude that there is no significant difference between wind speed means in fire days and in no fire days.
 
 ### Precipitation
 
@@ -151,5 +151,5 @@ anova(anova_rain) %>%
 ```
 
 **p-value > 0.05**
-, we fail to reject the null hypothesis, and conclude that there is no significant difference between precipitation and wild fire.
+, we fail to reject the null hypothesis, and conclude that there is no significant difference between precipitation means in fire days and in no fire days.
 

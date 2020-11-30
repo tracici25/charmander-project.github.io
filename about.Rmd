@@ -49,11 +49,26 @@ For more information about data, read [Fire Weather Index (FWI) System](https://
 
 ### What Questions we are trying to answer?
 
-* How severe is the fire? Where in the park has the most severe fire?
+* **Distribution:**
+How is the forest fire distributed in the park? How large can the forest fire be? (put in summary table)
 
-* Which climate variable has the largest effect on wild fire?
 
-* Which month has the largest likelihood to have a wild fire?
+* **Prediction:** 
+What are the significant variables to predict forest fire?
+
+
+* **Associations:** 
+How are these variables related to the area of forest fire?
+
+
+* **Suggestions:** 
+What can we suggest from the data? (Ex: For tourists and fire department)
+
+
+* **Future Plans:** 
+How is the variables related to each other? Can we give a more precise prediction of the area based on the variables we have now?
+
+
 
 ### Statistical Analysis
 
