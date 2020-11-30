@@ -37,6 +37,7 @@ fire_box =
 
 Column {.sidebar}
 -----------------------------------------------------------------------
+---
 
 ```{r}
 climate = fire_box %>% 
@@ -49,6 +50,31 @@ selectInput(
   choices = climate
 )
 ```
+
+Column {.tabset}
+-----------------------------------------------------------------------
+
+### Boxplot With Fire
+
+```{r}
+renderPlotly({
+  fire_box %>% 
+    filter(climate == input[["climate"]]) %>% 
+    group_by(fire) %>% 
+    plot_ly(
+      y = ~value, x = ~fire, color = ~fire,
+      type = "box", colors = "viridis")
+})
+
+```
+
+### Description
+what question?
+
+### Interpretation
+what result?
+
+
 
 Column {.tabset}
 -----------------------------------------------------------------------
