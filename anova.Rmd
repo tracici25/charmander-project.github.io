@@ -1,0 +1,104 @@
+---
+title: "anova"
+output: github_document
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(patchwork)
+library(plotly)
+library(png)
+
+knitr::opts_chunk$set(
+  fig.width = 6,
+  fig.asp = .6,
+  out.width = "90%"
+)
+
+options(
+  ggplot2.continuous.colour = "viridis",
+  ggplot2.continuous.fill = "viridis"
+)
+
+scale_colour_discrete = scale_color_viridis_d
+scale_fill_discrete = scale_fill_viridis_d
+```
+
+
+load in data
+```{r}
+fire_df = read_csv("./data/forestfires.csv")
+fire_df
+```
+
+
+### Test (ANOVA)
+
+```{r anova}
+fire_df_2 = 
+  fire_df %>% 
+  select(FFMC, DMC, DC, ISI, temp, RH, wind, rain, area) %>% 
+  mutate(fire = ifelse(area > 0, "fire", "no fire"))
+
+# FFMC
+fire_ffmc = 
+  fire_df_2 %>%
+  select(FFMC, fire)
+anova_ffmc = lm(FFMC ~ factor(fire), data = fire_ffmc)
+anova(anova_ffmc)
+
+# DMC
+fire_dmc = 
+  fire_df_2 %>%
+  select(DMC, fire)
+anova_dmc = lm(DMC ~ factor(fire), data = fire_dmc)
+anova(anova_dmc)
+
+# DC
+fire_dc = 
+  fire_df_2 %>%
+  select(DC, fire)
+anova_dc = lm(DC ~ factor(fire), data = fire_dc)
+anova(anova_dc)
+
+
+# ISI
+fire_isi = 
+  fire_df_2 %>%
+  select(ISI, fire)
+anova_isi = lm(ISI ~ factor(fire), data = fire_isi)
+anova(anova_isi)
+
+# Temp
+fire_temp = 
+  fire_df_2 %>%
+  select(temp, fire)
+anova_temp = lm(temp ~ factor(fire), data = fire_temp)
+anova(anova_temp)
+
+# RH
+fire_rh = 
+  fire_df_2 %>%
+  select(RH, fire)
+anova_rh = lm(RH ~ factor(fire), data = fire_rh)
+anova(anova_rh)
+
+# Wind
+fire_wind = 
+  fire_df_2 %>%
+  select(wind, fire)
+anova_wind = lm(wind ~ factor(fire), data = fire_wind)
+anova(anova_wind)
+
+# Rain
+fire_rain = 
+  fire_df_2 %>%
+  select(rain, fire)
+anova_rain = lm(rain ~ factor(fire), data = fire_rain)
+anova(anova_rain)
+```
+
+
+

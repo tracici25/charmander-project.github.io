@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>anova</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Home</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="about.html">About</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Overview
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="geography.html">Geography</a>
+    </li>
+    <li>
+      <a href="something_else.html">something else</a>
+    </li>
+    <li>
+      <a href="something_else_2.html">something else 2</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="boxplot.html">Data Analysis</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Testing
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="geography.html">Geography</a>
+    </li>
+    <li>
+      <a href="something_else.html">something else</a>
+    </li>
+    <li>
+      <a href="something_else_2.html">something else 2</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="https://github.com/tracici25/p8105_finalproject.git">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">anova</h1>
+
+</div>
+
+
+<p>load in data</p>
+<pre class="r"><code>fire_df = read_csv(&quot;./data/forestfires.csv&quot;)</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   X = col_double(),
+##   Y = col_double(),
+##   month = col_character(),
+##   day = col_character(),
+##   FFMC = col_double(),
+##   DMC = col_double(),
+##   DC = col_double(),
+##   ISI = col_double(),
+##   temp = col_double(),
+##   RH = col_double(),
+##   wind = col_double(),
+##   rain = col_double(),
+##   area = col_double()
+## )</code></pre>
+<pre class="r"><code>fire_df</code></pre>
+<pre><code>## # A tibble: 517 x 13
+##        X     Y month day    FFMC   DMC    DC   ISI  temp    RH  wind  rain  area
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1     7     5 mar   fri    86.2  26.2  94.3   5.1   8.2    51   6.7   0       0
+##  2     7     4 oct   tue    90.6  35.4 669.    6.7  18      33   0.9   0       0
+##  3     7     4 oct   sat    90.6  43.7 687.    6.7  14.6    33   1.3   0       0
+##  4     8     6 mar   fri    91.7  33.3  77.5   9     8.3    97   4     0.2     0
+##  5     8     6 mar   sun    89.3  51.3 102.    9.6  11.4    99   1.8   0       0
+##  6     8     6 aug   sun    92.3  85.3 488    14.7  22.2    29   5.4   0       0
+##  7     8     6 aug   mon    92.3  88.9 496.    8.5  24.1    27   3.1   0       0
+##  8     8     6 aug   mon    91.5 145.  608.   10.7   8      86   2.2   0       0
+##  9     8     6 sep   tue    91   130.  693.    7    13.1    63   5.4   0       0
+## 10     7     5 sep   sat    92.5  88   699.    7.1  22.8    40   4     0       0
+## # … with 507 more rows</code></pre>
+<div id="test-anova" class="section level3">
+<h3>Test (ANOVA)</h3>
+<pre class="r"><code>fire_df_2 = 
+  fire_df %&gt;% 
+  select(FFMC, DMC, DC, ISI, temp, RH, wind, rain, area) %&gt;% 
+  mutate(fire = ifelse(area &gt; 0, &quot;fire&quot;, &quot;no fire&quot;))
+
+# FFMC
+fire_ffmc = 
+  fire_df_2 %&gt;%
+  select(FFMC, fire)
+anova_ffmc = lm(FFMC ~ factor(fire), data = fire_ffmc)
+anova(anova_ffmc)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: FFMC
+##               Df  Sum Sq Mean Sq F value  Pr(&gt;F)  
+## factor(fire)   1    85.7  85.691  2.8221 0.09358 .
+## Residuals    515 15637.7  30.364                  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code># DMC
+fire_dmc = 
+  fire_df_2 %&gt;%
+  select(DMC, fire)
+anova_dmc = lm(DMC ~ factor(fire), data = fire_dmc)
+anova(anova_dmc)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: DMC
+##               Df  Sum Sq Mean Sq F value Pr(&gt;F)
+## factor(fire)   1    8314  8313.6  2.0308 0.1547
+## Residuals    515 2108294  4093.8</code></pre>
+<pre class="r"><code># DC
+fire_dc = 
+  fire_df_2 %&gt;%
+  select(DC, fire)
+anova_dc = lm(DC ~ factor(fire), data = fire_dc)
+anova(anova_dc)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: DC
+##               Df   Sum Sq Mean Sq F value  Pr(&gt;F)  
+## factor(fire)   1   297065  297065  4.8636 0.02787 *
+## Residuals    515 31455942   61079                  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code># ISI
+fire_isi = 
+  fire_df_2 %&gt;%
+  select(ISI, fire)
+anova_isi = lm(ISI ~ factor(fire), data = fire_isi)
+anova(anova_isi)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: ISI
+##               Df  Sum Sq Mean Sq F value Pr(&gt;F)
+## factor(fire)   1    13.6  13.643  0.6558 0.4184
+## Residuals    515 10713.4  20.803</code></pre>
+<pre class="r"><code># Temp
+fire_temp = 
+  fire_df_2 %&gt;%
+  select(temp, fire)
+anova_temp = lm(temp ~ factor(fire), data = fire_temp)
+anova(anova_temp)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: temp
+##               Df  Sum Sq Mean Sq F value  Pr(&gt;F)  
+## factor(fire)   1   100.6 100.615  2.9957 0.08409 .
+## Residuals    515 17297.3  33.587                  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code># RH
+fire_rh = 
+  fire_df_2 %&gt;%
+  select(RH, fire)
+anova_rh = lm(RH ~ factor(fire), data = fire_rh)
+anova(anova_rh)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: RH
+##               Df Sum Sq Mean Sq F value Pr(&gt;F)
+## factor(fire)   1    174  174.00   0.653 0.4194
+## Residuals    515 137216  266.44</code></pre>
+<pre class="r"><code># Wind
+fire_wind = 
+  fire_df_2 %&gt;%
+  select(wind, fire)
+anova_wind = lm(wind ~ factor(fire), data = fire_wind)
+anova(anova_wind)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: wind
+##               Df  Sum Sq Mean Sq F value Pr(&gt;F)
+## factor(fire)   1    5.14  5.1393  1.6029 0.2061
+## Residuals    515 1651.23  3.2063</code></pre>
+<pre class="r"><code># Rain
+fire_rain = 
+  fire_df_2 %&gt;%
+  select(rain, fire)
+anova_rain = lm(rain ~ factor(fire), data = fire_rain)
+anova(anova_rain)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Response: rain
+##               Df Sum Sq  Mean Sq F value Pr(&gt;F)
+## factor(fire)   1  0.030 0.029504  0.3364 0.5622
+## Residuals    515 45.168 0.087705</code></pre>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
