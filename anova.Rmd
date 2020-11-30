@@ -61,6 +61,7 @@ anova(anova_dmc) %>%
 ```
 
 **p-value > 0.05**
+, we fail to reject the null hypothesis, and conclude that there is no significant difference between DMC index and wild fire.
 
 ### DC Index
 
@@ -75,6 +76,7 @@ anova(anova_dc) %>%
 ```
 
 **p-value < 0.05**
+, we reject the null hypothesis, and conclude that there is significant difference between DC index and wild fire.
 
 ### ISI Index
 
@@ -89,6 +91,7 @@ anova(anova_isi) %>%
 ```
 
 **p-value > 0.05**
+, we fail to reject the null hypothesis, and conclude that there is no significant difference between ISI index and wild fire.
 
 ### Temperature
 
@@ -103,6 +106,7 @@ anova(anova_temp) %>%
 ```
 
 **p-value > 0.05**
+, we fail to reject the null hypothesis, and conclude that there is no significant difference between temperature and wild fire.
 
 ### Relative Humidity
 
@@ -117,6 +121,7 @@ anova(anova_rh) %>%
 ```
 
 **p-value > 0.05**
+, we fail to reject the null hypothesis, and conclude that there is no significant difference between relative humidity and wild fire.
 
 ### Wind Speed
 
@@ -131,8 +136,9 @@ anova(anova_wind) %>%
 ```
 
 **p-value > 0.05**
+, we fail to reject the null hypothesis, and conclude that there is no significant difference between wind speed and wild fire.
 
-### Percipitation
+### Precipitation
 
 ```{r, echo = FALSE}
 # Rain
@@ -145,4 +151,5 @@ anova(anova_rain) %>%
 ```
 
 **p-value > 0.05**
+, we fail to reject the null hypothesis, and conclude that there is no significant difference between precipitation and wild fire.
 
