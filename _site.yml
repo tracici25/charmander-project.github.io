@@ -11,12 +11,12 @@ navbar:
       menu:
         - text: "Geography"
           href: geography.html
-        - text: "something else"
+        - text: "Dashboard"
           href: dashboard.html
         - text: "something else 2"
           href: something_else_2.html
     - text: "Data Analysis"
-      href: boxplot.html
+      href: shiny.html
     - text: "Testing"
       menu:
         - text: "ANOVA Testing"
@@ -25,6 +25,8 @@ navbar:
           href: something_else.html
         - text: "something else 2"
           href: something_else_2.html
+    - text: "Report"
+      href: report.html
     - icon: fa-github fa-lg
       href: https://github.com/tracici25/p8105_finalproject.git
 

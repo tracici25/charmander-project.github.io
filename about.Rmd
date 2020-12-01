@@ -18,7 +18,6 @@ The Montesinho Natural Park is one of the largest natural parks in Portugal. The
 
 <img src="picture/park.jpg" style="width:60%">
 
-methods, screencast
 
 # Data
 
@@ -58,7 +57,7 @@ What are the significant variables to predict forest fire?
 
 
 * **Associations:** 
-How are these variables related to the area of forest fire?
+How are these variables related to the burned area of forest fire?
 
 
 * **Suggestions:** 
