@@ -90,6 +90,61 @@ add_residuals(fire_linear, fit) %>%
 ```
 
 
+### some different models
+the previous model doesn't fit well cz of the residuals boxplot medians. ignore the variables with small coeff. ISI, rain, temp, wind.
+
+```{r}
+fire_linear_better = 
+  fire_linear %>% 
+  select(ISI, rain, temp, wind, area)
+
+fit_better = lm(area ~ ISI + temp + wind + rain, data = fire_linear_better)
+
+# see the coefficients
+fit_better %>% 
+  tidy() %>% 
+  select(-std.error, -statistic) %>% 
+  knitr::kable()
+
+# plot the coeff
+coeff_better_plot =
+  fit_better %>% 
+  tidy() %>% 
+  select(-std.error, -statistic) %>% 
+    filter(!term == "(Intercept)") %>% 
+  mutate(
+    text_label = str_c("Climate Variable: ", term, "\np-value: ", p.value)
+  ) %>% 
+  plot_ly(
+    y = ~estimate, x = ~term, 
+    text = ~text_label,
+    type = "bar", color = "viridis"
+  ) %>% 
+  layout(
+    title = "Coefficients for Each Climate Variable",
+    xaxis = list(title = "Climate Variable"),
+    yaxis = list(title = "Coefficient for Linear Model")
+  )
+
+coeff_better_plot
+```
+
+
+## see the boxplot
+```{r}
+
+add_residuals(fire_linear_better, fit_better) %>%
+  plot_ly(
+    y = ~resid, type = "box"
+  ) %>% 
+  layout(
+    title = "Boxplot for Residuals",
+    xaxis = list(title = "Climate Variable"),
+    yaxis = list(title = "Residual", range = c(-200, 300))
+  )
+
+
+```
 
 
 
