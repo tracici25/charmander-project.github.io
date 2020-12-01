@@ -78,7 +78,7 @@ coef_plot
 ```{r}
 add_residuals(fire_linear, fit) %>%
   plot_ly(
-    y = ~resid, type = "box"
+    y = ~resid, type = "violin"
   ) %>% 
   layout(
     title = "Boxplot for Residuals",
@@ -89,5 +89,12 @@ add_residuals(fire_linear, fit) %>%
 
 ```
 
+# Think about confounders... and discuss
+
+### Cross Validation
+
+```{r}
+
+```
 
 
