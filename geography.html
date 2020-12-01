@@ -365,7 +365,7 @@ div.tocify {
       <a href="geography.html">Geography</a>
     </li>
     <li>
-      <a href="dashboard.html">something else</a>
+      <a href="dashboard.html">Dashboard</a>
     </li>
     <li>
       <a href="something_else_2.html">something else 2</a>
@@ -373,7 +373,7 @@ div.tocify {
   </ul>
 </li>
 <li>
-  <a href="boxplot.html">Data Analysis</a>
+  <a href="shiny.html">Data Analysis</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -394,7 +394,10 @@ div.tocify {
   </ul>
 </li>
 <li>
-  <a href="https://github.com/tracici25/p8105_finalproject.git">
+  <a href="report.html">Report</a>
+</li>
+<li>
+  <a href="https://github.com/tracici25/charmander-project.git">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -425,16 +428,6 @@ div.tocify {
 <li>X - x-axis spatial coordinate within the Montesinho park map: 1 to 9</li>
 <li>Y - y-axis spatial coordinate within the Montesinho park map: 2 to 9</li>
 <li>area - the burned area of the forest (in ha): 0.00 to 1090.84</li>
-</ul>
-</div>
-<div id="description-on-plot" class="section level3">
-<h3>Description on plot</h3>
-<ul>
-<li>From the website, we got the map of Montesinho Natural Park with axes.</li>
-<li>If variables <code>X</code> and <code>Y</code> specify the precise coordinates, scatterplot could show forest fire as dots on the map.</li>
-<li>However, variables <code>X</code> and <code>Y</code> specify the grids on map. Consequently, heatmap is used to show severity of fire within each grid.</li>
-<li>We created a new variable <code>total</code>, which represents “total burned area of fire within each grid”.</li>
-<li>Heatmap visualize variable <code>total</code> in corresponding grid by color. Transparent means <code>NA</code> or <code>0</code>. Red represents upper limit of variable <code>total</code>.</li>
 </ul>
 </div>
 <div id="geography-plot" class="section level3">
@@ -479,6 +472,16 @@ overlap =
 
 overlap</code></pre>
 <p><img src="geography_files/figure-html/x+y-1.png" width="90%" /></p>
+</div>
+<div id="description-on-plot" class="section level3">
+<h3>Description on plot</h3>
+<ul>
+<li>From the website, we got the map of Montesinho Natural Park with axes.</li>
+<li>If variables <code>X</code> and <code>Y</code> specify the precise coordinates, scatterplot could show forest fire as dots on the map.</li>
+<li>However, variables <code>X</code> and <code>Y</code> specify the grids on map. Consequently, heatmap is used to show severity of fire within each grid.</li>
+<li>We created a new variable <code>total</code>, which represents “total burned area of fire within each grid”.</li>
+<li>Heatmap visualize variable <code>total</code> in corresponding grid by color. Transparent means <code>NA</code> or <code>0</code>. Red represents upper limit of variable <code>total</code>.</li>
+</ul>
 </div>
 
 
