@@ -13,6 +13,7 @@ library(dplyr)
 library(broom)
 library(modelr)
 library(plotly)
+library(ggplot2)
 
 knitr::opts_chunk$set(
   fig.width = 6,
@@ -40,7 +41,10 @@ fire_linear =
   filter(area > 0)
 
 # linear model
-model = lm(area ~ FFMC + DMC + DC + ISI + temp + RH + wind + rain, data = fire_linear) %>% 
+fit = lm(area ~ FFMC + DMC + DC + ISI + temp + RH + wind + rain, data = fire_linear)
+
+model = 
+  fit %>% 
   tidy() %>% 
   select(-std.error, -statistic)
 ```
@@ -70,15 +74,20 @@ coef_plot
 ```
 
 
-Diagnostics
+### Diagnostics
 ```{r}
-
-
+add_residuals(fire_linear, fit) %>%
+  plot_ly(
+    y = ~resid, type = "box"
+  ) %>% 
+  layout(
+    title = "Boxplot for Residuals",
+    xaxis = list(title = "Climate Variable"),
+    yaxis = list(title = "Residual", range = c(-200, 300))
+  )
 
 
 ```
-
-
 
 
 
