@@ -22,7 +22,7 @@ navbar:
         - text: "Linear Regression"
           href: Linear.html
     - text: "Suggestion"
-      href: forecast.html
+      href: barchart.html
     - text: "Report"
       href: report.html
     - icon: fa-github fa-lg
