@@ -5,6 +5,7 @@ output:
   html_document:
     toc: true
     toc_float: true
+    code_folding: hide
 ---
 
 ```{r setup, include = FALSE}
@@ -33,6 +34,8 @@ fire_df = read_csv("./data/forestfires.csv")
 ```
 
 ### Question trying to address in this section
+
+* How is the forest fire distributed in the park? 
 
 * Where in the park has the most severe fire?
 
