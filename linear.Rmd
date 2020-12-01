@@ -1,0 +1,87 @@
+---
+title: "Linear Modeling"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    code_folding: hide
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+library(dplyr)
+library(broom)
+library(modelr)
+library(plotly)
+
+knitr::opts_chunk$set(
+  fig.width = 6,
+  fig.asp = .6,
+  out.width = "90%"
+)
+
+options(
+  ggplot2.continuous.colour = "viridis",
+  ggplot2.continuous.fill = "viridis"
+)
+
+scale_colour_discrete = scale_color_viridis_d
+scale_fill_discrete = scale_fill_viridis_d
+```
+
+### Linear Regression Model
+
+formula = ...
+
+```{r model, include = FALSE}
+fire_linear = 
+  read_csv("./data/forestfires.csv") %>% 
+  select(FFMC, DMC, DC, ISI, temp, RH, wind, rain, area) %>% 
+  filter(area > 0)
+
+# linear model
+model = lm(area ~ FFMC + DMC + DC + ISI + temp + RH + wind + rain, data = fire_linear) %>% 
+  tidy() %>% 
+  select(-std.error, -statistic)
+```
+
+Here is the plot
+
+```{r, echo = FALSE, warning = FALSE}
+# plot for coefficients
+coef_plot = 
+  model %>% 
+  filter(!term == "(Intercept)") %>% 
+  mutate(
+    text_label = str_c("Climate Variable: ", term, "\np-value: ", p.value)
+  ) %>% 
+  plot_ly(
+    y = ~estimate, x = ~term, 
+    text = ~text_label,
+    type = "bar", color = "viridis"
+  ) %>% 
+  layout(
+    title = "Coefficients for Each Climate Variable",
+    xaxis = list(title = "Climate Variable"),
+    yaxis = list(title = "Coefficient for Linear Model")
+  )
+
+coef_plot
+```
+
+
+Diagnostics
+```{r}
+
+
+
+
+```
+
+
+
+
+
+
+
+

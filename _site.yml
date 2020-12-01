@@ -20,7 +20,7 @@ navbar:
         - text: "Sample t test"
           href: ttest.html
         - text: "Linear Regression"
-          href: Linear.html
+          href: linear.html
     - text: "Suggestion"
       href: barchart.html
     - text: "Report"
