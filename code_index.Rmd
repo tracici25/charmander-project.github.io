@@ -1,5 +1,5 @@
 ---
-title: "Descriptive Statistics"
+title: "Fuel Moisture Codes and Fire Behavior Index"
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
