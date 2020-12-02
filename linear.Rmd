@@ -92,9 +92,34 @@ add_residuals(fire_linear, fit) %>%
 # Think about confounders... and discuss
 
 ### Cross Validation
+Look at prediction accuracy
+training data and testing data
+
 
 ```{r}
+fire_id = 
+  fire_linear %>% 
+  mutate(
+    id = 1:270
+  )
+
+train_df = sample_n(fire_id, size = 189)
+test_df = anti_join(fire_id, train_df, by = "id")
+
+fit_cv = lm(area ~ FFMC + DMC + DC + ISI + temp + RH + wind + rain, data = train_df)
+
+rmse(fit_cv, test_df) # prediction
+
+
+cv_df = 
+  crossv_mc(fire_id, 100)
 
 ```
+
+
+
+
+
+
 
 
