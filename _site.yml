@@ -10,7 +10,7 @@ navbar:
     - text: "Overview"
       menu:
         - text: "Descriptive Statistics"
-          href: descrip.html
+          href: descrip.Rmd
         - text: "Geography"
           href: geography.html
     - text: "Data Analysis"
