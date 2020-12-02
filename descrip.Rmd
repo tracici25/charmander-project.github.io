@@ -12,6 +12,7 @@ runtime: shiny
 library(tidyverse)
 library(plotly)
 library(flexdashboard)
+library(rsconnect)
 ```
 
 ```{r}
