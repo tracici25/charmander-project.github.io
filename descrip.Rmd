@@ -18,26 +18,42 @@ library(flexdashboard)
 fire_df = read_csv("./data/forestfires.csv")
 descrip_1 = 
   fire_df %>% 
-  select(-day, -area) %>% 
+  select(-day, -area,) %>% 
   group_by(X, Y, month) %>% 
   mutate(
-    avg_FFMC = mean(FFMC),
-    avg_DMC = mean(DMC),
-    avg_DC = mean(DC),
-    avg_ISI = mean(ISI),
+    tot_FFMC = sum(FFMC),
+    tot_DMC = sum(DMC),
+    tot_DC = sum(DC),
+    tot_ISI = sum(ISI),
     avg_temp = mean(temp),
     avg_RH = mean(RH),
     avg_wind = mean(wind),
-    avg_rain = mean(rain)
+    tot_rain = sum(rain)
     ) %>% 
   select(-FFMC, -DMC, -DC, -ISI, -temp, -RH, -wind, -rain) %>% 
   distinct() %>% 
-  ungroup() 
+  ungroup()
 
 descrip_2 = 
   expand.grid(
-    month = 
-  )
+    month = unique(pull(descrip_1, month)),
+    X = unique(pull(descrip_1, X)),
+    Y = unique(pull(descrip_1, Y))
+  ) %>% 
+  mutate(
+    month = factor(month, 
+                   levels = c('jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'),
+                   ordered = TRUE
+                   )
+    )
+
+descrip_3 = 
+  merge(
+    descrip_2, descrip_1, all = TRUE
+  ) %>% 
+  arrange(X, Y, month)
+
+descrip_3[is.na(descrip_3)] <- 0
 ```
 
 
@@ -45,47 +61,149 @@ Column {.sidebar}
 -----------------------------------------------------------------------
 
 ```{r}
-borough_choices = nyc_airbnb %>% pull(neighbourhood_group) %>% unique()
-selectInput(
-  "borough_choice",
-  h3("Borough Choice"),
-  choices = borough_choices,
-  selected = "Manhattan"
-)
-sliderInput(
-  "price_range",
-  h3("Price Range"),
-  100, 1000, 
-  value = c(100, 400))
-room_choices = nyc_airbnb %>% pull(room_type) %>% unique()
+x_choices = descrip_3 %>% pull(X) %>% unique()
+
 radioButtons(
-  "room_choice",
-  h3("Room Type"),
-  choices = room_choices
+  "x_choice",
+  h3("X-axis Coordinate"),
+  choices = x_choices,
+  selected = "6"
+)
+
+y_choices = descrip_3 %>% pull(Y) %>% unique()
+
+radioButtons(
+  "y_choice",
+  h3("Y-axis Coordinate"),
+  choices = y_choices,
+  selected = "5"
 )
 ```
 
 
-Column {data-width=650}
+Column {data-width=550}
 -----------------------------------------------------------------------
 
 ### Chart A
 
 ```{r}
-
+renderPlotly({
+descrip_3 %>% 
+  filter(
+      X == input[["x_choice"]],
+      Y == input[["y_choice"]]
+  ) %>% 
+  plot_ly(
+    y = ~tot_DC, x = ~month, color = ~month,
+    type = "bar", colors = "viridis")
+})
 ```
-
-Column {data-width=350}
------------------------------------------------------------------------
 
 ### Chart B
 
 ```{r}
-
+renderPlotly({
+descrip_3 %>% 
+  filter(
+      X == input[["x_choice"]],
+      Y == input[["y_choice"]]
+  ) %>% 
+  plot_ly(
+    y = ~tot_FFMC, x = ~month, color = ~month,
+    type = "bar", colors = "viridis")
+})
 ```
 
 ### Chart C
 
 ```{r}
+renderPlotly({
+descrip_3 %>% 
+  filter(
+      X == input[["x_choice"]],
+      Y == input[["y_choice"]]
+  ) %>% 
+  plot_ly(
+    y = ~tot_DMC, x = ~month, color = ~month,
+    type = "bar", colors = "viridis")
+})
+```
 
+### Chart D
+
+```{r}
+renderPlotly({
+descrip_3 %>% 
+  filter(
+      X == input[["x_choice"]],
+      Y == input[["y_choice"]]
+  ) %>% 
+  plot_ly(
+    y = ~tot_ISI, x = ~month, color = ~month,
+    type = "bar", colors = "viridis")
+})
+```
+
+
+Column {data-width=450}
+-----------------------------------------------------------------------
+
+### Chart E
+
+```{r}
+renderPlotly({
+descrip_3 %>% 
+  filter(
+      X == input[["x_choice"]],
+      Y == input[["y_choice"]]
+  ) %>% 
+  plot_ly(
+    y = ~avg_temp, x = ~month, color = ~month,
+    type = "bar", colors = "viridis")
+})
+```
+
+### Chart F
+
+```{r}
+renderPlotly({
+descrip_3 %>% 
+  filter(
+      X == input[["x_choice"]],
+      Y == input[["y_choice"]]
+  ) %>% 
+  plot_ly(
+    y = ~avg_RH, x = ~month, color = ~month,
+    type = "bar", colors = "viridis")
+})
+```
+
+### Chart G
+
+```{r}
+renderPlotly({
+descrip_3 %>% 
+  filter(
+      X == input[["x_choice"]],
+      Y == input[["y_choice"]]
+  ) %>% 
+  plot_ly(
+    y = ~avg_wind, x = ~month, color = ~month,
+    type = "bar", colors = "viridis")
+})
+```
+
+### Chart H
+
+```{r}
+renderPlotly({
+descrip_3 %>% 
+  filter(
+      X == input[["x_choice"]],
+      Y == input[["y_choice"]]
+  ) %>% 
+  plot_ly(
+    y = ~tot_rain, x = ~month, color = ~month,
+    type = "bar", colors = "viridis")
+})
 ```
