@@ -108,7 +108,7 @@ test_df = anti_join(fire_id, train_df, by = "id")
 
 fit_cv = lm(area ~ FFMC + DMC + DC + ISI + temp + RH + wind + rain, data = train_df)
 
-rmse(fit_cv, test_df) # prediction
+rmse(fit_cv, test_df) # prediction accuracy
 
 
 cv_df = 
