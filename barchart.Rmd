@@ -3,7 +3,6 @@ title: "barchart"
 output: github_document
 ---
 
-
 ```{r setup, include = FALSE}
 library(tidyverse)
 library(dplyr)
@@ -37,15 +36,14 @@ fire_df
 
 ## Bar chart (month)
 
-Comments:
-1. Add text label on bar chart.
-2. change month order.
-
-### barchart (ggplot+ggplotly)
-```{r barchart_ggplot+ggplotly}
+```{r 1201 combine barcharts}
 fire_mon = 
-  fire_df %>% 
-  filter(area>0) %>%
+  fire_df %>%
+  select(month, area) %>%
+  filter(area > 0) %>%
+  count(month) %>%
+  add_row(month = 'Jan', n = 0) %>%
+  add_row(month = 'Nov', n = 0) %>%
   mutate(month = stringi::stri_trans_totitle(month)) %>%
   mutate(month = factor(month, 
                         levels = c('Jan', 'Feb', 'Mar', 'Apr',
@@ -53,41 +51,39 @@ fire_mon =
                                    'Sep', 'Oct', 'Nov', 'Dec'),
                         ordered = TRUE))
 
-bar_plot =
-  fire_mon %>%
-  ggplot(aes(x = month, fill = month)) + 
-  geom_bar() + scale_fill_viridis_d(direction = -1) +
-  xlab('Month') + ylab('Count (s)')
-
-ggplotly(bar_plot)
-```
-Problems: text for each month
-
-### barchart (plotly)
-```{r barchart_plotly}
-fire_mon = 
-  fire_df %>% 
-  filter(area > 0) %>%
-  mutate(month = stringi::stri_trans_totitle(month))
-
-fire_mon %>%
-  count(month) %>% 
-  mutate(month = fct_reorder(month, n)) %>% 
+month_df = 
+  fire_df %>%
+  select(month, area) %>%
+  mutate(month = stringi::stri_trans_totitle(month)) %>%
   mutate(month = factor(month, 
                         levels = c('Jan', 'Feb', 'Mar', 'Apr',
                                    'May', 'Jun', 'Jul', 'Aug',
                                    'Sep', 'Oct', 'Nov', 'Dec'),
                         ordered = TRUE)) %>%
-  plot_ly(x = ~month, y = ~n, color = ~month, type = "bar", colors = "viridis")
+  count(month)
+  
+
+fire_m_df = merge(month_df, fire_mon, by = 'month')
+fire_m_df %>%
+  mutate(month = factor(month, 
+                        levels = c('Jan', 'Feb', 'Mar', 'Apr',
+                                   'May', 'Jun', 'Jul', 'Aug',
+                                   'Sep', 'Oct', 'Nov', 'Dec'),
+                        ordered = TRUE))
+
+fire_mon_p = plot_ly(fire_m_df)
+fire_mon_p = 
+  fire_mon_p %>% add_trace(x = ~month, y = ~n.x, type = 'bar', name = 'n (numbers of data)', marker = list(color = 'yellow'), hoverinfo = "text", text = ~paste(month, ': n=', n.x))
+
+fire_mon_p = 
+  fire_mon_p %>% add_trace(x = ~month, y = ~n.y, type = 'bar', name = 'Fire Count(s)', marker = list(color = 'red'), hoverinfo = "text", text = ~paste(month,': fire(s) = ', n.y))
+
+fire_mon_p = 
+  fire_mon_p %>% 
+  layout(title = 'Fire Counts & Sample Size',
+         yaxis = list(title = 'Count(s)'))
+
+fire_mon_p
+
 ```
-Problems:
-1. Nov
-2. the order fo x-label
-3. cannot change direction of colors
-
----
-
-
-
-
 
