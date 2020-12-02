@@ -1,0 +1,91 @@
+---
+title: "Descriptive Statistics"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    source: embed
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(plotly)
+library(flexdashboard)
+```
+
+```{r}
+fire_df = read_csv("./data/forestfires.csv")
+descrip_1 = 
+  fire_df %>% 
+  select(-day, -area) %>% 
+  group_by(X, Y, month) %>% 
+  mutate(
+    avg_FFMC = mean(FFMC),
+    avg_DMC = mean(DMC),
+    avg_DC = mean(DC),
+    avg_ISI = mean(ISI),
+    avg_temp = mean(temp),
+    avg_RH = mean(RH),
+    avg_wind = mean(wind),
+    avg_rain = mean(rain)
+    ) %>% 
+  select(-FFMC, -DMC, -DC, -ISI, -temp, -RH, -wind, -rain) %>% 
+  distinct() %>% 
+  ungroup() 
+
+descrip_2 = 
+  expand.grid(
+    month = 
+  )
+```
+
+
+Column {.sidebar}
+-----------------------------------------------------------------------
+
+```{r}
+borough_choices = nyc_airbnb %>% pull(neighbourhood_group) %>% unique()
+selectInput(
+  "borough_choice",
+  h3("Borough Choice"),
+  choices = borough_choices,
+  selected = "Manhattan"
+)
+sliderInput(
+  "price_range",
+  h3("Price Range"),
+  100, 1000, 
+  value = c(100, 400))
+room_choices = nyc_airbnb %>% pull(room_type) %>% unique()
+radioButtons(
+  "room_choice",
+  h3("Room Type"),
+  choices = room_choices
+)
+```
+
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+
+```
+
+### Chart C
+
+```{r}
+
+```
