@@ -183,29 +183,27 @@ r_rh_m =
                         levels = c('Jan', 'Feb', 'Mar', 'Apr',
                                    'May', 'Jun', 'Jul', 'Aug',
                                    'Sep', 'Oct', 'Nov', 'Dec'),
-                        ordered = TRUE))
-rm = 
-  r_rh_m %>% 
-  select(rain,month) %>%
+                        ordered = TRUE)) %>% 
+  select(rain, month, RH) %>% 
   group_by(month) %>% 
-  summarise(rain = sum(rain))
+  summarise(rain = mean(rain), rh=mean(RH))
 
-rhm = 
-  r_rh_m %>% 
-  select(RH, month) %>% 
-  group_by(month) %>% 
-  summarise(rh = mean(RH))
 
-rain_month_plot =
-  ggplot(rm, aes(x = month, y = rain)) + 
-  geom_point(aes(color = month))+ labs(title = 'Rain vs Month', x = 'Month', y = 'Rain(mm/m2)') + geom_line()
-ggplotly(rain_month_plot)
+fig <- plot_ly(r_rh_m)
+fig <- fig %>% add_trace(x = ~month, y = ~rain, type = 'bar', name = 'Rain',
+            marker = list(color = '#C9EFF9'),
+            hoverinfo = "text",
+            text = ~paste(rain, 'mm/m2'))
+fig <- fig %>% add_trace(x = ~month, y = ~rh, type = 'scatter',name = 'Relative Humidity', mode = 'lines', yaxis = 'y2',
+            line = list(color = '#45171D'),
+            hoverinfo = "text",
+            text = ~paste('Relative Humidity: ', rh))
+fig <- fig %>% layout(title = 'Rain & Relative Humidity vs. Month',
+         xaxis = list(title = ""),
+         yaxis = list(side = 'left', title = 'Rain', showgrid = FALSE, zeroline = FALSE),
+         yaxis2 = list(side = 'right', overlaying = "y", title = 'Relative Humidity', showgrid = FALSE, zeroline = FALSE))
 
-rh_month_plot = 
-  ggplot(rhm, aes(x = month, y = rh)) + 
-  geom_point(aes(color = month))+ labs(title = 'RH vs Month', x = 'Month', y = 'RH(%)')
-ggplotly(rh_month_plot)
-  
+
 #########
 how_many_days <- as.data.frame(table(fire_df$day))
 how_many_days = 
