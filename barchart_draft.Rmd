@@ -1,0 +1,89 @@
+---
+title: "barchart_draft"
+output: github_document
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(patchwork)
+library(plotly)
+library(png)
+
+knitr::opts_chunk$set(
+  fig.width = 6,
+  fig.asp = .6,
+  out.width = "90%"
+)
+
+options(
+  ggplot2.continuous.colour = "viridis",
+  ggplot2.continuous.fill = "viridis"
+)
+
+scale_colour_discrete = scale_color_viridis_d
+scale_fill_discrete = scale_fill_viridis_d
+```
+
+
+## Load in data
+```{r load in data}
+fire_df = read_csv("./data/forestfires.csv")
+fire_df
+```
+
+
+## Bar chart (month)
+
+Comments:
+1. Add text label on bar chart.
+2. change month order.
+
+### barchart (ggplot+ggplotly)
+```{r barchart_ggplot+ggplotly}
+fire_mon = 
+  fire_df %>% 
+  filter(area>0) %>%
+  mutate(month = stringi::stri_trans_totitle(month)) %>%
+  mutate(month = factor(month, 
+                        levels = c('Jan', 'Feb', 'Mar', 'Apr',
+                                   'May', 'Jun', 'Jul', 'Aug',
+                                   'Sep', 'Oct', 'Nov', 'Dec'),
+                        ordered = TRUE))
+
+bar_plot =
+  fire_mon %>%
+  ggplot(aes(x = month, fill = month)) + 
+  geom_bar() + scale_fill_viridis_d(direction = -1) +
+  xlab('Month') + ylab('Count (s)')
+
+ggplotly(bar_plot)
+```
+Problems: text for each month
+
+### barchart (plotly)
+```{r barchart_plotly}
+fire_mon = 
+  fire_df %>% 
+  filter(area > 0) %>%
+  mutate(month = stringi::stri_trans_totitle(month))
+
+fire_mon %>%
+  count(month) %>% 
+  mutate(month = fct_reorder(month, n)) %>% 
+  mutate(month = factor(month, 
+                        levels = c('Jan', 'Feb', 'Mar', 'Apr',
+                                   'May', 'Jun', 'Jul', 'Aug',
+                                   'Sep', 'Oct', 'Nov', 'Dec'),
+                        ordered = TRUE)) %>%
+  plot_ly(x = ~month, y = ~n, color = ~month, type = "bar", colors = "viridis")
+```
+Problems:
+1. Nov
+2. the order fo x-label
+3. cannot change direction of colors
+
+---
+
+
