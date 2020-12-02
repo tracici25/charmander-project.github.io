@@ -115,6 +115,10 @@ descrip_3 %>%
 })
 ```
 
+
+Column {data-width=450}
+-----------------------------------------------------------------------
+
 ### Chart C
 
 ```{r}
@@ -141,70 +145,6 @@ descrip_3 %>%
   ) %>% 
   plot_ly(
     y = ~tot_ISI, x = ~month, color = ~month,
-    type = "bar", colors = "viridis")
-})
-```
-
-
-Column {data-width=450}
------------------------------------------------------------------------
-
-### Chart E
-
-```{r}
-renderPlotly({
-descrip_3 %>% 
-  filter(
-      X == input[["x_choice"]],
-      Y == input[["y_choice"]]
-  ) %>% 
-  plot_ly(
-    y = ~avg_temp, x = ~month, color = ~month,
-    type = "bar", colors = "viridis")
-})
-```
-
-### Chart F
-
-```{r}
-renderPlotly({
-descrip_3 %>% 
-  filter(
-      X == input[["x_choice"]],
-      Y == input[["y_choice"]]
-  ) %>% 
-  plot_ly(
-    y = ~avg_RH, x = ~month, color = ~month,
-    type = "bar", colors = "viridis")
-})
-```
-
-### Chart G
-
-```{r}
-renderPlotly({
-descrip_3 %>% 
-  filter(
-      X == input[["x_choice"]],
-      Y == input[["y_choice"]]
-  ) %>% 
-  plot_ly(
-    y = ~avg_wind, x = ~month, color = ~month,
-    type = "bar", colors = "viridis")
-})
-```
-
-### Chart H
-
-```{r}
-renderPlotly({
-descrip_3 %>% 
-  filter(
-      X == input[["x_choice"]],
-      Y == input[["y_choice"]]
-  ) %>% 
-  plot_ly(
-    y = ~tot_rain, x = ~month, color = ~month,
     type = "bar", colors = "viridis")
 })
 ```

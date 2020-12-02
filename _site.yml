@@ -9,8 +9,10 @@ navbar:
   right:
     - text: "Overview"
       menu:
-        - text: "Descriptive Statistics"
-          href: https://caution6.shinyapps.io/descrip/
+        - text: "Weather Observations"
+          href: 
+        - text: "Fuel Moisture Codes and Fire Behavior Index"
+          href: 
         - text: "Geography"
           href: geography.html
     - text: "Data Analysis"
