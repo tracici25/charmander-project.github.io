@@ -1,0 +1,146 @@
+---
+title: "Observation by time"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    source: embed
+runtime: shiny
+---
+```{r setup, include=FALSE}
+library(tidyverse)
+library(plotly)
+library(flexdashboard)
+library(rsconnect)
+```
+
+
+```{r, include = FALSE}
+fire_df = read_csv("./data/forestfires.csv")
+ready_df = 
+  fire_df%>% 
+  mutate(month = stringi::stri_trans_totitle(month)) %>%
+  mutate(month = factor(month, 
+                        levels = c('Jan', 'Feb', 'Mar', 'Apr',
+                                   'May', 'Jun', 'Jul', 'Aug',
+                                   'Sep', 'Oct', 'Nov', 'Dec'),
+                        ordered = TRUE)) %>% 
+  select(month,FFMC,DMC,DC,ISI,temp,RH,wind,rain,area) %>% 
+  group_by(month) %>% 
+  summarise(rain = mean(rain), RH=mean(RH), FFMC = mean(FFMC), DMC = mean(DMC), DC = mean(DC), ISI = mean(ISI), temp = mean(temp), wind = mean(wind), area = mean(area)) %>% 
+  pivot_longer(rain:area,
+               names_to = "info",
+               values_to = "value") %>% 
+  mutate(
+    info = replace(info, info == 'temp', 'Temperature'),
+    info = replace(info, info == 'RH', 'Relative Humidity'),
+    info = replace(info, info == 'wind', 'Wind Speed'),
+    info = replace(info, info == 'rain', 'Rain'),
+    info = replace(info, info == 'area', 'Burnt area')
+  )
+
+ready2_df = 
+  fire_df %>% 
+  mutate(days = ifelse(day %in% c('sat', 'sun'),'weekend', 'weekday')) %>%
+  mutate(days = stringi::stri_trans_totitle(days)) %>%
+  mutate(days = factor(days)) %>% 
+  select(days,FFMC,DMC,DC,ISI,temp,RH,wind,rain,area) %>% 
+  group_by(days) %>% 
+  summarise(rain = mean(rain), RH=mean(RH), FFMC = mean(FFMC), DMC = mean(DMC), DC = mean(DC), ISI = mean(ISI), temp = mean(temp), wind = mean(wind), area = mean(area)) %>% 
+  pivot_longer(rain:area,
+               names_to = "info2",
+               values_to = "value2") %>% 
+  mutate(
+    info2 = replace(info2, info2 == 'temp', 'Temperature'),
+    info2 = replace(info2, info2 == 'RH', 'Relative Humidity'),
+    info2 = replace(info2, info2 == 'wind', 'Wind Speed'),
+    info2 = replace(info2, info2 == 'rain', 'Rain'),
+    info2 = replace(info2, info2 == 'area', 'Burnt area')
+  )
+
+```
+Column {.sidebar}
+-----------------------------------------------------------------------
+```{r}
+info = ready_df %>% 
+  pull(info) %>% 
+  unique()
+
+selectInput(
+  "info",
+  h3("Variables(Month)"),
+  choices = info
+)
+```
+
+```{r}
+info2 = ready2_df %>% 
+  pull(info2) %>% 
+  unique()
+
+selectInput(
+  "info2",
+  h3("Variables(Type of Day)"),
+  choices = info2
+)
+```
+
+Column {}
+-----------------------------------------------------------------------
+
+### Month
+
+```{r}
+renderPlotly({
+  ready_df %>% 
+    filter(info == input[["info"]]) %>% 
+    group_by(month) %>% 
+    plot_ly(
+      y = ~value, x = ~month, color = ~month,
+      type = "bar", colors = "viridis") %>% 
+    layout(title = 'Monthly Data -- The Whole Map',
+         xaxis = list(title = "Month"),
+         yaxis = list(side = 'left', title = 'Variable chosen', showgrid = FALSE, zeroline = FALSE))
+})
+
+```
+
+
+
+
+
+Column {}
+-----------------------------------------------------------------------
+
+### Days
+
+
+```{r}
+renderPlotly({
+  ready2_df %>% 
+    filter(info2 == input[["info2"]]) %>% 
+    group_by(days) %>% 
+    plot_ly(
+      y = ~value2, x = ~days, color = ~days,
+      type = "bar", colors = "viridis") %>% 
+    layout(title = 'Weekday vs Weekend',
+         xaxis = list(title = "Type of day"),
+         yaxis = list(side = 'left', title = 'Variable chosen', showgrid = FALSE, zeroline = FALSE))})
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
