@@ -1,5 +1,5 @@
 ---
-title: "Linear Modeling"
+title: "Multiple Linear Modeling"
 output: 
   html_document:
     toc: true
@@ -14,6 +14,7 @@ library(broom)
 library(modelr)
 library(plotly)
 library(ggplot2)
+library(knitr)
 
 knitr::opts_chunk$set(
   fig.width = 6,
@@ -30,29 +31,77 @@ scale_colour_discrete = scale_color_viridis_d
 scale_fill_discrete = scale_fill_viridis_d
 ```
 
-### Linear Regression Model
-
-formula = ...
 
 ```{r model, include = FALSE}
 fire_linear = 
   read_csv("./data/forestfires.csv") %>% 
   select(FFMC, DMC, DC, ISI, temp, RH, wind, rain, area) %>% 
   filter(area > 0)
-
-# linear model
-fit = lm(area ~ FFMC + DMC + DC + ISI + temp + RH + wind + rain, data = fire_linear)
-
-model = 
-  fit %>% 
-  tidy() %>% 
-  select(-std.error, -statistic)
 ```
 
-Here is the plot
+### Backward Elimination
+
+Backward Elimination is conducted to select the possible predictors for linear regression. First is to start with a complete linear model with all predicting variables, and remove the predictor with the highest p-value(for which is greater than the threshold of 0.2). Then, refit the model and remove the next least significant predictor. Repeat the steps until all p-values are smaller than 0.2. The following tables show the first step with all predictors and the final step with confined predictors.
+
+```{r, include = FALSE}
+# complete model
+fit = lm(area ~ FFMC + DMC + DC + ISI + temp + RH + wind + rain, data = fire_linear)
+summary(fit)$coef %>% 
+  as.data.frame() %>% 
+  kable(caption = "Linear Model with All Predictors")
+
+# -rain
+fit2 = lm(area ~ FFMC + DMC + DC + ISI + temp + RH + wind, data = fire_linear)
+summary(fit2)$coef
+
+# -FFMC
+fit3 = lm(area ~ DMC + DC + ISI + temp + RH + wind, data = fire_linear)
+summary(fit3)$coef
+
+# -DC
+fit4 = lm(area ~ DMC + ISI + temp + RH + wind, data = fire_linear)
+summary(fit4)$coef
+
+# -temp
+fit5 = lm(area ~ DMC + ISI + RH + wind, data = fire_linear)
+summary(fit5)$coef
+
+# -wind
+fit6 = lm(area ~ DMC + ISI + RH, data = fire_linear)
+summary(fit6)$coef
+
+# -ISI
+fit_best = lm(area ~ DMC + RH, data = fire_linear)
+summary(fit_best)$coef %>% 
+  as.data.frame() %>% 
+  kable(caption = "Confined Linear Model with DMC and RH as predictors")
+
+
+```
+
+```{r, echo = FALSE}
+fit = lm(area ~ FFMC + DMC + DC + ISI + temp + RH + wind + rain, data = fire_linear)
+summary(fit)$coef %>% 
+  as.data.frame() %>% 
+  kable(caption = "Linear Model with All Predictors")
+
+fit_best = lm(area ~ DMC + RH, data = fire_linear)
+summary(fit_best)$coef %>% 
+  as.data.frame() %>% 
+  kable(caption = "Confined Linear Model with DMC and RH as predictors")
+
+```
+
+The final predictors selected are DMC and RH(Relative Humidity), which p-values are greater than our threshold of 0.2. Our hypothesized formula for MLR model is:
+$$Burned Area = \beta_0 +\beta_1DMC + \beta_2RH$$
 
 ```{r, echo = FALSE, warning = FALSE}
 # plot for coefficients
+model = 
+  fit_best %>% 
+  tidy() %>% 
+  select(-std.error, -statistic)
+
 coef_plot = 
   model %>% 
   filter(!term == "(Intercept)") %>% 
@@ -76,7 +125,9 @@ coef_plot
 
 ### Diagnostics
 ```{r}
-add_residuals(fire_linear, fit) %>%
+
+# Residuals
+add_residuals(fire_linear, lm(area ~ DMC + RH, data = fire_linear)) %>%
   plot_ly(
     y = ~resid, type = "violin"
   ) %>% 
@@ -85,34 +136,6 @@ add_residuals(fire_linear, fit) %>%
     xaxis = list(title = "Climate Variable"),
     yaxis = list(title = "Residual", range = c(-200, 300))
   )
-
-
-```
-
-# Think about confounders... and discuss
-
-### Cross Validation
-Look at prediction accuracy
-training data and testing data
-
-
-```{r}
-fire_id = 
-  fire_linear %>% 
-  mutate(
-    id = 1:270
-  )
-
-train_df = sample_n(fire_id, size = 189)
-test_df = anti_join(fire_id, train_df, by = "id")
-
-fit_cv = lm(area ~ FFMC + DMC + DC + ISI + temp + RH + wind + rain, data = train_df)
-
-rmse(fit_cv, test_df) # prediction accuracy
-
-
-cv_df = 
-  crossv_mc(fire_id, 100)
 
 ```
 
