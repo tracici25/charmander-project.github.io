@@ -1,0 +1,226 @@
+---
+title: "Weather Observations"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    source: embed
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(plotly)
+library(flexdashboard)
+library(rsconnect)
+
+fire_df = read_csv("./data/forestfires.csv")
+descrip_1 = 
+  fire_df %>% 
+  select(-day, -area,) %>% 
+  group_by(X, Y, month) %>% 
+  mutate(
+    tot_FFMC = sum(FFMC),
+    tot_DMC = sum(DMC),
+    tot_DC = sum(DC),
+    tot_ISI = sum(ISI),
+    avg_temp = mean(temp),
+    avg_RH = mean(RH),
+    avg_wind = mean(wind),
+    tot_rain = sum(rain)
+    ) %>% 
+  select(-FFMC, -DMC, -DC, -ISI, -temp, -RH, -wind, -rain) %>% 
+  distinct() %>% 
+  ungroup()
+
+descrip_2 = 
+  expand.grid(
+    month = unique(pull(descrip_1, month)),
+    X = unique(pull(descrip_1, X)),
+    Y = unique(pull(descrip_1, Y))
+  ) %>% 
+  mutate(
+    month = factor(month, 
+                   levels = c('jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'),
+                   ordered = TRUE
+                   )
+    )
+
+descrip_3 = 
+  merge(
+    descrip_2, descrip_1, all = TRUE
+  ) %>% 
+  arrange(X, Y, month)
+
+descrip_3[is.na(descrip_3)] <- 0
+```
+
+
+Column {.sidebar}
+-----------------------------------------------------------------------
+
+```{r}
+x_choices = descrip_3 %>% pull(X) %>% unique()
+
+radioButtons(
+  "x_choice",
+  h3("X-axis Coordinate"),
+  choices = x_choices,
+  selected = "6"
+)
+
+y_choices = descrip_3 %>% pull(Y) %>% unique()
+
+radioButtons(
+  "y_choice",
+  h3("Y-axis Coordinate"),
+  choices = y_choices,
+  selected = "5"
+)
+```
+
+
+Column {.tabset}
+-----------------------------------------------------------------------
+
+### Weather Observations
+
+Column {data-width=550}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+renderPlotly({
+descrip_3 %>% 
+  filter(
+      X == input[["x_choice"]],
+      Y == input[["y_choice"]]
+  ) %>% 
+  plot_ly(
+    y = ~avg_temp, x = ~month, color = ~month,
+    type = "bar", colors = "viridis")
+})
+```
+
+### Chart B
+
+```{r}
+renderPlotly({
+descrip_3 %>% 
+  filter(
+      X == input[["x_choice"]],
+      Y == input[["y_choice"]]
+  ) %>% 
+  plot_ly(
+    y = ~avg_RH, x = ~month, color = ~month,
+    type = "bar", colors = "viridis")
+})
+```
+
+
+Column {data-width=450}
+-----------------------------------------------------------------------
+
+### Chart C
+
+```{r}
+renderPlotly({
+descrip_3 %>% 
+  filter(
+      X == input[["x_choice"]],
+      Y == input[["y_choice"]]
+  ) %>% 
+  plot_ly(
+    y = ~avg_wind, x = ~month, color = ~month,
+    type = "bar", colors = "viridis")
+})
+```
+
+### Chart D
+
+```{r}
+renderPlotly({
+descrip_3 %>% 
+  filter(
+      X == input[["x_choice"]],
+      Y == input[["y_choice"]]
+  ) %>% 
+  plot_ly(
+    y = ~tot_rain, x = ~month, color = ~month,
+    type = "bar", colors = "viridis")
+})
+```
+
+
+Column {.tabset}
+-----------------------------------------------------------------------
+
+### Fuel Moisture Codes and Fire Behavior Index
+
+Column {data-width=550}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+renderPlotly({
+descrip_3 %>% 
+  filter(
+      X == input[["x_choice"]],
+      Y == input[["y_choice"]]
+  ) %>% 
+  plot_ly(
+    y = ~tot_DC, x = ~month, color = ~month,
+    type = "bar", colors = "viridis")
+})
+```
+
+### Chart B
+
+```{r}
+renderPlotly({
+descrip_3 %>% 
+  filter(
+      X == input[["x_choice"]],
+      Y == input[["y_choice"]]
+  ) %>% 
+  plot_ly(
+    y = ~tot_FFMC, x = ~month, color = ~month,
+    type = "bar", colors = "viridis")
+})
+```
+
+
+Column {data-width=450}
+-----------------------------------------------------------------------
+
+### Chart C
+
+```{r}
+renderPlotly({
+descrip_3 %>% 
+  filter(
+      X == input[["x_choice"]],
+      Y == input[["y_choice"]]
+  ) %>% 
+  plot_ly(
+    y = ~tot_DMC, x = ~month, color = ~month,
+    type = "bar", colors = "viridis")
+})
+```
+
+### Chart D
+
+```{r}
+renderPlotly({
+descrip_3 %>% 
+  filter(
+      X == input[["x_choice"]],
+      Y == input[["y_choice"]]
+  ) %>% 
+  plot_ly(
+    y = ~tot_ISI, x = ~month, color = ~month,
+    type = "bar", colors = "viridis")
+})
+```

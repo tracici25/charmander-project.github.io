@@ -9,13 +9,15 @@ navbar:
   right:
     - text: "Overview"
       menu:
+        - text: "Descriptive Statistics"
+          href: 
         - text: "Weather Observations"
           href: https://caution6.shinyapps.io/weather/
         - text: "Fuel Moisture Codes and Fire Behavior Index"
           href: https://caution6.shinyapps.io/code_index/
         - text: "Geography"
           href: geography.html
-        - test: "Observation by Time"
+        - text: "Observation by Time"
           href: https://yuechen-liu.shinyapps.io/time/
     - text: "Data Analysis"
       menu:
