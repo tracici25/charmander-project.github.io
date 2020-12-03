@@ -17,6 +17,7 @@ library(rsconnect)
 
 ```{r}
 fire_df = read_csv("./data/forestfires.csv")
+
 descrip_1 = 
   fire_df %>% 
   select(-day, -area,) %>% 
@@ -71,6 +72,7 @@ descrip_4 =
     FWI = replace(FWI, FWI == "avg_wind", "Mean Wind Speed"),
     FWI = replace(FWI, FWI == "tot_rain", "Total Precipitation"),
   )
+
 ```
 
 
@@ -125,3 +127,5 @@ descrip_4 %>%
     type = "bar", colors = "viridis")
 })
 ```
+
+
