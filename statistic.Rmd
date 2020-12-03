@@ -151,9 +151,6 @@ descrip_3 %>%
 ```
 
 
-Column {.tabset}
------------------------------------------------------------------------
-
 ### Fuel Moisture Codes and Fire Behavior Index
 
 Column {data-width=550}

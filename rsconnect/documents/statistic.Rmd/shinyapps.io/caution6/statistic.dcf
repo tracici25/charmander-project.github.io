@@ -5,6 +5,6 @@ account: caution6
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 3344462
-bundleId: 3937749
+bundleId: 3937792
 url: https://caution6.shinyapps.io/statistic/
-when: 1606996805.82841
+when: 1606997462.69256
