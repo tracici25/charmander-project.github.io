@@ -11,10 +11,6 @@ navbar:
       menu:
         - text: "Descriptive Statistics"
           href: 
-        - text: "Weather Observations"
-          href: https://caution6.shinyapps.io/weather/
-        - text: "Fuel Moisture Codes and Fire Behavior Index"
-          href: https://caution6.shinyapps.io/code_index/
         - text: "Geography"
           href: geography.html
         - text: "Observation by Time"
