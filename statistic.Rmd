@@ -22,10 +22,10 @@ descrip_1 =
   select(-day, -area,) %>% 
   group_by(X, Y, month) %>% 
   mutate(
-    tot_FFMC = sum(FFMC),
-    tot_DMC = sum(DMC),
-    tot_DC = sum(DC),
-    tot_ISI = sum(ISI),
+    avg_FFMC = mean(FFMC),
+    avg_DMC = mean(DMC),
+    avg_DC = mean(DC),
+    avg_ISI = mean(ISI),
     avg_temp = mean(temp),
     avg_RH = mean(RH),
     avg_wind = mean(wind),
@@ -55,6 +55,22 @@ descrip_3 =
   arrange(X, Y, month)
 
 descrip_3[is.na(descrip_3)] <- 0
+
+descrip_4 = 
+  descrip_3  %>% 
+  pivot_longer(avg_FFMC:tot_rain,
+               names_to = "FWI",
+               values_to = "value") %>% 
+  mutate(
+    FWI = replace(FWI, FWI == "avg_FFMC", "Mean FFMC"),
+    FWI = replace(FWI, FWI == "avg_DMC", "Mean DMC"),
+    FWI = replace(FWI, FWI == "avg_DC", "Mean DC"),
+    FWI = replace(FWI, FWI == "avg_ISI", "Mean ISI"),
+    FWI = replace(FWI, FWI == "avg_temp", "Mean Temperature"),
+    FWI = replace(FWI, FWI == "avg_RH", "Mean Relative Humidity"),
+    FWI = replace(FWI, FWI == "avg_wind", "Mean Wind Speed"),
+    FWI = replace(FWI, FWI == "tot_rain", "Total Precipitation"),
+  )
 ```
 
 
@@ -79,125 +95,32 @@ radioButtons(
   choices = y_choices,
   selected = "5"
 )
+
+FWI_choices = descrip_4 %>% pull(FWI) %>% unique()
+
+selectInput(
+  "FWI_choice",
+  h3("FWI Variables"),
+  choices = FWI_choices,
+  selected = "Mean DC"
+)
 ```
 
 
-Column {.tabset}
+Column {}
 -----------------------------------------------------------------------
 
-### Weather Observations
-
 
 ```{r}
 renderPlotly({
-descrip_3 %>% 
+descrip_4 %>% 
   filter(
       X == input[["x_choice"]],
-      Y == input[["y_choice"]]
+      Y == input[["y_choice"]],
+      FWI == input[["FWI_choice"]]
   ) %>% 
   plot_ly(
-    y = ~avg_temp, x = ~month, color = ~month,
-    type = "bar", colors = "viridis")
-})
-```
-
-
-```{r}
-renderPlotly({
-descrip_3 %>% 
-  filter(
-      X == input[["x_choice"]],
-      Y == input[["y_choice"]]
-  ) %>% 
-  plot_ly(
-    y = ~avg_RH, x = ~month, color = ~month,
-    type = "bar", colors = "viridis")
-})
-```
-
-
-```{r}
-renderPlotly({
-descrip_3 %>% 
-  filter(
-      X == input[["x_choice"]],
-      Y == input[["y_choice"]]
-  ) %>% 
-  plot_ly(
-    y = ~avg_wind, x = ~month, color = ~month,
-    type = "bar", colors = "viridis")
-})
-```
-
-
-```{r}
-renderPlotly({
-descrip_3 %>% 
-  filter(
-      X == input[["x_choice"]],
-      Y == input[["y_choice"]]
-  ) %>% 
-  plot_ly(
-    y = ~tot_rain, x = ~month, color = ~month,
-    type = "bar", colors = "viridis")
-})
-```
-
-
-### Fuel Moisture Codes and Fire Behavior Index
-
-
-```{r}
-renderPlotly({
-descrip_3 %>% 
-  filter(
-      X == input[["x_choice"]],
-      Y == input[["y_choice"]]
-  ) %>% 
-  plot_ly(
-    y = ~tot_DC, x = ~month, color = ~month,
-    type = "bar", colors = "viridis")
-})
-```
-
-
-```{r}
-renderPlotly({
-descrip_3 %>% 
-  filter(
-      X == input[["x_choice"]],
-      Y == input[["y_choice"]]
-  ) %>% 
-  plot_ly(
-    y = ~tot_FFMC, x = ~month, color = ~month,
-    type = "bar", colors = "viridis")
-})
-```
-
-
-```{r}
-renderPlotly({
-descrip_3 %>% 
-  filter(
-      X == input[["x_choice"]],
-      Y == input[["y_choice"]]
-  ) %>% 
-  plot_ly(
-    y = ~tot_DMC, x = ~month, color = ~month,
-    type = "bar", colors = "viridis")
-})
-```
-
-
-```{r}
-renderPlotly({
-descrip_3 %>% 
-  filter(
-      X == input[["x_choice"]],
-      Y == input[["y_choice"]]
-  ) %>% 
-  plot_ly(
-    y = ~tot_ISI, x = ~month, color = ~month,
+    y = ~value, x = ~month, color = ~month,
     type = "bar", colors = "viridis")
 })
 ```
