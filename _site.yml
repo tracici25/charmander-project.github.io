@@ -17,10 +17,8 @@ navbar:
           href: geography.html
     - text: "Data Analysis"
       menu:
-        - text: "Boxplot"
-          href: anova.html
-        - text: "Sample t test"
-          href: ttest.html
+        - text: "Fire vs. No Fire"
+          href: xxx.shinyapps.io
         - text: "Linear Regression"
           href: linear.html
     - text: "Suggestion"
