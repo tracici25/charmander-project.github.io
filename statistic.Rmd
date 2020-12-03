@@ -87,9 +87,6 @@ Column {.tabset}
 
 ### Weather Observations
 
-Column {data-width=550}
------------------------------------------------------------------------
-
 
 ```{r}
 renderPlotly({
@@ -117,10 +114,6 @@ descrip_3 %>%
     type = "bar", colors = "viridis")
 })
 ```
-
-
-Column {data-width=450}
------------------------------------------------------------------------
 
 
 ```{r}
@@ -153,9 +146,6 @@ descrip_3 %>%
 
 ### Fuel Moisture Codes and Fire Behavior Index
 
-Column {data-width=550}
------------------------------------------------------------------------
-
 
 ```{r}
 renderPlotly({
@@ -183,10 +173,6 @@ descrip_3 %>%
     type = "bar", colors = "viridis")
 })
 ```
-
-
-Column {data-width=450}
------------------------------------------------------------------------
 
 
 ```{r}
