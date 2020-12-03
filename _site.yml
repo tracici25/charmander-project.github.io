@@ -18,7 +18,7 @@ navbar:
     - text: "Data Analysis"
       menu:
         - text: "Fire vs. No Fire"
-          href: xxx.shinyapps.io
+          href: https://tracici25.shinyapps.io/boxplot/
         - text: "Linear Regression"
           href: linear.html
     - text: "Suggestion"
