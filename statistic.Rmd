@@ -90,7 +90,6 @@ Column {.tabset}
 Column {data-width=550}
 -----------------------------------------------------------------------
 
-### Chart A
 
 ```{r}
 renderPlotly({
@@ -105,7 +104,6 @@ descrip_3 %>%
 })
 ```
 
-### Chart B
 
 ```{r}
 renderPlotly({
@@ -124,7 +122,6 @@ descrip_3 %>%
 Column {data-width=450}
 -----------------------------------------------------------------------
 
-### Chart C
 
 ```{r}
 renderPlotly({
@@ -139,7 +136,6 @@ descrip_3 %>%
 })
 ```
 
-### Chart D
 
 ```{r}
 renderPlotly({
@@ -163,7 +159,6 @@ Column {.tabset}
 Column {data-width=550}
 -----------------------------------------------------------------------
 
-### Chart A
 
 ```{r}
 renderPlotly({
@@ -178,7 +173,6 @@ descrip_3 %>%
 })
 ```
 
-### Chart B
 
 ```{r}
 renderPlotly({
@@ -197,7 +191,6 @@ descrip_3 %>%
 Column {data-width=450}
 -----------------------------------------------------------------------
 
-### Chart C
 
 ```{r}
 renderPlotly({
@@ -212,7 +205,6 @@ descrip_3 %>%
 })
 ```
 
-### Chart D
 
 ```{r}
 renderPlotly({
