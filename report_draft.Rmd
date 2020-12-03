@@ -1,0 +1,111 @@
+---
+title: "report_draft"
+output: github_document
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(patchwork)
+library(plotly)
+library(png)
+
+knitr::opts_chunk$set(
+  fig.width = 6,
+  fig.asp = .6,
+  out.width = "90%"
+)
+
+options(
+  ggplot2.continuous.colour = "viridis",
+  ggplot2.continuous.fill = "viridis"
+)
+
+scale_colour_discrete = scale_color_viridis_d
+scale_fill_discrete = scale_fill_viridis_d
+```
+
+
+## Motivation
+
+---
+
+## Related Work
+
+
+---
+
+## Background Information
+
+### Park 
+
+
+
+### Forest Fire Weather Index (FWI) System
+
+The Forest Fire Weather Index (FWI) System is an estimation of risk of wildfire. It includes six components:
+
+* Fine Fuel Moisture Code (FFMC)
+
+  The Fine Fuel Moisture Code (FFMC) is a numeric rating of the moisture content of litter and other cured fine fuels. This code is an indicator of the relative ease of ignition and the flammability of fine fuel.
+
+* Duff Moisture Code (DMC)
+
+  The Duff Moisture Code (DMC) is a numeric rating of the average moisture content of loosely compacted organic layers of moderate depth. This code gives an indication of fuel consumption in moderate duff layers and medium-size woody material.
+
+* Drought Code (DC)
+
+  The Drought Code (DC) is a numeric rating of the average moisture content of deep, compact organic layers. This code is a useful indicator of seasonal drought effects on forest fuels and the amount of smoldering in deep duff layers and large logs.
+
+* Initial Spread Index (ISI)
+
+  The Initial Spread Index (ISI) is a numeric rating of the expected rate of fire spread. It is based on wind speed and FFMC. Like the rest of the FWI system components, ISI does not take fuel type into account. Actual spread rates vary between fuel types at the same ISI.
+
+* Buildup Index (BUI)
+
+  The Buildup Index (BUI) is a numeric rating of the total amount of fuel available for combustion. It is based on the DMC and the DC. The BUI is generally less than twice the DMC value, and moisture in the DMC layer is expected to help prevent burning in material deeper down in the available fuel.
+
+* Fire Weather Index (FWI)
+
+  The Fire Weather Index (FWI) is a numeric rating of fire intensity. It is based on the ISI and the BUI, and is used as a general index of fire danger throughout the forested areas of Canada.
+
+
+
+
+---
+
+## Questions
+
+
+---
+
+## Data
+
+### Data Sources
+### Variables of interest
+### Data Cleaning
+
+---
+
+## Exploratory Analysis
+
+## Formal Analysis
+
+Note: You can expand our code chunks by clicking on code on the right pill-button.
+
+---
+
+## Discussion
+
+
+
+
+---
+
+
+
+
+
+
+
