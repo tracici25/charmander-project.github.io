@@ -13,7 +13,9 @@ library(tidyverse)
 library(plotly)
 library(flexdashboard)
 library(rsconnect)
+```
 
+```{r}
 fire_df = read_csv("./data/forestfires.csv")
 descrip_1 = 
   fire_df %>% 
