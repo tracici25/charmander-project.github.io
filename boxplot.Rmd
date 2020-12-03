@@ -124,12 +124,22 @@ ttest = function(variable){
     filter(fire == "no fire") %>% 
     select(value)
 
-  t.test(fire_test$value, no_fire_test$value)
+  results = t.test(fire_test$value, no_fire_test$value)
   
+  results
 }
 
-
 renderPrint(ttest(variable = input[["climate"]]))
+
+
+renderPrint(
+  if (ttest(variable = input[["climate"]])$p.value < 0.05) {
+    print("p-value < 0.05, we reject the null hypothesis, and conclude that the variable means in fire days and no fire days  have significant difference.")
+  } else {
+    print("p-value > 0.05, we fail to reject the null hypothesis, and conclude that the variable means in fire days and no fire days have no significant difference.")
+  }
+  
+)
 
   
 ```
