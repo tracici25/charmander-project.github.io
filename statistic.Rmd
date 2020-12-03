@@ -1,5 +1,5 @@
 ---
-title: "Weather Observations"
+title: "Descriptive Statistics"
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
@@ -78,6 +78,15 @@ Column {.sidebar}
 -----------------------------------------------------------------------
 
 ```{r}
+FWI_choices = descrip_4 %>% pull(FWI) %>% unique()
+
+selectInput(
+  "FWI_choice",
+  h3("FWI Variables"),
+  choices = FWI_choices,
+  selected = "Mean DC"
+)
+
 x_choices = descrip_3 %>% pull(X) %>% unique()
 
 radioButtons(
@@ -96,14 +105,6 @@ radioButtons(
   selected = "5"
 )
 
-FWI_choices = descrip_4 %>% pull(FWI) %>% unique()
-
-selectInput(
-  "FWI_choice",
-  h3("FWI Variables"),
-  choices = FWI_choices,
-  selected = "Mean DC"
-)
 ```
 
 
