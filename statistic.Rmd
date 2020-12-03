@@ -89,7 +89,7 @@ selectInput(
 
 x_choices = descrip_3 %>% pull(X) %>% unique()
 
-radioButtons(
+selectInput(
   "x_choice",
   h3("X-axis Coordinate"),
   choices = x_choices,
@@ -98,7 +98,7 @@ radioButtons(
 
 y_choices = descrip_3 %>% pull(Y) %>% unique()
 
-radioButtons(
+selectInput(
   "y_choice",
   h3("Y-axis Coordinate"),
   choices = y_choices,
