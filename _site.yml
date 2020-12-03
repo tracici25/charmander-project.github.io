@@ -10,7 +10,7 @@ navbar:
     - text: "Overview"
       menu:
         - text: "Descriptive Statistics"
-          href: 
+          href: https://caution6.shinyapps.io/statistic/
         - text: "Geography"
           href: geography.html
         - text: "Observation by Time"
