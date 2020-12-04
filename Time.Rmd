@@ -132,7 +132,8 @@ renderPlotly({
 ```
 
 ###T test-- are variable equal for weekdays and weekends?
-
+Column {.sidebar}
+-----------------------------------------------------------------------
 ```{r}
 ready3_df = 
   fire_df %>% 
