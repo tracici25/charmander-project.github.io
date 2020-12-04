@@ -5,6 +5,7 @@ output:
     orientation: columns
     vertical_layout: fill
     source: embed
+    code_folding: hide
 runtime: shiny
 ---
 ```{r setup, include=FALSE}
@@ -19,14 +20,14 @@ library(rsconnect)
 fire_df = read_csv("./data/forestfires.csv")
 
 ready_df = 
-  fire_df%>% 
+  fire_df%>%
   mutate(month = stringi::stri_trans_totitle(month)) %>%
   mutate(month = factor(month, 
                         levels = c('Jan', 'Feb', 'Mar', 'Apr',
                                    'May', 'Jun', 'Jul', 'Aug',
                                    'Sep', 'Oct', 'Nov', 'Dec'),
                         ordered = TRUE)) %>% 
-  select(month,FFMC,DMC,DC,ISI,temp,RH,wind,rain,area) %>% 
+  select(FFMC,DMC,DC,ISI,temp,RH,wind,rain,area,month) %>% 
   group_by(month) %>% 
   summarise(rain = mean(rain), RH=mean(RH), FFMC = mean(FFMC), DMC = mean(DMC), DC = mean(DC), ISI = mean(ISI), temp = mean(temp), wind = mean(wind), area = mean(area)) %>% 
   pivot_longer(rain:area,
@@ -50,7 +51,7 @@ ready2_df =
   summarise(rain = mean(rain), RH=mean(RH), FFMC = mean(FFMC), DMC = mean(DMC), DC = mean(DC), ISI = mean(ISI), temp = mean(temp), wind = mean(wind), area = mean(area)) %>% 
   pivot_longer(rain:area,
                names_to = "info2",
-               values_to = "value2") %>% 
+               values_to = "value2")  %>% 
   mutate(
     info2 = replace(info2, info2 == 'temp', 'Temperature'),
     info2 = replace(info2, info2 == 'RH', 'Relative Humidity'),
