@@ -130,28 +130,48 @@ renderPlotly({
          yaxis = list(side = 'left', title = 'Variable chosen', showgrid = FALSE, zeroline = FALSE))})
 ```
 
-###T test-- are variable means equal for weekdays and weekends?
+###T test-- are variable equal for weekdays and weekends?
 
 ```{r}
+ready3_df = 
+  fire_df %>% 
+  mutate(days = ifelse(day %in% c('sat', 'sun'),'weekend', 'weekday')) %>%
+  mutate(days = stringi::stri_trans_totitle(days)) %>%
+  mutate(days = factor(days)) %>% 
+  select(days,FFMC,DMC,DC,ISI,temp,RH,wind,rain,area) %>% 
+  group_by(days) %>%
+  pivot_longer(FFMC:area,
+               names_to = "info3",
+               values_to = "value3")  %>% 
+  mutate(
+    info3 = replace(info3, info3 == 'temp', 'Temperature(°C)'),
+    info3 = replace(info3, info3 == 'RH', 'Relative Humidity(%)'),
+    info3 = replace(info3, info3 == 'wind', 'Wind Speed(km/h)'),
+    info3 = replace(info3, info3 == 'rain', 'Rain(mm/m2))'),
+    info3 = replace(info3, info3 == 'area', 'Burnt area(ha)')
+  )
+
+
 test = function(variable){
-  test_df = ready2_df %>% 
-    filter(info2 == variable)
+  test_df = ready3_df %>% 
+    filter(info3 == variable)
+  
   daytest = test_df %>% 
     filter(days == 'Weekday') %>% 
-    select(value2)
+    select(value3)
   
   endtest = test_df %>% 
     filter(days == 'Weekend') %>% 
-    select(value2)
+    select(value3)
   
-  result = t.test(daytest$value2, endtest$value2)
+  result = t.test(daytest$value3, endtest$value3)
   
   result}
   
 renderPrint(
-  if(test(variable = input[["info2"]]))
+  if(test(variable = input[["info3"]]))
 
-renderPrint(if(test(variable = input[["info2"]])$p.value<0.05){print('reject null')}else{print('fail to reject null')})
+renderPrint(if(test(variable = input[["info3"]])$p.value<0.05){print('reject null')}else{print('fail to reject null')})
 )
 
 
