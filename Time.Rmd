@@ -171,9 +171,9 @@ test = function(variable){
   
 renderPrint(
   if(test(variable = input[["info2"]])$p.value<0.05){
-    print('reject null')
+    print('p<0.05, we reject null----Conclusion: This variable is significantly different between weekday data and weekend data')
   }else{
-      print('fail to reject null')
+      print('fail to reject null----Conclusion: This variable is the same between weekday data and weekend data')
     }
   )
 
