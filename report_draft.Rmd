@@ -42,7 +42,14 @@ Two major wildfire disasters occurred recently: Australia BushFire, and Californ
 
 ### The Montesinho Natural Park
 
+[The Montesinho Natural Park](https://www.montesinho.com/en) is a protected area located in the northeastern Portugal. It is one of the largest natural parks in Portugal.
 
+The geological diversity of this space and variations in soil characteristics and climate, originate a highly varied plant life, and an ideal habitat for animals.Its biodiversity includes the [Iberian wolf](https://en.wikipedia.org/wiki/Iberian_wolf), [roe deer](https://en.wikipedia.org/wiki/Roe_deer), [wild boar](https://en.wikipedia.org/wiki/Wild_boar), [Iberian lynx](https://en.wikipedia.org/wiki/Iberian_lynx), [common genet](https://en.wikipedia.org/wiki/Common_genet), [red fox](https://en.wikipedia.org/wiki/Red_fox), [European otter](https://en.wikipedia.org/wiki/Eurasian_otter), and around 240 other animal species.
+
+<img src="picture/wolf.jpg" style="width:13.5%"> <img src="picture/deer.jpg" style="width:13.5%"> <img src="picture/boar.jpg" style="width:13.5%"> <img src="picture/lynx.jpg" style="width:13.5%"> <img src="picture/genet.jpg" style="width:13.5%"> <img src="picture/fox.jpg" style="width:13.5%"> <img src="picture/otter.jpg" style="width:13.5%">
+
+
+---
 
 ### Forest Fire Weather Index (FWI) System
 
@@ -56,15 +63,15 @@ The image below shows the associations of all six components of the FWI System. 
 
 * Fine Fuel Moisture Code (FFMC)
 
-  The Fine Fuel Moisture Code (FFMC) is a numeric rating of the moisture content of litter and other cured fine fuels. This code is an indicator of the relative ease of ignition and the flammability of fine fuel.
+  The Fine Fuel Moisture Code (FFMC) is a numeric rating of the moisture content of litter and other cured fine fuels. It is an indicator of the relative ease of ignition and the flammability of fine fuel.
 
 * Duff Moisture Code (DMC)
 
-  The Duff Moisture Code (DMC) is a numeric rating of the average moisture content of loosely compacted organic layers of moderate depth. This code gives an indication of fuel consumption in moderate duff layers and medium-size woody material.
+  The Duff Moisture Code (DMC) is a numeric rating of the average moisture content of loosely compacted organic layers of moderate depth. It gives an indication of fuel consumption in moderate duff layers and medium-size woody material.
 
 * Drought Code (DC)
 
-  The Drought Code (DC) is a numeric rating of the average moisture content of deep, compact organic layers. This code is a useful indicator of seasonal drought effects on forest fuels and the amount of smoldering in deep duff layers and large logs.
+  The Drought Code (DC) is a numeric rating of the average moisture content of deep, compact organic layers. It is a useful indicator of seasonal drought effects on forest fuels and the amount of smoldering in deep duff layers and large logs.
 
 * Initial Spread Index (ISI)
 
@@ -76,8 +83,7 @@ The image below shows the associations of all six components of the FWI System. 
 
 * Fire Weather Index (FWI)
 
-  The Fire Weather Index (FWI) is a numeric rating of fire intensity. It is based on the ISI and the BUI, and is used as a general index of fire danger throughout the forested areas of Canada.
-
+  The Fire Weather Index (FWI) is a numeric rating of fire intensity. It is based on ISI and BUI, and is used as a general index of fire danger throughout the forested areas of Canada.
 
 ---
 
