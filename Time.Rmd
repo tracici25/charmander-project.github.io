@@ -34,7 +34,7 @@ ready_df =
                names_to = "info",
                values_to = "value") %>% 
   mutate(
-    info = replace(info, info == 'temp', 'Temperature'),
+    info = replace(info, info == 'temp', 'Temperature(°C)'),
     info = replace(info, info == 'RH', 'Relative Humidity'),
     info = replace(info, info == 'wind', 'Wind Speed'),
     info = replace(info, info == 'rain', 'Rain'),
