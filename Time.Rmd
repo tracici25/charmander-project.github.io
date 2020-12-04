@@ -57,7 +57,7 @@ ready2_df =
     info2 = replace(info2, info2 == 'RH', 'Relative Humidity(%)'),
     info2 = replace(info2, info2 == 'wind', 'Wind Speed(km/h)'),
     info2 = replace(info2, info2 == 'rain', 'Rain(mm/m2))'),
-    info2 = replace(info2, info2 == 'area', 'Burnt area')
+    info2 = replace(info2, info2 == 'area', 'Burnt area(ha)')
   )
 
 ```
