@@ -151,7 +151,7 @@ test = function(variable){
 renderPrint(
   if(test(variable = input[["info2"]]))
 
-renderPrint(if(test(variable = input[["info2"]])$p.value<0.05){print()}else{print()})
+renderPrint(if(test(variable = input[["info2"]])$p.value<0.05){print('reject null')}else{print('fail to reject null')})
 )
 
 
