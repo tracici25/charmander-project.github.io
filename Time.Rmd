@@ -169,6 +169,9 @@ test = function(variable){
   
   result}
   
+renderPrint(ttest(variable = input[["info2"]]))
+
+
 renderPrint(
   if(test(variable = input[["info2"]])$p.value<0.05){
     print('p<0.05, we reject null----Conclusion: This variable is significantly different between weekday data and weekend data')
