@@ -132,9 +132,13 @@ renderPlotly({
 
 ###T test-- are variable means equal for weekdays and weekends?
 
+```{r}
+test = function(variable){
+  
+}
 
 
-
+```
 
 
 
