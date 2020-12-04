@@ -170,25 +170,23 @@ For more information about data, read [Fire Weather Index (FWI) System](https://
 *(Note: You can expand our `code` chunks by clicking on code on the right pill-button.)*
 In `Overview`, we can find `Descriptive Statistics`, `Geography`, and `Observation by Time`.
 
-[Geography](https://tracici25.github.io/charmander-project.github.io/geography.html) is 
+[Geography](https://tracici25.github.io/charmander-project.github.io/geography.html) provide a clear map
 
+* Darker areas represent higher counts of wildfires in that area across year 2000 to 2003.
+* 
 
 [Observation by Time](https://yuechen-liu.shinyapps.io/time/) is an interactive dashboard that allows users to examine the patterns of wildfires in several weather conditions of The Montesinho Natural Park. Users can get the picture of the wildfires from two aspects: by monthly, or by the types of day (weekday vs weekends). 
 
 []() allows users to select different years () and variables, to demonstrate the changes in trends in disasters or climate indicators over time and to visualize differences across the country. Variable definitions can be seen above in the “Data Cleaning” section.
 
-```{r}
-1+2+3
-```
+
 
 
 ## Formal Analysis
 
 Additional analysis: If you undertake formal statistical analyses, describe these in detail
 
-```{r}
-4*5
-```
+
 
 
 ***
