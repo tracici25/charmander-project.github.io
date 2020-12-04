@@ -29,7 +29,7 @@ scale_fill_discrete = scale_fill_viridis_d
 
 ## Motivation
 
-Two major wildfire disasters occurred recently: Australia BushFire, and California CampFire. The severe consequences of wildfires on the environment and health catches our attention. We might not have the ability to avoid wildfire, however, we are able to find a better way to minimize the losses. Fast detection plays an important role in a successful firefighting. Therefore, this study will be conducted to see the potential factors of wildfire, in order to have some insight of wildfire detection. Since there are plenty of studies focusing on wildfire in the US and Australia, we decided to start our project in a new place to us, Portugal. We will compare the weather and climate conditions of The Montesinho Natural Park, one of the largest natural parks in Portugal.
+Two major wildfire disasters occurred recently: Australia BushFire, and California CampFire. The severe consequences of wildfires on the environment and health catches our attention. We might not have the ability to avoid wildfire, however, we are able to find a better way to minimize the losses. Therefore, this study will be conducted to see the potential factors of wildfire, in order to have some insight of wildfire detection. Since there are plenty of studies focusing on wildfire in the US and Australia, we decided to start our project in a new place to us, Portugal. We will compare the weather and climate conditions of The Montesinho Natural Park, one of the largest natural parks in Portugal.
 
 ---
 
@@ -64,22 +64,27 @@ The image below shows the associations of all six components of the FWI System. 
 * Fine Fuel Moisture Code (FFMC)
 
   The Fine Fuel Moisture Code (FFMC) is a numeric rating of the moisture content of litter and other cured fine fuels. It is an indicator of the relative ease of ignition and the flammability of fine fuel.
+  
 
 * Duff Moisture Code (DMC)
 
   The Duff Moisture Code (DMC) is a numeric rating of the average moisture content of loosely compacted organic layers of moderate depth. It gives an indication of fuel consumption in moderate duff layers and medium-size woody material.
+  
 
 * Drought Code (DC)
 
   The Drought Code (DC) is a numeric rating of the average moisture content of deep, compact organic layers. It is a useful indicator of seasonal drought effects on forest fuels and the amount of smoldering in deep duff layers and large logs.
+  
 
 * Initial Spread Index (ISI)
 
   The Initial Spread Index (ISI) is a numeric rating of the expected rate of fire spread. It is based on wind speed and FFMC. Like the rest of the FWI system components, ISI does not take fuel type into account. Actual spread rates vary between fuel types at the same ISI.
+  
 
 * Buildup Index (BUI)
 
   The Buildup Index (BUI) is a numeric rating of the total amount of fuel available for combustion. It is based on the DMC and the DC. The BUI is generally less than twice the DMC value, and moisture in the DMC layer is expected to help prevent burning in material deeper down in the available fuel.
+  
 
 * Fire Weather Index (FWI)
 
@@ -88,34 +93,46 @@ The image below shows the associations of all six components of the FWI System. 
 ---
 
 ## Questions
+Our questions remained stable throughout the development of our project. They can be concluded in three dimensions.
+
+**Overview**
+
+* How is the forest fire distributed in the park?
+
+* Where in the park has the most severe fire?
+
+* How large can the forest fire be?
+
+
+**Data Analysis** 
+
+* Which of the climate variables have significant effect on wild fires?
+
+* How are these variables related to the burned area of forest fire?
+
+
+**Suggestion** 
+
+* For general tourists, what suggestions can we provide from the data? 
+
+* For fire departments, what suggestions can we provide from the data?
 
 
 ---
 
 ## Data
 
-### Data Sources
+#### ***Data Sources***
 
-* Paulo Cortez, pcortez '@' dsi.uminho.pt, Department of Information Systems, University of Minho, Portugal.
+[Paulo Cortez Home Page](http://www3.dsi.uminho.pt/pcortez/Home.html)
 
-* Aníbal Morais, araimorais '@' gmail.com, Department of Information Systems, University of Minho, Portugal.
-
-### Data Set Information
+#### ***Data Set Information***
 
 The forest fire data concerns burned areas of the forests in Montesinho Natural park due to forest fires.
 
-In [Cortez and Morais, 2007], the output 'area' was first transformed with a ln(x+1) function.
-Then, several Data Mining methods were applied. After fitting the models, the outputs were
-post-processed with the inverse of the ln(x+1) transform. Four different input setups were
-used. The experiments were conducted using a 10-fold (cross-validation) x 30 runs. Two
-regression metrics were measured: MAD and RMSE. A Gaussian support vector machine (SVM) fed
-with only 4 direct weather conditions (temp, RH, wind and rain) obtained the best MAD value:
-12.71 +- 0.01 (mean and confidence interval within 95% using a t-student distribution). The
-best RMSE was attained by the naive mean predictor. An analysis to the regression error curve
-(REC) shows that the SVM model predicts more examples within a lower admitted error. In effect,
-the SVM model predicts better small fires, which are the majority.
+In [Cortez and Morais, 2007](http://www3.dsi.uminho.pt/pcortez/fires.pdf), the output 'area' was first transformed with a ln(x+1) function.
 
-### Variables of interest
+#### ***Variables of interest***
 
 For more information, read [Cortez and Morais, 2007].
 
@@ -138,11 +155,9 @@ sense to model with the logarithm transform)
 For more information about data, read [Fire Weather Index (FWI) System](https://www.nwcg.gov/publications/pms437/cffdrs/fire-weather-index-system).
 
 
-### Relevant Papers:
+#### ***Relevant Papers***
 
-[Cortez and Morais, 2007] P. Cortez and A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. In J. Neves, M. F. Santos and J. Machado Eds., New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence, December, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Available at: [Web Link]
-
-### Data Cleaning
+[Cortez and Morais, 2007](http://www3.dsi.uminho.pt/pcortez/fires.pdf) P. Cortez and A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. In J. Neves, M. F. Santos and J. Machado Eds., New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence, December, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9.
 
 ---
 
