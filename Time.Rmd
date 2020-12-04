@@ -144,6 +144,10 @@ test = function(variable){
     filter(days == 'Weekend') %>% 
     select(value2)
   
+  result = t.test(daytest$value2, endtest$value2)
+  
+  result}
+  
 }
 
 
