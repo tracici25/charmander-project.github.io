@@ -134,6 +134,13 @@ renderPlotly({
 
 ```{r}
 test = function(variable){
+  test_df = ready2_df %>% 
+    filter(days == variable)
+  daytest = test_df %>% 
+    filter(days == 'Weekday') %>% 
+    select(value2)
+  
+  
   
 }
 
