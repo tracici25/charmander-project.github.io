@@ -130,8 +130,6 @@ ttest = function(variable){
   results
 }
 
-renderPrint(ttest(variable = input[["climate"]]))
-
 
 renderPrint(
   if (ttest(variable = input[["climate"]])$p.value < 0.05) {
