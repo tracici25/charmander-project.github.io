@@ -4,7 +4,7 @@ output:
   html_document:
     toc: true
     toc_float: true
----
+    code_folding: hide---
 
 # Group Members
 Team Charmander has 4 awesome members: Yanhao Li(yl4612), Yuechen Liu(yl4613), Mufeng Xu(mx2241), Angeline Chen(mc4959).
