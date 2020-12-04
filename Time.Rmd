@@ -135,7 +135,7 @@ renderPlotly({
 ```{r}
 test = function(variable){
   test_df = ready2_df %>% 
-    filter(days == variable)
+    filter(info2 == variable)
   daytest = test_df %>% 
     filter(days == 'Weekday') %>% 
     select(value2)
@@ -148,7 +148,11 @@ test = function(variable){
   
   result}
   
-}
+renderPrint(
+  if(test(variable = input[["info2"]]))
+
+renderPrint(if(test(variable = input[["info2"]])$p.value<0.05){print()}else{print()})
+)
 
 
 ```
