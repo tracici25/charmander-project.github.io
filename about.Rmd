@@ -10,11 +10,15 @@ output:
 
 # Motivation
 
-Two major wildfire disasters occurred recently: Australia BushFire, California CampFire. The severe consequence of wildfires on the environment and health catches our attention. Therefore, this study will be conducted to see the potential factors of wildfire and compare the weather and climate conditions in Montesinho National Park, Portugal, and give travel suggestions.
+Two major wildfire disasters occurred recently: Australia BushFire, California CampFire. The severe consequence of wildfires on the environment and health catches our attention. We might not have the ability to avoid wildfire, however, we are able to find a better way to minimize the losses. Fast detection plays an important role in a successful firefighting. Therefore, this study will be conducted to see the potential factors of wildfire, in order to have some insight of wildfire detection and give travel suggestions. Since there are plenty of studies focusing on wildfire in the US and Australia, we decided to start our project in a new place to us, Portugal. We will compare the weather and climate conditions of The Montesinho Natural Park, one of the largest natural parks in Portugal.
+
+
 
 ### Montesinho National Park
 
-The Montesinho Natural Park is one of the largest natural parks in Portugal. The schist and granite mountains form deep valleys and the clear river water flowing through them. The geological diversity of this space and variations in soil characteristics and climate, originate a highly varied plant life, and an ideal habitat for animals such as the wolf, wild boar, roe deer and around 240 other animal species. Montesinho is home to many different kinds of animals. Its biodiversity includes the Iberian wolf, roe deer, wild boar, Iberian lynx, common genet, red fox and European otter.
+The Montesinho Natural Park is a protected area located in the northeastern Portugal. It is one of the largest natural parks in Portugal.
+
+The geological diversity of this space and variations in soil characteristics and climate, originate a highly varied plant life, and an ideal habitat for animals.Its biodiversity includes the Iberian wolf, roe deer, wild boar, Iberian lynx, common genet, red fox,  European otter, and around 240 other animal species.
 
 <img src="picture/park.jpg" style="width:60%">
 
