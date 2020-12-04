@@ -130,6 +130,9 @@ renderPlotly({
          yaxis = list(side = 'left', title = 'Variable chosen', showgrid = FALSE, zeroline = FALSE))})
 ```
 
+###T test-- are variable means equal for weekdays and weekends?
+
+
 
 
 
