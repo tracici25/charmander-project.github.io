@@ -59,7 +59,7 @@ The first three components are fuel moisture codes. The values rise as the moist
 
 The remaining three components are fire behavior indexes. As the three values rise, the fire danger increases.
 
-The image below shows the associations of all six components of the FWI System. ![](images/FWI_structure.jpg)
+The image below shows the associations of all six components of the FWI System. ![](picture/FWI_structure.jpg)
 
 * Fine Fuel Moisture Code (FFMC)
 
