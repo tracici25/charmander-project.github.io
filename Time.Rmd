@@ -140,7 +140,9 @@ test = function(variable){
     filter(days == 'Weekday') %>% 
     select(value2)
   
-  
+  endtest = test_df %>% 
+    filter(days == 'Weekend') %>% 
+    select(value2)
   
 }
 
