@@ -5,6 +5,7 @@ output:
     orientation: columns
     vertical_layout: fill
     source: embed
+    always_allow_html: true
 runtime: shiny
 ---
 ```{r setup, include=FALSE}
