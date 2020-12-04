@@ -1,5 +1,5 @@
 ---
-title: "report_draft"
+title: "Report_draft"
 output: github_document
 ---
 
@@ -46,7 +46,13 @@ Two major wildfire disasters occurred recently: Australia BushFire, and Californ
 
 ### Forest Fire Weather Index (FWI) System
 
-The Forest Fire Weather Index (FWI) System is an estimation of risk of wildfire. It includes six components:
+The Forest Fire Weather Index (FWI) System is an estimation of risk of wildfire. It includes six components: FFMC, DMC, DC, ISI, BUI, FWI.
+
+The first three components are fuel moisture codes. The values rise as the moisture content decreases.
+
+The remaining three components are fire behavior indexes. As the three values rise, the fire danger increases.
+
+The image below shows the associations of all six components of the FWI System. ![](images/FWI_structure.jpg)
 
 * Fine Fuel Moisture Code (FFMC)
 
