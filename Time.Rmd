@@ -169,7 +169,7 @@ test = function(variable){
   
   result}
   
-renderPrint(ttest(variable = input[["info2"]]))
+renderPrint(test(variable = input[["info2"]]))
 
 
 renderPrint(
