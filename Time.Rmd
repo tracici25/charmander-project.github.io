@@ -20,7 +20,7 @@ library(rsconnect)
 fire_df = read_csv("./data/forestfires.csv")
 
 ready_df = 
-  fire_df%>%
+  fire_df %>%
   mutate(month = stringi::stri_trans_totitle(month)) %>%
   mutate(month = factor(month, 
                         levels = c('Jan', 'Feb', 'Mar', 'Apr',
@@ -74,6 +74,7 @@ selectInput(
   choices = info
 )
 ```
+
 
 ```{r}
 info2 = ready2_df %>% 
@@ -169,10 +170,12 @@ test = function(variable){
   result}
   
 renderPrint(
-  if(test(variable = input[["info3"]]))
-
-renderPrint(if(test(variable = input[["info3"]])$p.value<0.05){print('reject null')}else{print('fail to reject null')})
-)
+  if(test(variable = input[["info2"]])$p.value<0.05){
+    print('reject null')
+  }else{
+      print('fail to reject null')
+    }
+  )
 
 
 ```
