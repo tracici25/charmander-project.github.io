@@ -11,7 +11,7 @@
 
 
 
-<title>Report_draft</title>
+<title>Project Report</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,7 +19,11 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
@@ -247,7 +251,73 @@ $(document).ready(function () {
 </style>
 
 <!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
 
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
 
 
 
@@ -257,6 +327,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -330,9 +410,17 @@ $(document).ready(function () {
 
 <div class="fluid-row" id="header">
 
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
 
 
-<h1 class="title toc-ignore">Report_draft</h1>
+
+<h1 class="title toc-ignore">Project Report</h1>
 
 </div>
 
@@ -343,7 +431,8 @@ $(document).ready(function () {
 <hr />
 </div>
 <div id="related-work" class="section level2">
-<h2>Related Work</h2>
+<h2>Related work</h2>
+<p>Anything that inspired you, such as a paper, a web site, or something we discussed in class.</p>
 <hr />
 </div>
 <div id="background-information" class="section level2">
@@ -401,8 +490,8 @@ $(document).ready(function () {
 </div>
 <div id="data" class="section level2">
 <h2>Data</h2>
-<div id="data-sources" class="section level4">
-<h4><strong><em>Data Sources</em></strong></h4>
+<div id="sources" class="section level4">
+<h4><strong><em>Sources</em></strong></h4>
 <p><a href="http://www3.dsi.uminho.pt/pcortez/Home.html">Paulo Cortez Home Page</a></p>
 </div>
 <div id="data-set-information" class="section level4">
@@ -438,19 +527,30 @@ $(document).ready(function () {
 </div>
 <div id="exploratory-analysis" class="section level2">
 <h2>Exploratory Analysis</h2>
+<p><em>(Note: You can expand our <code>code</code> chunks by clicking on code on the right pill-button.)</em> In <code>Overview</code>, we can find <code>Descriptive Statistics</code>, <code>Geography</code>, and <code>Observation by Time</code>.</p>
+<p><a href="https://tracici25.github.io/charmander-project.github.io/geography.html">Geography</a> is</p>
+<p><a href="https://yuechen-liu.shinyapps.io/time/">Observation by Time</a> is an interactive dashboard that allows users to examine the patterns of wildfires in several weather conditions of The Montesinho Natural Park. Users can get the picture of the wildfires from two aspects: by monthly, or by the types of day (weekday vs weekends).</p>
+<p><a href=""></a> allows users to select different years () and variables, to demonstrate the changes in trends in disasters or climate indicators over time and to visualize differences across the country. Variable definitions can be seen above in the “Data Cleaning” section.</p>
+<pre class="r"><code>1+2+3</code></pre>
+<pre><code>## [1] 6</code></pre>
 </div>
 <div id="formal-analysis" class="section level2">
 <h2>Formal Analysis</h2>
-<p>Note: You can expand our code chunks by clicking on code on the right pill-button.</p>
+<p>Additional analysis: If you undertake formal statistical analyses, describe these in detail</p>
+<pre class="r"><code>4*5</code></pre>
+<pre><code>## [1] 20</code></pre>
 <hr />
 </div>
 <div id="discussion" class="section level2">
 <h2>Discussion</h2>
+<p>What were your findings? Are they what you expect? What insights into the data can you make?</p>
 <hr />
 </div>
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -482,7 +582,38 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

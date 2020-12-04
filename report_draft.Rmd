@@ -1,6 +1,10 @@
 ---
-title: "Report_draft"
-output: github_document
+title: "Project Report"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    code_folding: hide
 ---
 
 ```{r setup, include = FALSE}
@@ -27,16 +31,17 @@ scale_fill_discrete = scale_fill_viridis_d
 ```
 
 
+
 ## Motivation
 
 Two major wildfire disasters occurred recently: Australia BushFire, and California CampFire. The severe consequences of wildfires on the environment and health catches our attention. We might not have the ability to avoid wildfire, however, we are able to find a better way to minimize the losses. Therefore, this study will be conducted to see the potential factors of wildfire, in order to have some insight of wildfire detection. Since there are plenty of studies focusing on wildfire in the US and Australia, we decided to start our project in a new place to us, Portugal. We will compare the weather and climate conditions of The Montesinho Natural Park, one of the largest natural parks in Portugal.
 
----
+***
 
-## Related Work
+## Related work
+Anything that inspired you, such as a paper, a web site, or something we discussed in class.
 
-
----
+***
 
 ## Background Information
 
@@ -49,7 +54,7 @@ The geological diversity of this space and variations in soil characteristics an
 <img src="picture/wolf.jpg" style="width:13.5%"> <img src="picture/deer.jpg" style="width:13.5%"> <img src="picture/boar.jpg" style="width:13.5%"> <img src="picture/lynx.jpg" style="width:13.5%"> <img src="picture/genet.jpg" style="width:13.5%"> <img src="picture/fox.jpg" style="width:13.5%"> <img src="picture/otter.jpg" style="width:13.5%">
 
 
----
+***
 
 ### Forest Fire Weather Index (FWI) System
 
@@ -90,7 +95,7 @@ The image below shows the associations of all six components of the FWI System. 
 
   The Fire Weather Index (FWI) is a numeric rating of fire intensity. It is based on ISI and BUI, and is used as a general index of fire danger throughout the forested areas of Canada.
 
----
+***
 
 ## Questions
 Our questions remained stable throughout the development of our project. They can be concluded in three dimensions.
@@ -118,11 +123,11 @@ Our questions remained stable throughout the development of our project. They ca
 * For fire departments, what suggestions can we provide from the data?
 
 
----
+***
 
 ## Data
 
-#### ***Data Sources***
+#### ***Sources***
 
 [Paulo Cortez Home Page](http://www3.dsi.uminho.pt/pcortez/Home.html)
 
@@ -159,25 +164,40 @@ For more information about data, read [Fire Weather Index (FWI) System](https://
 
 [Cortez and Morais, 2007](http://www3.dsi.uminho.pt/pcortez/fires.pdf) P. Cortez and A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. In J. Neves, M. F. Santos and J. Machado Eds., New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence, December, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9.
 
----
+***
 
 ## Exploratory Analysis
+*(Note: You can expand our `code` chunks by clicking on code on the right pill-button.)*
+In `Overview`, we can find `Descriptive Statistics`, `Geography`, and `Observation by Time`.
+
+[Geography](https://tracici25.github.io/charmander-project.github.io/geography.html) is 
+
+
+[Observation by Time](https://yuechen-liu.shinyapps.io/time/) is an interactive dashboard that allows users to examine the patterns of wildfires in several weather conditions of The Montesinho Natural Park. Users can get the picture of the wildfires from two aspects: by monthly, or by the types of day (weekday vs weekends). 
+
+[]() allows users to select different years () and variables, to demonstrate the changes in trends in disasters or climate indicators over time and to visualize differences across the country. Variable definitions can be seen above in the “Data Cleaning” section.
+
+```{r}
+1+2+3
+```
+
 
 ## Formal Analysis
 
-Note: You can expand our code chunks by clicking on code on the right pill-button.
+Additional analysis: If you undertake formal statistical analyses, describe these in detail
 
----
+```{r}
+4*5
+```
+
+
+***
 
 ## Discussion
 
+What were your findings? Are they what you expect? What insights into the data can you make?
 
-
-
----
-
-
-
+***
 
 
 
