@@ -24,7 +24,7 @@ navbar:
     - text: "Suggestion"
       href: barchart.html
     - text: "Report"
-      href: report.html
+      href: report_draft.html
     - icon: fa-github fa-lg
       href: https://github.com/tracici25/charmander-project.git
 
