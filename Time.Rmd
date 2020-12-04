@@ -54,8 +54,8 @@ ready2_df =
                values_to = "value2")  %>% 
   mutate(
     info2 = replace(info2, info2 == 'temp', 'Temperature(°C)'),
-    info2 = replace(info2, info2 == 'RH', 'Relative Humidity'),
-    info2 = replace(info2, info2 == 'wind', 'Wind Speed'),
+    info2 = replace(info2, info2 == 'RH', 'Relative Humidity(%)'),
+    info2 = replace(info2, info2 == 'wind', 'Wind Speed(km/h)'),
     info2 = replace(info2, info2 == 'rain', 'Rain)'),
     info2 = replace(info2, info2 == 'area', 'Burnt area')
   )
