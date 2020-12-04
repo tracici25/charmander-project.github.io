@@ -1,6 +1,6 @@
 ---
 title: "barchart_draft"
-output: github_document
+output: html_document
 ---
 
 ```{r setup, include = FALSE}
