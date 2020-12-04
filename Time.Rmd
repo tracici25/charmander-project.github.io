@@ -5,7 +5,6 @@ output:
     orientation: columns
     vertical_layout: fill
     source: embed
-    always_allow_html: true
 runtime: shiny
 ---
 ```{r setup, include=FALSE}
@@ -61,6 +60,7 @@ ready2_df =
   )
 
 ```
+
 Column {.sidebar}
 -----------------------------------------------------------------------
 ```{r}
@@ -108,10 +108,6 @@ renderPlotly({
 
 ```
 
-
-
-
-
 Column {}
 -----------------------------------------------------------------------
 
@@ -131,9 +127,8 @@ renderPlotly({
          yaxis = list(side = 'left', title = 'Variable chosen', showgrid = FALSE, zeroline = FALSE))})
 ```
 
-###T test-- are variable equal for weekdays and weekends?
-Column {}
------------------------------------------------------------------------
+### T test "are variable equal for weekdays and weekends?"
+
 ```{r}
 ready3_df = 
   fire_df %>% 
@@ -174,7 +169,7 @@ renderPrint(test(variable = input[["info2"]]))
 
 
 renderPrint(
-  if(test(variable = input[["info2"]])$p.value<0.05){
+  if(test(variable = input[["info2"]])$p.value < 0.05){
     print('p<0.05, we reject null----Conclusion: This variable is significantly different between weekday data and weekend data')
   }else{
       print('fail to reject null----Conclusion: This variable is the same between weekday data and weekend data')
