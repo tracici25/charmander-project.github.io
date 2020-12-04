@@ -28,7 +28,8 @@ scale_fill_discrete = scale_fill_viridis_d
 
 
 ## Motivation
-Two major wildfire disasters occurred recently: Australia BushFire, and California CampFire. The severe consequence of wildfires on the environment and health catches our attention. Therefore, this study will be conducted to see the potential factors of wildfire, in order to have some insight of wildfire prediction or provide some suggestions. Since there are plenty studies focusing on wildfire in the US and Australia, we decided to start our project from a new place, Portugal. We will compare the weather and climate conditions of The Montesinho Natural Park of northeastern Portugal.
+
+Two major wildfire disasters occurred recently: Australia BushFire, and California CampFire. The severe consequences of wildfires on the environment and health catches our attention. We might not have the ability to avoid wildfire, however, we are able to find a better way to minimize the losses. Fast detection plays an important role in a successful firefighting. Therefore, this study will be conducted to see the potential factors of wildfire, in order to have some insight of wildfire detection. Since there are plenty of studies focusing on wildfire in the US and Australia, we decided to start our project in a new place to us, Portugal. We will compare the weather and climate conditions of The Montesinho Natural Park, one of the largest natural parks in Portugal.
 
 ---
 
@@ -39,7 +40,7 @@ Two major wildfire disasters occurred recently: Australia BushFire, and Californ
 
 ## Background Information
 
-### Park 
+### The Montesinho Natural Park
 
 
 
@@ -70,8 +71,6 @@ The Forest Fire Weather Index (FWI) System is an estimation of risk of wildfire.
 * Fire Weather Index (FWI)
 
   The Fire Weather Index (FWI) is a numeric rating of fire intensity. It is based on the ISI and the BUI, and is used as a general index of fire danger throughout the forested areas of Canada.
-
-
 
 
 ---
