@@ -15,33 +15,22 @@
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
-<script src="site_libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
-<script src="site_libs/plotly-binding-4.9.2.1/plotly.js"></script>
+<script src="site_libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="site_libs/plotly-binding-4.9.2.9000/plotly.js"></script>
 <script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="site_libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
 <script src="site_libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
-<link href="site_libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="site_libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
+<link href="site_libs/plotly-htmlwidgets-css-1.54.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="site_libs/plotly-main-1.54.1/plotly-latest.min.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
-
-<style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -358,8 +347,7 @@ $(document).ready(function () {
 <div id="load-in-data" class="section level2">
 <h2>Load in data</h2>
 <pre class="r"><code>fire_df = read_csv(&quot;./data/forestfires.csv&quot;)</code></pre>
-<pre><code>## 
-## -- Column specification --------------------------------------------------------
+<pre><code>## Parsed with column specification:
 ## cols(
 ##   X = col_double(),
 ##   Y = col_double(),
@@ -389,7 +377,7 @@ $(document).ready(function () {
 ##  8     8     6 aug   mon    91.5 145.  608.   10.7   8      86   2.2   0       0
 ##  9     8     6 sep   tue    91   130.  693.    7    13.1    63   5.4   0       0
 ## 10     7     5 sep   sat    92.5  88   699.    7.1  22.8    40   4     0       0
-## # ... with 507 more rows</code></pre>
+## # … with 507 more rows</code></pre>
 </div>
 <div id="bar-chart-month" class="section level2">
 <h2>Bar chart (month)</h2>
@@ -452,13 +440,8 @@ fire_mon_p =
          yaxis = list(title = &#39;Count(s)&#39;))
 
 fire_mon_p</code></pre>
-<pre><code>## Warning: `arrange_()` is deprecated as of dplyr 0.7.0.
-## Please use `arrange()` instead.
-## See vignette(&#39;programming&#39;) for more help
-## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_warnings()` to see where this warning was generated.</code></pre>
-<div id="htmlwidget-a46b719e2f61bc0d796c" style="width:90%;height:345.6px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-a46b719e2f61bc0d796c">{"x":{"visdat":{"2aa05b156b12":["function () ","plotlyVisDat"]},"cur_data":"2aa05b156b12","attrs":{"2aa05b156b12":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":{},"y":{},"type":"bar","name":"n (numbers of data)","marker":{"color":"yellow"},"hoverinfo":"text","text":{},"inherit":true},"2aa05b156b12.1":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":{},"y":{},"type":"bar","name":"Fire Count(s)","marker":{"color":"red"},"hoverinfo":"text","text":{},"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Fire Counts & Sample Size","yaxis":{"domain":[0,1],"automargin":true,"title":"Count(s)"},"xaxis":{"domain":[0,1],"automargin":true,"title":"month","type":"category","categoryorder":"array","categoryarray":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":["Apr","Aug","Dec","Feb","Jan","Jul","Jun","Mar","May","Nov","Oct","Sep"],"y":[9,184,9,20,2,32,17,54,2,1,15,172],"type":"bar","name":"n (numbers of data)","marker":{"color":"yellow","line":{"color":"rgba(31,119,180,1)"}},"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text"],"text":["Apr : n= 9","Aug : n= 184","Dec : n= 9","Feb : n= 20","Jan : n= 2","Jul : n= 32","Jun : n= 17","Mar : n= 54","May : n= 2","Nov : n= 1","Oct : n= 15","Sep : n= 172"],"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["Apr","Aug","Dec","Feb","Jan","Jul","Jun","Mar","May","Nov","Oct","Sep"],"y":[4,99,9,10,0,18,8,19,1,0,5,97],"type":"bar","name":"Fire Count(s)","marker":{"color":"red","line":{"color":"rgba(255,127,14,1)"}},"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text"],"text":["Apr : fire(s) =  4","Aug : fire(s) =  99","Dec : fire(s) =  9","Feb : fire(s) =  10","Jan : fire(s) =  0","Jul : fire(s) =  18","Jun : fire(s) =  8","Mar : fire(s) =  19","May : fire(s) =  1","Nov : fire(s) =  0","Oct : fire(s) =  5","Sep : fire(s) =  97"],"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-24902f1cf8e79dcd2764" style="width:90%;height:345.6px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-24902f1cf8e79dcd2764">{"x":{"visdat":{"5c0757d3f3ef":["function () ","plotlyVisDat"]},"cur_data":"5c0757d3f3ef","attrs":{"5c0757d3f3ef":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":{},"y":{},"type":"bar","name":"n (numbers of data)","marker":{"color":"yellow"},"hoverinfo":"text","text":{},"inherit":true},"5c0757d3f3ef.1":{"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"x":{},"y":{},"type":"bar","name":"Fire Count(s)","marker":{"color":"red"},"hoverinfo":"text","text":{},"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"title":"Fire Counts & Sample Size","yaxis":{"domain":[0,1],"automargin":true,"title":"Count(s)"},"xaxis":{"domain":[0,1],"automargin":true,"title":"month","type":"category","categoryorder":"array","categoryarray":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]},"hovermode":"closest","showlegend":true},"source":"A","config":{"showSendToCloud":false},"data":[{"x":["Apr","Aug","Dec","Feb","Jan","Jul","Jun","Mar","May","Nov","Oct","Sep"],"y":[9,184,9,20,2,32,17,54,2,1,15,172],"type":"bar","name":"n (numbers of data)","marker":{"color":"yellow","line":{"color":"rgba(31,119,180,1)"}},"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text"],"text":["Apr : n= 9","Aug : n= 184","Dec : n= 9","Feb : n= 20","Jan : n= 2","Jul : n= 32","Jun : n= 17","Mar : n= 54","May : n= 2","Nov : n= 1","Oct : n= 15","Sep : n= 172"],"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":["Apr","Aug","Dec","Feb","Jan","Jul","Jun","Mar","May","Nov","Oct","Sep"],"y":[4,99,9,10,0,18,8,19,1,0,5,97],"type":"bar","name":"Fire Count(s)","marker":{"color":"red","line":{"color":"rgba(255,127,14,1)"}},"hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text"],"text":["Apr : fire(s) =  4","Aug : fire(s) =  99","Dec : fire(s) =  9","Feb : fire(s) =  10","Jan : fire(s) =  0","Jul : fire(s) =  18","Jun : fire(s) =  8","Mar : fire(s) =  19","May : fire(s) =  1","Nov : fire(s) =  0","Oct : fire(s) =  5","Sep : fire(s) =  97"],"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 
 
@@ -470,7 +453,7 @@ fire_mon_p</code></pre>
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
