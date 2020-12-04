@@ -13,10 +13,11 @@ library(plotly)
 library(flexdashboard)
 library(rsconnect)
 ```
-
+ 
 
 ```{r, include = FALSE}
 fire_df = read_csv("./data/forestfires.csv")
+
 ready_df = 
   fire_df%>% 
   mutate(month = stringi::stri_trans_totitle(month)) %>%
