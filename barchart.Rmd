@@ -1,10 +1,10 @@
 ---
-title: "barchart"
+title: "Bar Chart"
 output: 
     html_document:
-    toc: true
-    toc_float: true
-    code_folding: hide
+      toc: true
+      toc_float: true
+      code_folding: hide
 ---
 
 ```{r setup, include = FALSE}
@@ -77,10 +77,10 @@ fire_m_df %>%
 
 fire_mon_p = plot_ly(fire_m_df)
 fire_mon_p = 
-  fire_mon_p %>% add_trace(x = ~month, y = ~n.x, type = 'bar', name = 'n (numbers of data)', marker = list(color = 'yellow'), hoverinfo = "text", text = ~paste(month, ': n=', n.x))
+  fire_mon_p %>% add_trace(x = ~month, y = ~n.x, type = 'bar', name = 'n (numbers of data)', marker = list(color = '#CFD8DC'), hoverinfo = "text", text = ~paste(month, ': n=', n.x))
 
 fire_mon_p = 
-  fire_mon_p %>% add_trace(x = ~month, y = ~n.y, type = 'bar', name = 'Fire Count(s)', marker = list(color = 'red'), hoverinfo = "text", text = ~paste(month,': fire(s) = ', n.y))
+  fire_mon_p %>% add_trace(x = ~month, y = ~n.y, type = 'bar', name = 'Fire Count(s)', marker = list(color = '#FF7043'), hoverinfo = "text", text = ~paste(month,': fire(s) = ', n.y))
 
 fire_mon_p = 
   fire_mon_p %>% 
