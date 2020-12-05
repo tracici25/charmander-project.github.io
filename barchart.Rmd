@@ -32,7 +32,7 @@ scale_fill_discrete = scale_fill_viridis_d
 
 
 ## Load in data
-```{r load in data}
+```{r load in data, include = FALSE}
 fire_df = read_csv("./data/forestfires.csv")
 fire_df
 ```
@@ -40,7 +40,7 @@ fire_df
 
 ## Bar chart (month)
 
-```{r 1201 combine barcharts}
+```{r 1201 combine barcharts, echo = FALSE, warning = FALSE}
 fire_mon = 
   fire_df %>%
   select(month, area) %>%
