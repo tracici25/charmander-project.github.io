@@ -10,7 +10,7 @@ output:
 
 # Motivation
 
-Two major wildfire disasters occurred recently: Australia BushFire, California CampFire. The severe consequence of wildfires on the environment and health catches our attention. Therefore, this study will be conducted to see the potential factors of wildfire and compare the weather and climate conditions in Montesinho National Park, Portugal, and give travel suggestions.
+Two major wildfire disasters occurred recently: Australia BushFire, and California CampFire. The severe consequences of wildfires on the environment and health catches our attention. We might not have the ability to avoid wildfire, however, we are able to understand more about it, and maybe find a better way to minimize the losses in future. Therefore, this study will be conducted to see the potential factors of wildfire, in order to have some insight into wildfire. Since there are plenty of studies focusing on wildfire in the US and Australia, we decided to start our project in a new place to us, Portugal. In the project, we will compare the weather and climate conditions of The Montesinho Natural Park, one of the largest natural parks in Portugal.
 
 ### Montesinho National Park
 
@@ -48,23 +48,18 @@ For more information about data, read [Fire Weather Index (FWI) System](https://
 
 **Overview**
 
-* How is the forest fire distributed in the park? -geo
+* How is the forest fire distributed in the park?
 
-* Where in the park has the most severe fire? - geo
+* Where in the park has the most severe fire?
 
-* How large can the forest fire be? - descrip
+* How large can the forest fire be?
 
 
 **Data Analysis** 
 
-* Which of the climate variables have significant effect on wild fires? - boxplot & t test
+* Which of the climate variables have significant effect on wild fires?
 
-* How are these variables related to the burned area of forest fire? - linear regression
-
-
-**Suggestion** 
-
-* What can we suggest from the data? (Ex: For tourists and fire department) - forecast
+* How are these variables related to the burned area of forest fire?
 
 
 # Our screencast
