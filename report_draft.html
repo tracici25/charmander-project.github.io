@@ -11,7 +11,7 @@
 
 
 
-<title>report_draft</title>
+<title>Project Report</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -420,37 +420,46 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">report_draft</h1>
+<h1 class="title toc-ignore">Project Report</h1>
 
 </div>
 
 
 <div id="motivation" class="section level2">
 <h2>Motivation</h2>
+<p>Two major wildfire disasters occurred recently: Australia BushFire, and California CampFire. The severe consequences of wildfires on the environment and health catches our attention. We might not have the ability to avoid wildfire, however, we are able to find a better way to minimize the losses. Therefore, this study will be conducted to see the potential factors of wildfire, in order to have some insight of wildfire detection. Since there are plenty of studies focusing on wildfire in the US and Australia, we decided to start our project in a new place to us, Portugal. We will compare the weather and climate conditions of The Montesinho Natural Park, one of the largest natural parks in Portugal.</p>
 <hr />
 </div>
 <div id="related-work" class="section level2">
-<h2>Related Work</h2>
+<h2>Related work</h2>
+<p>(Anything that inspired you, such as a paper, a web site, or something we discussed in class.)</p>
 <hr />
 </div>
 <div id="background-information" class="section level2">
 <h2>Background Information</h2>
-<div id="park" class="section level3">
-<h3>Park</h3>
+<div id="the-montesinho-natural-park" class="section level3">
+<h3>The Montesinho Natural Park</h3>
+<p><a href="https://www.montesinho.com/en">The Montesinho Natural Park</a> is a protected area located in the northeastern Portugal. It is one of the largest natural parks in Portugal.</p>
+<p>The geological diversity of this space and variations in soil characteristics and climate, originate a highly varied plant life, and an ideal habitat for animals.Its biodiversity includes the <a href="https://en.wikipedia.org/wiki/Iberian_wolf">Iberian wolf</a>, <a href="https://en.wikipedia.org/wiki/Roe_deer">roe deer</a>, <a href="https://en.wikipedia.org/wiki/Wild_boar">wild boar</a>, <a href="https://en.wikipedia.org/wiki/Iberian_lynx">Iberian lynx</a>, <a href="https://en.wikipedia.org/wiki/Common_genet">common genet</a>, <a href="https://en.wikipedia.org/wiki/Red_fox">red fox</a>, <a href="https://en.wikipedia.org/wiki/Eurasian_otter">European otter</a>, and around 240 other animal species.</p>
+<p><img src="picture/wolf.jpg" style="width:13.5%"> <img src="picture/deer.jpg" style="width:13.5%"> <img src="picture/boar.jpg" style="width:13.5%"> <img src="picture/lynx.jpg" style="width:13.5%"> <img src="picture/genet.jpg" style="width:13.5%"> <img src="picture/fox.jpg" style="width:13.5%"> <img src="picture/otter.jpg" style="width:13.5%"></p>
+<hr />
 </div>
 <div id="forest-fire-weather-index-fwi-system" class="section level3">
 <h3>Forest Fire Weather Index (FWI) System</h3>
-<p>The Forest Fire Weather Index (FWI) System is an estimation of risk of wildfire. It includes six components:</p>
+<p>The Forest Fire Weather Index (FWI) System is an estimation of risk of wildfire. It includes six components: FFMC, DMC, DC, ISI, BUI, FWI.</p>
+<p>The first three components are fuel moisture codes. The three values rise as the moisture content decreases.</p>
+<p>The remaining three components are fire behavior indexes. The three values rise as the fire danger increases.</p>
+<p>The figure below illustrates the six components of the FWI System. <img src="picture/FWI_structure.jpg"></p>
 <ul>
 <li><p>Fine Fuel Moisture Code (FFMC)</p>
 <p>The Fine Fuel Moisture Code (FFMC) is a numeric rating of the moisture content of litter and other cured fine fuels. This code is an indicator of the relative ease of ignition and the flammability of fine fuel.</p></li>
 <li><p>Duff Moisture Code (DMC)</p>
-<p>The Duff Moisture Code (DMC) is a numeric rating of the average moisture content of loosely compacted organic layers of moderate depth. This code gives an indication of fuel consumption in moderate duff layers and medium-size woody material.</p></li>
+<p>The Duff Moisture Code (DMC) is a numeric rating of the average moisture content of loosely compacted organic layers of moderate depth. It gives an indication of fuel consumption in moderate duff layers and medium-size woody material.</p></li>
 <li><p>Drought Code (DC)</p>
-<p>The Drought Code (DC) is a numeric rating of the average moisture content of deep, compact organic layers. This code is a useful indicator of seasonal drought effects on forest fuels and the amount of smoldering in deep duff layers and large logs.</p></li>
+<p>The Drought Code (DC) is a numeric rating of the average moisture content of deep, compact organic layers. It is a useful indicator of seasonal drought effects on forest fuels and the amount of smoldering in deep duff layers and large logs.</p></li>
 <li><p>Initial Spread Index (ISI)</p>
 <p>The Initial Spread Index (ISI) is a numeric rating of the expected rate of fire spread. It is based on wind speed and FFMC. Like the rest of the FWI system components, ISI does not take fuel type into account. Actual spread rates vary between fuel types at the same ISI.</p></li>
-<li><p>Buildup Index (BUI)</p>
+<li><p>Buildup Index (BUI) (Not included in this project)</p>
 <p>The Buildup Index (BUI) is a numeric rating of the total amount of fuel available for combustion. It is based on the DMC and the DC. The BUI is generally less than twice the DMC value, and moisture in the DMC layer is expected to help prevent burning in material deeper down in the available fuel.</p></li>
 <li><p>Fire Weather Index (FWI)</p>
 <p>The Fire Weather Index (FWI) is a numeric rating of fire intensity. It is based on the ISI and the BUI, and is used as a general index of fire danger throughout the forested areas of Canada.</p></li>
@@ -460,44 +469,77 @@ div.tocify {
 </div>
 <div id="questions" class="section level2">
 <h2>Questions</h2>
+<p>Our questions remained stable throughout the development of our project. They can be concluded in three dimensions.</p>
+<p><strong>Overview</strong></p>
+<ul>
+<li><p>How is the forest fire distributed in the park?</p></li>
+<li><p>Where in the park has the most severe fire?</p></li>
+<li><p>How large can the forest fire be?</p></li>
+</ul>
+<p><strong>Data Analysis</strong></p>
+<ul>
+<li><p>Which of the climate variables have significant effect on wild fires?</p></li>
+<li><p>How are these variables related to the burned area of forest fire?</p></li>
+</ul>
+<p><strong>Suggestion</strong></p>
+<ul>
+<li><p>For general tourists, what suggestions can we provide from the data?</p></li>
+<li><p>For fire departments, what suggestions can we provide from the data?</p></li>
+</ul>
 <hr />
 </div>
 <div id="data" class="section level2">
 <h2>Data</h2>
-<div id="data-sources" class="section level3">
-<h3>Data Sources</h3>
+<div id="sources" class="section level4">
+<h4><strong><em>Sources</em></strong></h4>
+<p><a href="http://www3.dsi.uminho.pt/pcortez/Home.html">Paulo Cortez Home Page</a></p>
+</div>
+<div id="data-set-information" class="section level4">
+<h4><strong><em>Data Set Information</em></strong></h4>
+<p>The forest fire data concerns burned areas of the forests in Montesinho Natural park due to forest fires.</p>
+<p>In <a href="http://www3.dsi.uminho.pt/pcortez/fires.pdf">Cortez and Morais, 2007</a>, the output ‘area’ was first transformed with a ln(x+1) function.</p>
+</div>
+<div id="variables-of-interest" class="section level4">
+<h4><strong><em>Variables of interest</em></strong></h4>
+<p>For more information, read [Cortez and Morais, 2007].</p>
 <ul>
-<li><p>Paulo Cortez, pcortez ‘@’ dsi.uminho.pt, Department of Information Systems, University of Minho, Portugal.</p></li>
-<li><p>Aníbal Morais, araimorais ‘@’ gmail.com, Department of Information Systems, University of Minho, Portugal.</p></li>
+<li>X - x-axis spatial coordinate within the Montesinho park map: 1 to 9</li>
+<li>Y - y-axis spatial coordinate within the Montesinho park map: 2 to 9</li>
+<li>month - month of the year: ‘jan’ to ‘dec’</li>
+<li>day - day of the week: ‘mon’ to ‘sun’</li>
+<li>FFMC - FFMC index from the FWI system: 18.7 to 96.20</li>
+<li>DMC - DMC index from the FWI system: 1.1 to 291.3</li>
+<li>DC - DC index from the FWI system: 7.9 to 860.6</li>
+<li>ISI - ISI index from the FWI system: 0.0 to 56.10</li>
+<li>temp - temperature in Celsius degrees: 2.2 to 33.30</li>
+<li>RH - relative humidity in %: 15.0 to 100</li>
+<li>wind - wind speed in km/h: 0.40 to 9.40</li>
+<li>rain - outside rain in mm/m2 : 0.0 to 6.4</li>
+<li>area - the burned area of the forest (in ha): 0.00 to 1090.84 (this output variable is very skewed towards 0.0, thus it may make sense to model with the logarithm transform)</li>
 </ul>
+<p>For more information about data, read <a href="https://www.nwcg.gov/publications/pms437/cffdrs/fire-weather-index-system">Fire Weather Index (FWI) System</a>.</p>
 </div>
-<div id="data-set-information" class="section level3">
-<h3>Data Set Information</h3>
-<p>In [Cortez and Morais, 2007], the output ‘area’ was first transformed with a ln(x+1) function. Then, several Data Mining methods were applied. After fitting the models, the outputs were post-processed with the inverse of the ln(x+1) transform. Four different input setups were used. The experiments were conducted using a 10-fold (cross-validation) x 30 runs. Two regression metrics were measured: MAD and RMSE. A Gaussian support vector machine (SVM) fed with only 4 direct weather conditions (temp, RH, wind and rain) obtained the best MAD value: 12.71 +- 0.01 (mean and confidence interval within 95% using a t-student distribution). The best RMSE was attained by the naive mean predictor. An analysis to the regression error curve (REC) shows that the SVM model predicts more examples within a lower admitted error. In effect, the SVM model predicts better small fires, which are the majority.</p>
-</div>
-<div id="variables-of-interest" class="section level3">
-<h3>Variables of interest</h3>
-<p>For more information, read [Cortez and Morais, 2007]. 1. X - x-axis spatial coordinate within the Montesinho park map: 1 to 9 2. Y - y-axis spatial coordinate within the Montesinho park map: 2 to 9 3. month - month of the year: ‘jan’ to ‘dec’ 4. day - day of the week: ‘mon’ to ‘sun’ 5. FFMC - FFMC index from the FWI system: 18.7 to 96.20 6. DMC - DMC index from the FWI system: 1.1 to 291.3 7. DC - DC index from the FWI system: 7.9 to 860.6 8. ISI - ISI index from the FWI system: 0.0 to 56.10 9. temp - temperature in Celsius degrees: 2.2 to 33.30 10. RH - relative humidity in %: 15.0 to 100 11. wind - wind speed in km/h: 0.40 to 9.40 12. rain - outside rain in mm/m2 : 0.0 to 6.4 13. area - the burned area of the forest (in ha): 0.00 to 1090.84 (this output variable is very skewed towards 0.0, thus it may make sense to model with the logarithm transform).</p>
-</div>
-<div id="relevant-papers" class="section level3">
-<h3>Relevant Papers:</h3>
-<p>[Cortez and Morais, 2007] P. Cortez and A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. In J. Neves, M. F. Santos and J. Machado Eds., New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence, December, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Available at: [Web Link]</p>
-</div>
-<div id="data-cleaning" class="section level3">
-<h3>Data Cleaning</h3>
+<div id="relevant-papers" class="section level4">
+<h4><strong><em>Relevant Papers</em></strong></h4>
+<p><a href="http://www3.dsi.uminho.pt/pcortez/fires.pdf">Cortez and Morais, 2007</a> P. Cortez and A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. In J. Neves, M. F. Santos and J. Machado Eds., New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence, December, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9.</p>
 <hr />
 </div>
 </div>
 <div id="exploratory-analysis" class="section level2">
 <h2>Exploratory Analysis</h2>
+<p>In <code>Overview</code>, we can find <code>Descriptive Statistics</code>, <code>Geography</code>, and <code>Observation by Time</code>, each part can guide the users to deeper understanding of what we have done with the dataset.</p>
+<p><a href="https://tracici25.github.io/charmander-project.github.io/geography.html">Geography</a> shows users a whole picture of the counts of wildfire in each area. Darker areas represent higher counts of wildfires in that area across year 2000 to 2003.</p>
+<p><a href="https://yuechen-liu.shinyapps.io/time/">Observation by Time</a> is an interactive dashboard that allows users to examine the patterns of wildfires in several weather conditions of The Montesinho Natural Park. Users can get the picture of the wildfires from two aspects: by monthly, or by the types of day (weekday vs weekends).</p>
+<p><a href=""></a> allows users to select different years () and variables, to demonstrate the changes in trends in disasters or climate indicators over time and to visualize differences across the country. Variable definitions can be seen above in the “Data Cleaning” section.</p>
 </div>
 <div id="formal-analysis" class="section level2">
 <h2>Formal Analysis</h2>
-<p>Note: You can expand our code chunks by clicking on code on the right pill-button.</p>
+<p>Additional analysis: If you undertake formal statistical analyses, describe these in detail</p>
 <hr />
 </div>
 <div id="discussion" class="section level2">
 <h2>Discussion</h2>
+<p>What were your findings? Are they what you expect? What insights into the data can you make?</p>
 <hr />
 </div>
 

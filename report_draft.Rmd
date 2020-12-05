@@ -1,15 +1,10 @@
 ---
-<<<<<<< HEAD
-title: "report_draft"
+title: "Project Report"
 output: 
   html_document:
     toc: true
     toc_float: true
     code_folding: hide
-=======
-title: "Project Report"
-output: github_document
->>>>>>> 7c8fc84b8a592655a8c70243c6a660fae84bc77e
 ---
 
 ```{r setup, include = FALSE}
@@ -39,48 +34,44 @@ scale_fill_discrete = scale_fill_viridis_d
 
 ## Motivation
 
-<<<<<<< HEAD
----
-=======
 Two major wildfire disasters occurred recently: Australia BushFire, and California CampFire. The severe consequences of wildfires on the environment and health catches our attention. We might not have the ability to avoid wildfire, however, we are able to find a better way to minimize the losses. Therefore, this study will be conducted to see the potential factors of wildfire, in order to have some insight of wildfire detection. Since there are plenty of studies focusing on wildfire in the US and Australia, we decided to start our project in a new place to us, Portugal. We will compare the weather and climate conditions of The Montesinho Natural Park, one of the largest natural parks in Portugal.
 
 ***
->>>>>>> 7c8fc84b8a592655a8c70243c6a660fae84bc77e
 
 ## Related work
-Anything that inspired you, such as a paper, a web site, or something we discussed in class.
+(Anything that inspired you, such as a paper, a web site, or something we discussed in class.)
 
 ***
 
 ## Background Information
 
-### Park 
+### The Montesinho Natural Park
+
+[The Montesinho Natural Park](https://www.montesinho.com/en) is a protected area located in the northeastern Portugal. It is one of the largest natural parks in Portugal.
+
+The geological diversity of this space and variations in soil characteristics and climate, originate a highly varied plant life, and an ideal habitat for animals.Its biodiversity includes the [Iberian wolf](https://en.wikipedia.org/wiki/Iberian_wolf), [roe deer](https://en.wikipedia.org/wiki/Roe_deer), [wild boar](https://en.wikipedia.org/wiki/Wild_boar), [Iberian lynx](https://en.wikipedia.org/wiki/Iberian_lynx), [common genet](https://en.wikipedia.org/wiki/Common_genet), [red fox](https://en.wikipedia.org/wiki/Red_fox), [European otter](https://en.wikipedia.org/wiki/Eurasian_otter), and around 240 other animal species.
+
+<img src="picture/wolf.jpg" style="width:13.5%"> <img src="picture/deer.jpg" style="width:13.5%"> <img src="picture/boar.jpg" style="width:13.5%"> <img src="picture/lynx.jpg" style="width:13.5%"> <img src="picture/genet.jpg" style="width:13.5%"> <img src="picture/fox.jpg" style="width:13.5%"> <img src="picture/otter.jpg" style="width:13.5%">
 
 
-
-<<<<<<< HEAD
-=======
 ***
 
->>>>>>> 7c8fc84b8a592655a8c70243c6a660fae84bc77e
 ### Forest Fire Weather Index (FWI) System
 
-The Forest Fire Weather Index (FWI) System is an estimation of risk of wildfire. It includes six components:
+The Forest Fire Weather Index (FWI) System is an estimation of risk of wildfire. It includes six components: FFMC, DMC, DC, ISI, BUI, FWI.
+
+The first three components are fuel moisture codes. The three values rise as the moisture content decreases.
+
+The remaining three components are fire behavior indexes. The three values rise as the fire danger increases.
+
+The figure below illustrates the six components of the FWI System.
+<img src="picture/FWI_structure.jpg">
+
+
 
 * Fine Fuel Moisture Code (FFMC)
 
-<<<<<<< HEAD
   The Fine Fuel Moisture Code (FFMC) is a numeric rating of the moisture content of litter and other cured fine fuels. This code is an indicator of the relative ease of ignition and the flammability of fine fuel.
-
-* Duff Moisture Code (DMC)
-
-  The Duff Moisture Code (DMC) is a numeric rating of the average moisture content of loosely compacted organic layers of moderate depth. This code gives an indication of fuel consumption in moderate duff layers and medium-size woody material.
-
-* Drought Code (DC)
-
-  The Drought Code (DC) is a numeric rating of the average moisture content of deep, compact organic layers. This code is a useful indicator of seasonal drought effects on forest fuels and the amount of smoldering in deep duff layers and large logs.
-=======
-  The Fine Fuel Moisture Code (FFMC) is a numeric rating of the moisture content of litter and other cured fine fuels. It is an indicator of the relative ease of ignition and the flammability of fine fuel.
   
 
 * Duff Moisture Code (DMC)
@@ -92,7 +83,6 @@ The Forest Fire Weather Index (FWI) System is an estimation of risk of wildfire.
 
   The Drought Code (DC) is a numeric rating of the average moisture content of deep, compact organic layers. It is a useful indicator of seasonal drought effects on forest fuels and the amount of smoldering in deep duff layers and large logs.
   
->>>>>>> 7c8fc84b8a592655a8c70243c6a660fae84bc77e
 
 * Initial Spread Index (ISI)
 
@@ -107,7 +97,6 @@ The Forest Fire Weather Index (FWI) System is an estimation of risk of wildfire.
 * Fire Weather Index (FWI)
 
   The Fire Weather Index (FWI) is a numeric rating of fire intensity. It is based on the ISI and the BUI, and is used as a general index of fire danger throughout the forested areas of Canada.
-
 
 
 
@@ -183,13 +172,11 @@ For more information about data, read [Fire Weather Index (FWI) System](https://
 ***
 
 ## Exploratory Analysis
-*(Note: You can expand our `code` chunks by clicking on code on the right pill-button.)*
-In `Overview`, we can find `Descriptive Statistics`, `Geography`, and `Observation by Time`.
 
-[Geography](https://tracici25.github.io/charmander-project.github.io/geography.html) provide a clear map
+In `Overview`, we can find `Descriptive Statistics`, `Geography`, and `Observation by Time`, each part can guide the users to deeper understanding of what we have done with the dataset.
 
-* Darker areas represent higher counts of wildfires in that area across year 2000 to 2003.
-* 
+[Geography](https://tracici25.github.io/charmander-project.github.io/geography.html) shows users a whole picture of the counts of wildfire in each area. Darker areas represent higher counts of wildfires in that area across year 2000 to 2003.
+
 
 [Observation by Time](https://yuechen-liu.shinyapps.io/time/) is an interactive dashboard that allows users to examine the patterns of wildfires in several weather conditions of The Montesinho Natural Park. Users can get the picture of the wildfires from two aspects: by monthly, or by the types of day (weekday vs weekends). 
 
@@ -197,12 +184,9 @@ In `Overview`, we can find `Descriptive Statistics`, `Geography`, and `Observati
 
 
 
-
 ## Formal Analysis
 
 Additional analysis: If you undertake formal statistical analyses, describe these in detail
-
-
 
 
 ***
@@ -212,6 +196,8 @@ Additional analysis: If you undertake formal statistical analyses, describe thes
 What were your findings? Are they what you expect? What insights into the data can you make?
 
 ***
+
+
 
 
 
