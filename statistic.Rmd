@@ -79,6 +79,8 @@ descrip_4 =
 Column {.sidebar}
 -----------------------------------------------------------------------
 
+Want to learn about conditions within each grid on the map? Select "X-axis Coordinate" and "Y-axis Coordinate" to specify the grid. Then select "FWI Variables" to explore interested variable along the month. 
+
 ```{r}
 FWI_choices = descrip_4 %>% pull(FWI) %>% unique()
 
