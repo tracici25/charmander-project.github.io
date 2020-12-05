@@ -22,19 +22,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
-
-<style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -374,7 +363,6 @@ $(document).ready(function () {
 <li><em><a href="https://www.linkedin.com/in/mei-ju-chen-738b931ba/">Linkedin</a></em></li>
 <li><em><a href="http://github.com/meijuchen/">Github</a></em></li>
 </ul>
-<p><br></p>
 <hr />
 </div>
 <div id="yanhao-li" class="section level4">
@@ -386,7 +374,6 @@ $(document).ready(function () {
 <li><em><a href="mailto:%3Cyl4612@cumc.columbia.edu%3E">Email</a></em></li>
 <li><em><a href="https://github.com/Caution6">Github</a></em></li>
 </ul>
-<p><br></p>
 <hr />
 </div>
 <div id="yuechen-liu" class="section level4">
@@ -399,7 +386,6 @@ $(document).ready(function () {
 <li><em><a href="https://www.linkedin.com/in/yuechen-liu-037a231b9/">Linkedin</a></em></li>
 <li><em><a href="https://github.com/Yuechen-Liu">Github</a></em></li>
 </ul>
-<p><br></p>
 <hr />
 </div>
 <div id="mufeng-xu" class="section level4">
@@ -412,7 +398,6 @@ $(document).ready(function () {
 <li><em><a href="https://www.linkedin.com/in/mufeng-xu-a1388bb5/">Linkedin</a></em></li>
 <li><em><a href="http://github.com/tracici25/">Github</a></em></li>
 </ul>
-<p><br></p>
 <hr />
 </div>
 </div>
@@ -426,7 +411,7 @@ $(document).ready(function () {
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
