@@ -100,12 +100,10 @@ selectInput(
   selected = "6"
 )
 
-y_choices = descrip_3 %>% pull(Y) %>% unique()
-
 selectInput(
   "y_choice",
   h3("Y-axis Coordinate"),
-  choices = y_choices,
+  choices = x_choices,
   selected = "5"
 )
 
@@ -140,20 +138,18 @@ geo_o =
 
 
 geo_f = 
-  fire_df %>% 
-  select(X, Y) %>%
+  geo_o %>%
   filter(
     X == input[["x_choice"]],
     Y == input[["y_choice"]] 
   ) %>% 
-  unique() %>% 
   mutate(
     area = 1
   )  
 
 geo_c = 
   merge(
-    geo_o, geo_f, all = TRUE
+    geo_f, geo_o, all = TRUE
   ) %>% 
   mutate(
     Y = -Y
