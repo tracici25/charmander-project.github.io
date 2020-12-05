@@ -192,10 +192,10 @@ In `Overview`, we can find `Descriptive Statistics`, `Geography`, and `Fire Coun
 * [Descriptive Statistics](https://caution6.shinyapps.io/statistic/) provides the user an interactive way to learn about conditions within each grid on the map. The user could interact with three drop-down menus at the sidebar. The first drop-down menu named “FWI Variables” enables the user to select interested variables. Obviously, the other two drop-down menus “X-axis Coordinate” and “Y-axis Coordinate” let users specify the grid they want easily. After selecting three drop-down menus, the user could observe the plot and map. The plot will show values for interested variables along the month. The map will show the specified grid by painting that grid yellow. 
 
   When tidying data for the plot, my first step was removing variables `day` and `area` from the crude data frame. They are not relevant to my plot. Then, I grouped data by variables `X`, `Y`, and `month` to compute the mean or sum for each raw variable. The third step was removing raw variables and keeping one row for each group. Because not every possible group was included in our data, I merged the full list of possible groups into the  data frame. At the same time, I set the order for the variable `month`. Because merged data has `NA` that disrupts plot function, I changed all `NA` into `0`. I also changed the data frame into a longer version for the filter function. Finally, I change the name of variables from abbreviation to words. 
-
+  
   I changed the code of the plot significantly twice. Originally, some months did not appear in plots. There is no data in that month within that grid. As a result, I merged the full list of possible groups into the  data frame. Then, I found months appearing in plots without order. To solve this, I set the order for the variable `month`. 
   
-When tidying data for the map, my first step was creating the full list of possible grids. Then, I filtered the data frame by input of `X-axis Coordinate` and input of `Y-axis Coordinate`. To distinguish this row, I created a new variable `area`, which equals one. I merged the filtered row into the full list of possible grids and changed all `NA` into `0`. At the same time, I import the map picture. To fit grids in the map, I changed all `Y` values into negative values. 
+  When tidying data for the map, my first step was creating the full list of possible grids. Then, I filtered the data frame by input of `X-axis Coordinate` and input of `Y-axis Coordinate`. To distinguish this row, I created a new variable `area`, which equals one. I merged the filtered row into the full list of possible grids and changed all `NA` into `0`. At the same time, I import the map picture. To fit grids in the map, I changed all `Y` values into negative values. 
 
   I changed the code of the map significantly twice. Originally, I tried to use the image function to plot the grid. However, I had no idea about how to overlay pictures by the image function. I changed my code and tried to use the plotly function. Unfortunately, I still did not find the way. Finally, I tried the ggplot function. 
 
@@ -231,7 +231,7 @@ In `Data Analysis`, we can find `Observation by Time`, `Fire vs. No Fire`, and `
     
     *H1: This variable has significant differences for weekdays and weekends.*
     
-    <img src="picture/RH-week.jpg" style = "width:60%">
+    <img src="picture/RH-week.jpg" style = "width:100%">
     
   In related papers, we read that researchers were interested in whether type of day will affect the wildfire. However, in this part, we found that most parameters remain the same no matter what kind of day it is. 
 
@@ -240,7 +240,7 @@ In `Data Analysis`, we can find `Observation by Time`, `Fire vs. No Fire`, and `
 * [Fire vs. No Fire](https://tracici25.shinyapps.io/boxplot/) allow us to study the differences in each climate variable on fire days and no fire days, a shiny app was designed. Users are able to select the climate variable of interest, and explore the numeric statistics by viewing the boxplots. By comparing the means, medians, IQRs of two categories, one can observe how the numerical values of two groups differ. The density plots on the top right show the distribution of the variable on fire days and no fire days, so that the variance/standard deviation can be visualized. Lastly, two-sample t-test is conducted with null hypothesis of: 
 $$H_0:\mu_1 = \mu_2$$
 
-<img src="picture/fire_xmf.jpeg" style="width:60%">
+<img src="picture/fire_xmf.jpeg" style="width:100%">
 
   After conducting t tests for all climate variables, it is shown that only the DC index has a p-value less than the significance level of 0.05, indicating that the null hypothesis is rejected and concluding that the DC index has a significant difference between fire days and no fire days. All other climate variables have a p-value greater than 0.05, indicating that the null hypothesis is failed to be rejected and concluding that the variables have no significant difference between fire days and no fire days.
 
@@ -272,7 +272,7 @@ summary(fit)$coef %>%
 
   After the backward elimination, only two parameters, DMC and RH were still in the model. Now we can get the regression equation: 
 
-$$Burned Area = 36.7582234 +0.1289139DMC -0.6161311RH$$ 
+  $$Burned Area = 36.7582234 +0.1289139DMC -0.6161311RH$$ 
 
   To examine the feasibility and accuracy of our model, we also made a violin plot of residuals. The residuals do not show a normal distribution, which indicates that the linear model utilized is not accurate and not appropriate for this dataset.
   
