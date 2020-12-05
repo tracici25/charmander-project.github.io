@@ -57,7 +57,7 @@ selectInput(
 Column {}
 -----------------------------------------------------------------------
 
-### Boxplot With Fire
+### Boxplot
 
 ```{r}
 renderPlotly({
