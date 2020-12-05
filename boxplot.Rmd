@@ -40,6 +40,8 @@ fire_box =
 Column {.sidebar}
 -----------------------------------------------------------------------
 
+To investigate on how each of the climate variables varies on fire days and no fire days, boxplots, density plots and hypothesis testing are shown and conducted. Select the climate variable of your interest below:
+
 ```{r}
 climate = fire_box %>% 
   pull(climate) %>% 
