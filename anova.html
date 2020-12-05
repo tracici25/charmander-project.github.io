@@ -11,7 +11,7 @@
 
 
 
-<title>About</title>
+<title>ANOVA testing for climate variables</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -419,74 +419,290 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">About</h1>
+<h1 class="title toc-ignore">ANOVA testing for climate variables</h1>
 
 </div>
 
 
-<div id="motivation" class="section level1">
-<h1>Motivation</h1>
-<p>Two major wildfire disasters occurred recently: Australia BushFire, California CampFire. The severe consequence of wildfires on the environment and health catches our attention. Therefore, this study will be conducted to see the potential factors of wildfire and compare the weather and climate conditions in Montesinho National Park, Portugal, and give travel suggestions.</p>
-<div id="montesinho-national-park" class="section level3">
-<h3>Montesinho National Park</h3>
-<p>The Montesinho Natural Park is one of the largest natural parks in Portugal. The schist and granite mountains form deep valleys and the clear river water flowing through them. The geological diversity of this space and variations in soil characteristics and climate, originate a highly varied plant life, and an ideal habitat for animals such as the wolf, wild boar, roe deer and around 240 other animal species. Montesinho is home to many different kinds of animals. Its biodiversity includes the Iberian wolf, roe deer, wild boar, Iberian lynx, common genet, red fox and European otter.</p>
-<p><img src="picture/park.jpg" style="width:60%"></p>
+<div id="question-we-are-answering" class="section level3">
+<h3>Question we are answering:</h3>
+<p>Which climate variable has the largest effect on wild fire?</p>
 </div>
+<div id="methods" class="section level3">
+<h3>Methods</h3>
+<p>The statistical test we used to answer this question is One-way ANOVA. The null hypothesis is that the mean of each variable in days with fire and without fire is the same. By conducting ANOVA tests for all climate variables with respect to fire status(fire/no fire), the following resulted tables were generated. If there is a significant difference between fire days and no fire days(the null hypothesis is rejected) for a certain variable, it can be inferred that the specific climate variable has no significant effect on wild fire.</p>
 </div>
-<div id="data" class="section level1">
-<h1>Data</h1>
-<p>The forest fire data concerns burned areas of the forests in Montesinho Natural park due to forest fires.</p>
-<div id="variables" class="section level3">
-<h3>Variables</h3>
-<ul>
-<li>X - x-axis spatial coordinate within the Montesinho park map: 1 to 9</li>
-<li>Y - y-axis spatial coordinate within the Montesinho park map: 2 to 9</li>
-<li>month - month of the year: ‘jan’ to ‘dec’</li>
-<li>day - day of the week: ‘mon’ to ‘sun’</li>
-<li>FFMC - FFMC index from the FWI system: 18.7 to 96.20</li>
-<li>DMC - DMC index from the FWI system: 1.1 to 291.3</li>
-<li>DC - DC index from the FWI system: 7.9 to 860.6</li>
-<li>ISI - ISI index from the FWI system: 0.0 to 56.10</li>
-<li>temp - temperature in Celsius degrees: 2.2 to 33.30</li>
-<li>RH - relative humidity in %: 15.0 to 100</li>
-<li>wind - wind speed in km/h: 0.40 to 9.40</li>
-<li>rain - outside rain in mm/m2 : 0.0 to 6.4</li>
-<li>area - the burned area of the forest (in ha): 0.00 to 1090.84 (this output variable is very skewed towards 0.0, thus it may make sense to model with the logarithm transform)</li>
-</ul>
-<p>For more information about data, read <a href="https://www.nwcg.gov/publications/pms437/cffdrs/fire-weather-index-system">Fire Weather Index (FWI) System</a>.</p>
+<div id="ffmc-index" class="section level3">
+<h3>FFMC Index</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Df</th>
+<th align="right">Sum Sq</th>
+<th align="right">Mean Sq</th>
+<th align="right">F value</th>
+<th align="right">Pr(&gt;F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">factor(fire)</td>
+<td align="right">1</td>
+<td align="right">85.69079</td>
+<td align="right">85.69079</td>
+<td align="right">2.822081</td>
+<td align="right">0.0935823</td>
+</tr>
+<tr class="even">
+<td align="left">Residuals</td>
+<td align="right">515</td>
+<td align="right">15637.66709</td>
+<td align="right">30.36440</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+</tbody>
+</table>
+<p><strong>p-value &gt; 0.05</strong> , we fail to reject the null hypothesis, and conclude that there is no significant difference between FFMC index means in fire days and in no fire days.</p>
 </div>
+<div id="dmc-index" class="section level3">
+<h3>DMC Index</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Df</th>
+<th align="right">Sum Sq</th>
+<th align="right">Mean Sq</th>
+<th align="right">F value</th>
+<th align="right">Pr(&gt;F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">factor(fire)</td>
+<td align="right">1</td>
+<td align="right">8313.562</td>
+<td align="right">8313.562</td>
+<td align="right">2.030782</td>
+<td align="right">0.154747</td>
+</tr>
+<tr class="even">
+<td align="left">Residuals</td>
+<td align="right">515</td>
+<td align="right">2108293.612</td>
+<td align="right">4093.774</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+</tbody>
+</table>
+<p><strong>p-value &gt; 0.05</strong> , we fail to reject the null hypothesis, and conclude that there is no significant difference between DMC index means in fire days and in no fire days.</p>
 </div>
-<div id="what-questions-we-are-trying-to-answer" class="section level1">
-<h1>What Questions we are trying to answer?</h1>
-<p><strong>Overview</strong></p>
-<ul>
-<li><p>How is the forest fire distributed in the park? -geo</p></li>
-<li><p>Where in the park has the most severe fire? - geo</p></li>
-<li><p>How large can the forest fire be? - descrip</p></li>
-</ul>
-<p><strong>Data Analysis</strong></p>
-<ul>
-<li><p>Which of the climate variables have significant effect on wild fires? - boxplot &amp; t test</p></li>
-<li><p>How are these variables related to the burned area of forest fire? - linear regression</p></li>
-</ul>
-<p><strong>Suggestion</strong></p>
-<ul>
-<li>What can we suggest from the data? (Ex: For tourists and fire department) - forecast</li>
-</ul>
+<div id="dc-index" class="section level3">
+<h3>DC Index</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Df</th>
+<th align="right">Sum Sq</th>
+<th align="right">Mean Sq</th>
+<th align="right">F value</th>
+<th align="right">Pr(&gt;F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">factor(fire)</td>
+<td align="right">1</td>
+<td align="right">297065.2</td>
+<td align="right">297065.2</td>
+<td align="right">4.863582</td>
+<td align="right">0.0278704</td>
+</tr>
+<tr class="even">
+<td align="left">Residuals</td>
+<td align="right">515</td>
+<td align="right">31455941.9</td>
+<td align="right">61079.5</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+</tbody>
+</table>
+<p><strong>p-value &lt; 0.05</strong> , we reject the null hypothesis, and conclude that there is significant difference between DC index means in fire days and in no fire days.</p>
 </div>
-<div id="our-screencast" class="section level1">
-<h1>Our screencast</h1>
-<iframe width="560" height="315" src="http://www.youtube.com/embed/9bZkp7q19f0?rel=0" frameborder="0" allowfullscreen>
-</iframe>
+<div id="isi-index" class="section level3">
+<h3>ISI Index</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Df</th>
+<th align="right">Sum Sq</th>
+<th align="right">Mean Sq</th>
+<th align="right">F value</th>
+<th align="right">Pr(&gt;F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">factor(fire)</td>
+<td align="right">1</td>
+<td align="right">13.64306</td>
+<td align="right">13.64306</td>
+<td align="right">0.655831</td>
+<td align="right">0.4184097</td>
+</tr>
+<tr class="even">
+<td align="left">Residuals</td>
+<td align="right">515</td>
+<td align="right">10713.39431</td>
+<td align="right">20.80271</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+</tbody>
+</table>
+<p><strong>p-value &gt; 0.05</strong> , we fail to reject the null hypothesis, and conclude that there is no significant difference between ISI index means in fire days and in no fire days.</p>
 </div>
-<div id="about-team-charmander" class="section level1">
-<h1>About Team Charmander</h1>
-<ul>
-<li><p>Angeline Chen (mc4959): <a href="mailto:%3Cmc4959@cumc.columbia.edu%3E">email</a>; <a href="https://www.linkedin.com/in/mei-ju-chen-738b931ba/">linkedin</a>; <a href="http://github.com/meijuchen%20/">github</a></p></li>
-<li><p>Yanhao Li (yl4612): <a href="mailto:%3Cyl4612@cumc.columbia.edu%3E">email</a>; <a href="https://github.com/Caution6">github</a></p></li>
-<li><p>Yuechen Liu (yl4613): <a href="mailto:%3Cyl4613@cumc.columbia.edu%3E">email</a>; <a href="https://www.linkedin.com/in/yuechen-liu-037a231b9/">linkedin</a>; <a href="https://github.com/Yuechen-Liu">github</a></p></li>
-<li><p>Mufeng Xu (mx2241): <a href="mailto:%3Cmx2241@cumc.columbia.edu%3E">email</a>; <a href="https://www.linkedin.com/in/mufeng-xu-a1388bb5/">linkedin</a>; <a href="http://github.com/tracici25/">github</a></p></li>
-</ul>
+<div id="temperature" class="section level3">
+<h3>Temperature</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Df</th>
+<th align="right">Sum Sq</th>
+<th align="right">Mean Sq</th>
+<th align="right">F value</th>
+<th align="right">Pr(&gt;F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">factor(fire)</td>
+<td align="right">1</td>
+<td align="right">100.6154</td>
+<td align="right">100.6154</td>
+<td align="right">2.995666</td>
+<td align="right">0.0840865</td>
+</tr>
+<tr class="even">
+<td align="left">Residuals</td>
+<td align="right">515</td>
+<td align="right">17297.3039</td>
+<td align="right">33.5870</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+</tbody>
+</table>
+<p><strong>p-value &gt; 0.05</strong> , we fail to reject the null hypothesis, and conclude that there is no significant difference between temperature means in fire days and in no fire days.</p>
+</div>
+<div id="relative-humidity" class="section level3">
+<h3>Relative Humidity</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Df</th>
+<th align="right">Sum Sq</th>
+<th align="right">Mean Sq</th>
+<th align="right">F value</th>
+<th align="right">Pr(&gt;F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">factor(fire)</td>
+<td align="right">1</td>
+<td align="right">173.9949</td>
+<td align="right">173.9949</td>
+<td align="right">0.6530384</td>
+<td align="right">0.4194016</td>
+</tr>
+<tr class="even">
+<td align="left">Residuals</td>
+<td align="right">515</td>
+<td align="right">137216.0632</td>
+<td align="right">266.4390</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+</tbody>
+</table>
+<p><strong>p-value &gt; 0.05</strong> , we fail to reject the null hypothesis, and conclude that there is no significant difference between relative humidity means in fire days and in no fire days.</p>
+</div>
+<div id="wind-speed" class="section level3">
+<h3>Wind Speed</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Df</th>
+<th align="right">Sum Sq</th>
+<th align="right">Mean Sq</th>
+<th align="right">F value</th>
+<th align="right">Pr(&gt;F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">factor(fire)</td>
+<td align="right">1</td>
+<td align="right">5.139285</td>
+<td align="right">5.139285</td>
+<td align="right">1.602885</td>
+<td align="right">0.2060673</td>
+</tr>
+<tr class="even">
+<td align="left">Residuals</td>
+<td align="right">515</td>
+<td align="right">1651.230541</td>
+<td align="right">3.206273</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+</tbody>
+</table>
+<p><strong>p-value &gt; 0.05</strong> , we fail to reject the null hypothesis, and conclude that there is no significant difference between wind speed means in fire days and in no fire days.</p>
+</div>
+<div id="precipitation" class="section level3">
+<h3>Precipitation</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">Df</th>
+<th align="right">Sum Sq</th>
+<th align="right">Mean Sq</th>
+<th align="right">F value</th>
+<th align="right">Pr(&gt;F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">factor(fire)</td>
+<td align="right">1</td>
+<td align="right">0.0295044</td>
+<td align="right">0.0295044</td>
+<td align="right">0.3364065</td>
+<td align="right">0.5621645</td>
+</tr>
+<tr class="even">
+<td align="left">Residuals</td>
+<td align="right">515</td>
+<td align="right">45.1678650</td>
+<td align="right">0.0877046</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+</tbody>
+</table>
+<p><strong>p-value &gt; 0.05</strong> , we fail to reject the null hypothesis, and conclude that there is no significant difference between precipitation means in fire days and in no fire days.</p>
 </div>
 
 
