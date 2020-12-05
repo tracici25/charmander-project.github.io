@@ -149,7 +149,7 @@ These are the questions we have at the very beginning of our project. They can b
 #### ***Data Set Information***
 
 The fire data concerns burned areas of the forests in Montesinho Natural park due to forest fires from 2000 January to 2003 December. The data cuts the Natural Park into small grid areas with fixed x and y, corresponding to the park map below. In addition, the variable 'area' was transformed with a ln(x+1) function.
-<img src="picture/map.png">
+<img src="picture/map.jpg">
 
 <br>
 
@@ -219,7 +219,7 @@ In `Data Analysis`, we can find `Observation by Time`, `Fire vs. No Fire`, and `
 
 * [Observation by Time](https://yuechen-liu.shinyapps.io/time/) is an interactive dashboard that allows users to examine the patterns of wildfires by choosing certain parameters of The Montesinho Natural Park. Users can get the picture of the parameters from two aspects: by monthly, or by the types of day (weekday vs weekends). The left graph depicts the relationship between every parameter and every month. The right one depicts the relationship between every parameter and type of day. 
 
-When cleaning the data, we firstly converted “Month” as a factor which is mentioned above. Then we excluded the coordinate data, calculated means of every parameter, and pivoted them into a long column.
+  When cleaning the data, we firstly converted “Month” as a factor which is mentioned above. Then we excluded the coordinate data, calculated means of every parameter, and pivoted them into a long column.
 
   For the dataset created for the “type of day” plot, we filtered the day to two categories: weekdays and weekends. In order to do the t-test, we chose not to calculate the mean.
 
@@ -231,7 +231,7 @@ When cleaning the data, we firstly converted “Month” as a factor which is me
     
     *H1: This variable has significant differences for weekdays and weekends.*
     
-    <img src="picture/RH-week.png" style = "width:60%">
+    <img src="picture/RH-week.jpg" style = "width:60%">
     
   In related papers, we read that researchers were interested in whether type of day will affect the wildfire. However, in this part, we found that most parameters remain the same no matter what kind of day it is. 
 
