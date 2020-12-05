@@ -1,5 +1,5 @@
 ---
-title: "Multiple Linear Modeling"
+title: "Multiple Linear Regressioin Model"
 output: 
   html_document:
     toc: true
