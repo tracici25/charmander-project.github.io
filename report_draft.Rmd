@@ -82,7 +82,7 @@ The image below shows the associations of all six components of the FWI System. 
   The Initial Spread Index (ISI) is a numeric rating of the expected rate of fire spread. It is based on wind speed and FFMC. Like the rest of the FWI system components, ISI does not take fuel type into account. Actual spread rates vary between fuel types at the same ISI.
   
 
-* Buildup Index (BUI)
+* Buildup Index (BUI) (Not included in this project)
 
   The Buildup Index (BUI) is a numeric rating of the total amount of fuel available for combustion. It is based on the DMC and the DC. The BUI is generally less than twice the DMC value, and moisture in the DMC layer is expected to help prevent burning in material deeper down in the available fuel.
   
