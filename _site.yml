@@ -30,7 +30,7 @@ navbar:
     - text: "Report"
       href: report_draft.html
     - text: "Screencast"
-      href: https://youtube.com     
+      href: https://www.youtube.com/watch?v=aif7slsT4Zw&feature=youtu.be
     - icon: fa-github fa-lg
       href: https://github.com/tracici25/charmander-project.github.io.git
 
