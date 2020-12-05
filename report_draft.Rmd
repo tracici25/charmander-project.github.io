@@ -223,6 +223,8 @@ For the dataset created for the “type of day” plot, we filtered the day to t
     
     *H1: This variable has significant differences for weekdays and weekends.*
     
+    <img src="picture/RH-week.png">
+    
   In related papers, we read that researchers were interested in whether type of day will affect the wildfire. However, in this part, we found that most parameters remain the same no matter what kind of day it is. 
 
 
