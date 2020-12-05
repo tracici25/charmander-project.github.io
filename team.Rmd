@@ -1,0 +1,49 @@
+---
+title: "Team Charmander"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+### Team Members
+
+***
+
+#### **Angeline Chen**
+<img src="picture/cmj.jpg" style="width:30%">
+
+* [Personal Web](https://meijuchen.github.io/mc4959_new.github.io/)
+* [Email](mailto:<mc4959@cumc.columbia.edu>)
+* [Linkedin](https://www.linkedin.com/in/mei-ju-chen-738b931ba/)
+* [Github](http://github.com/meijuchen/)
+
+***
+
+#### **Yanhao Li**
+<img src="picture/lyh.jpg" style="width:30%">
+
+* [Personal Web](https://caution6.github.io/)
+* [Email](mailto:<yl4612@cumc.columbia.edu>)
+* [Github](https://github.com/Caution6)
+
+***
+
+#### **Yuechen Liu**
+<img src="picture/lyc.jpg" style="width:30%">
+
+* [Personal Web](https://yuechen-liu.github.io/)
+* [Email](mailto:<yl4613@cumc.columbia.edu>)
+* [Linkedin](https://www.linkedin.com/in/yuechen-liu-037a231b9/)
+* [Github](https://github.com/Yuechen-Liu)
+
+***
+
+#### **Mufeng Xu**
+<img src="picture/xmf.jpg" style="width:30%">
+
+* [Personal Web](https://tracici25.github.io/)
+* [Email](mailto:<mx2241@cumc.columbia.edu>)
+* [Linkedin](https://www.linkedin.com/in/mufeng-xu-a1388bb5/)
+* [Github](http://github.com/tracici25/)
+

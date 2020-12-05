@@ -4,7 +4,11 @@ navbar:
   title: "Home"
   left:
     - text: "About"
-      href: about.html
+      menu:
+        - text: "The Project"
+          href: about.html
+        - text: "Team Charmander"
+          href: team.html
   
   right:
     - text: "Overview"
