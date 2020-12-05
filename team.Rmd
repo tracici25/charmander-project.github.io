@@ -18,6 +18,7 @@ output:
 * *[Linkedin](https://www.linkedin.com/in/mei-ju-chen-738b931ba/)*
 * *[Github](http://github.com/meijuchen/)*
 
+
 ***
 
 #### **Yanhao Li**
@@ -26,6 +27,7 @@ output:
 * *[Personal Web](https://caution6.github.io/)*
 * *[Email](mailto:<yl4612@cumc.columbia.edu>)*
 * *[Github](https://github.com/Caution6)*
+
 
 ***
 
@@ -37,6 +39,7 @@ output:
 * *[Linkedin](https://www.linkedin.com/in/yuechen-liu-037a231b9/)*
 * *[Github](https://github.com/Yuechen-Liu)*
 
+
 ***
 
 #### **Mufeng Xu**
@@ -46,5 +49,6 @@ output:
 * *[Email](mailto:<mx2241@cumc.columbia.edu>)*
 * *[Linkedin](https://www.linkedin.com/in/mufeng-xu-a1388bb5/)*
 * *[Github](http://github.com/tracici25/)*
+
 
 ***
