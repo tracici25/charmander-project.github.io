@@ -63,6 +63,8 @@ ready2_df =
 
 Column {.sidebar}
 -----------------------------------------------------------------------
+In this part, you can select input for two plots on your right. The upper menu controls the middle plot. The lower menu controls the right plot, with the t-test below. Units are included in menus.
+When checking the t-test result, you can scroll to see the whole text.
 ```{r}
 info = ready_df %>% 
   pull(info) %>% 
