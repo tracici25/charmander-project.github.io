@@ -1,9 +1,7 @@
 ---
 title: "Team Charmander"
 output: 
-  html_document:
-    toc: true
-    toc_float: true
+  html_document
 ---
 <br><br><br>
 
@@ -14,7 +12,7 @@ output:
 #### **Angeline Chen**
 
 <img src="picture/cmj.jpg" style="width:30%">
-<div style= "fix:right ;position: relative; top: -80px; right: -170px">
+<div style= "fix:right ;position: relative; top: -80px; right: -300px">
 * *[Personal Web](https://meijuchen.github.io/mc4959_new.github.io/)*
 * *[Email](mailto:<mc4959@cumc.columbia.edu>)*
 * *[Linkedin](https://www.linkedin.com/in/mei-ju-chen-738b931ba/)*
@@ -24,7 +22,7 @@ output:
 
 #### **Yanhao Li**
 <img src="picture/lyh.jpg" style="width:30%">
-<div style= "fix:right ;position: relative; top: -80px; right: -170px">
+<div style= "fix:right ;position: relative; top: -80px; right: -300px">
 * *[Personal Web](https://caution6.github.io/)*
 * *[Email](mailto:<yl4612@cumc.columbia.edu>)*
 * *[Github](https://github.com/Caution6)*
@@ -33,7 +31,7 @@ output:
 
 #### **Yuechen Liu**
 <img src="picture/lyc.jpg" style="width:30%">
-<div style= "fix:right ;position: relative; top: -80px; right: -170px">
+<div style= "fix:right ;position: relative; top: -80px; right: -300px">
 * *[Personal Web](https://yuechen-liu.github.io/)*
 * *[Email](mailto:<yl4613@cumc.columbia.edu>)*
 * *[Linkedin](https://www.linkedin.com/in/yuechen-liu-037a231b9/)*
@@ -43,7 +41,7 @@ output:
 
 #### **Mufeng Xu**
 <img src="picture/xmf.jpg" style="width:30%">
-<div style= "fix:right ;position: relative; top: -80px; right: -170px">
+<div style= "fix:right ;position: relative; top: -80px; right: -300px">
 * *[Personal Web](https://tracici25.github.io/)*
 * *[Email](mailto:<mx2241@cumc.columbia.edu>)*
 * *[Linkedin](https://www.linkedin.com/in/mufeng-xu-a1388bb5/)*
