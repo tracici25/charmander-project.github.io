@@ -231,7 +231,7 @@ In `Data Analysis`, we can find `Observation by Time`, `Fire vs. No Fire`, and `
     
     *H1: This variable has significant differences for weekdays and weekends.*
     
-    <img src="picture/RH-week.jpg" style="vertical-align:middle;margin:50px 0px">
+    <img src="picture/RH-week.jpg" style="width=100%">
     
   In related papers, we read that researchers were interested in whether type of day will affect the wildfire. However, in this part, we found that most parameters remain the same no matter what kind of day it is. 
 
@@ -240,7 +240,7 @@ In `Data Analysis`, we can find `Observation by Time`, `Fire vs. No Fire`, and `
 * [Fire vs. No Fire](https://tracici25.shinyapps.io/boxplot/) allow us to study the differences in each climate variable on fire days and no fire days, a shiny app was designed. Users are able to select the climate variable of interest, and explore the numeric statistics by viewing the boxplots. By comparing the means, medians, IQRs of two categories, one can observe how the numerical values of two groups differ. The density plots on the top right show the distribution of the variable on fire days and no fire days, so that the variance/standard deviation can be visualized. Lastly, two-sample t-test is conducted with null hypothesis of: 
 $$H_0:\mu_1 = \mu_2$$
 
-<img src="picture/fire_xmf.jpeg" style="vertical-align:middle;margin:50px 0px">
+<img src="picture/fire_xmf.jpeg" style="width=100%">
 
   After conducting t tests for all climate variables, it is shown that only the DC index has a p-value less than the significance level of 0.05, indicating that the null hypothesis is rejected and concluding that the DC index has a significant difference between fire days and no fire days. All other climate variables have a p-value greater than 0.05, indicating that the null hypothesis is failed to be rejected and concluding that the variables have no significant difference between fire days and no fire days.
 
