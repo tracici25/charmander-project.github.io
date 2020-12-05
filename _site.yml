@@ -29,8 +29,10 @@ navbar:
           href: linear.html
     - text: "Report"
       href: report_draft.html
+    - text: "Screencast"
+      href: https://youtube.com     
     - icon: fa-github fa-lg
-      href: https://github.com/tracici25/charmander-project.github.io
+      href: https://github.com/tracici25/charmander-project.github.io.git
 
 output:
   html_document:
