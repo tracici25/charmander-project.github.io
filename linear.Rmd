@@ -97,7 +97,7 @@ summary(fit_best)$coef %>%
 
 The final predictors selected are DMC and RH(Relative Humidity), which p-values are greater than our threshold of 0.2. Our hypothesized formula for MLR model is:
 $$Burned Area = \beta_0 +\beta_1DMC + \beta_2RH$$
-The coeffieicnts plot for DMC and RH is shown below:
+The coeffieicnt plot for DMC and RH is shown below:
 
 ```{r, echo = FALSE, warning = FALSE}
 # plot for coefficients
@@ -126,12 +126,14 @@ coef_plot =
 coef_plot
 ```
 
-It shows something that I dont want to write.
+Regression coefficients for DMC and RH are modeled as 0.1289139 and -0.6161311 respectively; the intercept is 36.7582234. The resultant regression formula is:
+$$Burned Area = 36.7582234 +0.1289139DMC -0.6161311RH$$
 
 
 ### Diagnostics
 
-To examine the feasibility and accuracy of our model, plot of residuals was made. The residuals do not show a normal distribution, which indicates that the linear model utlized is not accurate and not appropriate for this dataset.
+To examine the feasibility and accuracy of our model, plot of residuals was made. The residuals do not show a normal distribution, which indicates that the linear model utilized is not accurate and not appropriate for this dataset.
+
 ```{r}
 
 # Residuals
