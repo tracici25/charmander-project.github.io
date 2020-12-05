@@ -13,16 +13,16 @@ navbar:
           href: https://caution6.shinyapps.io/statistic/
         - text: "Geography"
           href: geography.html
-        - text: "Observation by Time"
-          href: https://yuechen-liu.shinyapps.io/time/
+        - text: "Fire Count"  
+          href: barchart.html
     - text: "Data Analysis"
       menu:
+        - text: "Observation by Time"
+          href: https://yuechen-liu.shinyapps.io/time/
         - text: "Fire vs. No Fire"
           href: https://tracici25.shinyapps.io/boxplot/
         - text: "Linear Regression"
           href: linear.html
-    - text: "Suggestion"
-      href: barchart.html
     - text: "Report"
       href: report_draft.html
     - icon: fa-github fa-lg
