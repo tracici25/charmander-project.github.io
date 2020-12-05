@@ -1,9 +1,7 @@
 ---
-title: "Bar Chart"
+title: "Fire Count"
 output: 
     html_document:
-      toc: true
-      toc_float: true
       code_folding: hide
 ---
 
@@ -31,14 +29,11 @@ scale_fill_discrete = scale_fill_viridis_d
 ```
 
 
-## Load in data
 ```{r load in data, include = FALSE}
 fire_df = read_csv("./data/forestfires.csv")
 fire_df
 ```
 
-
-## Bar chart (month)
 
 ```{r 1201 combine barcharts, echo = FALSE, warning = FALSE}
 fire_mon = 
@@ -86,7 +81,6 @@ fire_mon_p =
   fire_mon_p %>% 
   layout(title = 'Fire Counts & Sample Size',
          yaxis = list(title = 'Count(s)'))
-
 fire_mon_p
 
 ```
