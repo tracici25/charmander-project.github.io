@@ -149,7 +149,7 @@ These are the questions we have at the very beginning of our project. They can b
 #### ***Data Set Information***
 
 The fire data concerns burned areas of the forests in Montesinho Natural park due to forest fires from 2000 January to 2003 December. The data cuts the Natural Park into small grid areas with fixed x and y, corresponding to the park map below. In addition, the variable 'area' was transformed with a ln(x+1) function.
-<img src="picture/map.jpg">
+<img src="picture/map.png">
 
 <br>
 
@@ -200,7 +200,7 @@ I changed the code of the map significantly twice. Originally, I tried to use th
 The tidy process for geography is quite similar to the process of descriptive statistics. When tidying data for the heatmap, my first step was removing all other variables other than variables `X`, `Y`, and `area` from the crude data frame. They are not relevant to my plot. Then, I grouped data by variables `X` and `Y` to compute the sum for the variable `area`. The third step was removing the variable `area` and keeping one row for each group. Because not every possible group was included in our data, I merged the full list of possible groups into the  data frame. To fit grids in the map, I changed all `Y` values into negative values. Because merged data has `NA` that disrupts plot function, I changed all `NA` into `0`. At the same time, I import the map picture. 
 
 
-* [Fire Count](https://tracici25.github.io/charmander-project.github.io/barchart.html) 
+* [Fire Count](https://tracici25.github.io/charmander-project.github.io/barchart.html) give users a whole picture of the total number of wildfires and the numbers of collected data in each month among 2000 to 2003. When cleaning the data, we firstly converted “Month” as a factor, which is also used in the following part of `Observation by Time`. Then we create two data frame, one with all the collected observations, and the other with only the counts of wildfire for each month. Lastly, we combined two bar charts into one, in order to let users to compare the difference between the sample size of each month and the actual number of wildfire in each month.
 
 
 <br>
@@ -213,13 +213,16 @@ The tidy process for geography is quite similar to the process of descriptive st
 In `Data Analysis`, we can find `Observation by Time`, `Fire vs. No Fire`, and `Linear Regression`. Each part also guide the users to gain a deeper understanding of the wildfire in The Montesinho Natural Park.
 
 * [Observation by Time](https://yuechen-liu.shinyapps.io/time/) is an interactive dashboard that allows users to examine the patterns of wildfires by choosing certain parameters of The Montesinho Natural Park. Users can get the picture of the parameters from two aspects: by monthly, or by the types of day (weekday vs weekends). The left graph depicts the relationship between every parameter and every month. The right one depicts the relationship between every parameter and type of day. 
-When cleaning the data, we firstly converted “Month” as a factor which can be used in barchart. Then we excluded the coordinate data, calculated means of every parameter, and pivoted them into a long column.
+When cleaning the data, we firstly converted “Month” as a factor which is mentioned above. Then we excluded the coordinate data, calculated means of every parameter, and pivoted them into a long column.
 For the dataset created for the “type of day” plot, we filtered the day to two categories: weekdays and weekends. In order to do the t-test, we chose not to calculate the mean.
   For this plot “Weekday vs. Weekend”, we did two-sided t-tests for all parameters as stated. From all these p-values, we can see that only the relative humidity was tested to have significant difference between weekdays and weekends. 
-  Hypothesis:
-  H0: This variable is the same for weekdays and weekends.
-  Vs.
-  H1: This variable has significant differences for weekdays and weekends.
+  
+  ***Hypothesis***:
+  
+    *H0: This variable is the same for weekdays and weekends.*
+    
+    *H1: This variable has significant differences for weekdays and weekends.*
+    
   In related papers, we read that researchers were interested in whether type of day will affect the wildfire. However, in this part, we found that most parameters remain the same no matter what kind of day it is. 
 
 
