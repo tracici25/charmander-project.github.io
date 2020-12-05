@@ -223,32 +223,63 @@ For the dataset created for the “type of day” plot, we filtered the day to t
     
     *H1: This variable has significant differences for weekdays and weekends.*
     
-    <img src="picture/RH-week.png">
+    <img src="picture/RH-week.png" style = "width:60%">
     
   In related papers, we read that researchers were interested in whether type of day will affect the wildfire. However, in this part, we found that most parameters remain the same no matter what kind of day it is. 
 
 
 
-* [Fire vs. No Fire](https://tracici25.shinyapps.io/boxplot/) allow us to study the differences in each climate variable on fire days and no fire days, a shiny app was designed. Users are able to select the climate variable of interest, and explore the numeric statistics by viewing the boxplots. By comparing the means, medians, IQRs of two categories, one can observe how the numerical values of two groups differ. The density plots on the top right show the distribution of the variable on fire days and no fire days, so that the variance/standard deviation can be virtualized. Lastly, two-sample t-test is conducted with null hypothesis of: 
-equation.
-Screenshot
+* [Fire vs. No Fire](https://tracici25.shinyapps.io/boxplot/) allow us to study the differences in each climate variable on fire days and no fire days, a shiny app was designed. Users are able to select the climate variable of interest, and explore the numeric statistics by viewing the boxplots. By comparing the means, medians, IQRs of two categories, one can observe how the numerical values of two groups differ. The density plots on the top right show the distribution of the variable on fire days and no fire days, so that the variance/standard deviation can be visualized. Lastly, two-sample t-test is conducted with null hypothesis of: 
+$$H_0:\mu_1 = \mu_2$$
+
+<img src="picture/fire_xmf.jpeg" style="width:60%">
+
 After conducting t tests for all climate variables, it is shown that only the DC index has a p-value less than the significance level of 0.05, indicating that the null hypothesis is rejected and concluding that the DC index has a significant difference between fire days and no fire days. All other climate variables have a p-value greater than 0.05, indicating that the null hypothesis is failed to be rejected and concluding that the variables have no significant difference between fire days and no fire days.
 
 
 
 * As for [Linear Regression](https://tracici25.github.io/charmander-project.github.io/linear.html), we fit a multiple linear regression model for burned area vs. all other parameters. 
 
-  Insert a MLR summary here
+```{r, include = FALSE}
+library(tidyverse)
+library(knitr)
+library(modelr)
+
+fire_linear = 
+  read_csv("./data/forestfires.csv") %>% 
+  select(FFMC, DMC, DC, ISI, temp, RH, wind, rain, area) %>% 
+  filter(area > 0)
+```
+
+
+```{r, echo = FALSE}
+fit = lm(area ~ FFMC + DMC + DC + ISI + temp + RH + wind + rain, data = fire_linear)
+summary(fit)$coef %>% 
+  as.data.frame() %>% 
+  kable(caption = "Linear Model with All Predictors")
+```
+
 
   From the MLR summary, all p-values are insignificant and they could be confounding or correlated, indicating a model with all climate variables might not be an appropriate model. Therefore, we decided to do a backward elimination to locate the possible predictors for linear regression to find the best possible model to fit our outcome of interest. We started with a complete linear model with all predicting variables, and removed the predictor with the highest p-value(for which is greater than the threshold of 0.2). Then we refit the model and removed the next least significant predictor. We repeated the steps until all p-values are smaller than 0.2.
 After the backward elimination, only two parameters, DMC and RH were still in the model. Now we can get the regression equation: 
 
-  Insert the equation here: BurnedArea=36.7582234+0.1289139DMC−0.6161311RH
- 
-
+$$Burned Area = 36.7582234 +0.1289139DMC -0.6161311RH$$ 
 
   To examine the feasibility and accuracy of our model, we also made a violin plot of residuals. The residuals do not show a normal distribution, which indicates that the linear model utilized is not accurate and not appropriate for this dataset.
+  
+```{r, warning = FALSE}
+# Residuals
+add_residuals(fire_linear, lm(area ~ DMC + RH, data = fire_linear)) %>%
+  plot_ly(
+    y = ~resid, type = "violin"
+  ) %>% 
+  layout(
+    title = "Boxplot for Residuals",
+    xaxis = list(title = "Climate Variable"),
+    yaxis = list(title = "Residual", range = c(-200, 300))
+  )
 
+```
 
 
 ***
