@@ -1,15 +1,10 @@
 ---
-<<<<<<< HEAD
-title: "report_draft"
+title: "Project Report"
 output: 
   html_document:
     toc: true
     toc_float: true
     code_folding: hide
-=======
-title: "Project Report"
-output: github_document
->>>>>>> 7c8fc84b8a592655a8c70243c6a660fae84bc77e
 ---
 
 ```{r setup, include = FALSE}
@@ -39,13 +34,9 @@ scale_fill_discrete = scale_fill_viridis_d
 
 ## Motivation
 
-<<<<<<< HEAD
----
-=======
 Two major wildfire disasters occurred recently: Australia BushFire, and California CampFire. The severe consequences of wildfires on the environment and health catches our attention. We might not have the ability to avoid wildfire, however, we are able to find a better way to minimize the losses. Therefore, this study will be conducted to see the potential factors of wildfire, in order to have some insight of wildfire detection. Since there are plenty of studies focusing on wildfire in the US and Australia, we decided to start our project in a new place to us, Portugal. We will compare the weather and climate conditions of The Montesinho Natural Park, one of the largest natural parks in Portugal.
 
 ***
->>>>>>> 7c8fc84b8a592655a8c70243c6a660fae84bc77e
 
 ## Related work
 Anything that inspired you, such as a paper, a web site, or something we discussed in class.
@@ -54,22 +45,25 @@ Anything that inspired you, such as a paper, a web site, or something we discuss
 
 ## Background Information
 
-### Park 
+### The Montesinho Natural Park
+
+[The Montesinho Natural Park](https://www.montesinho.com/en) is a protected area located in the northeastern Portugal. It is one of the largest natural parks in Portugal.
+
+The geological diversity of this space and variations in soil characteristics and climate, originate a highly varied plant life, and an ideal habitat for animals.Its biodiversity includes the [Iberian wolf](https://en.wikipedia.org/wiki/Iberian_wolf), [roe deer](https://en.wikipedia.org/wiki/Roe_deer), [wild boar](https://en.wikipedia.org/wiki/Wild_boar), [Iberian lynx](https://en.wikipedia.org/wiki/Iberian_lynx), [common genet](https://en.wikipedia.org/wiki/Common_genet), [red fox](https://en.wikipedia.org/wiki/Red_fox), [European otter](https://en.wikipedia.org/wiki/Eurasian_otter), and around 240 other animal species.
+
+<img src="picture/wolf.jpg" style="width:13.5%"> <img src="picture/deer.jpg" style="width:13.5%"> <img src="picture/boar.jpg" style="width:13.5%"> <img src="picture/lynx.jpg" style="width:13.5%"> <img src="picture/genet.jpg" style="width:13.5%"> <img src="picture/fox.jpg" style="width:13.5%"> <img src="picture/otter.jpg" style="width:13.5%">
 
 
 
-<<<<<<< HEAD
-=======
+
 ***
 
->>>>>>> 7c8fc84b8a592655a8c70243c6a660fae84bc77e
 ### Forest Fire Weather Index (FWI) System
 
 The Forest Fire Weather Index (FWI) System is an estimation of risk of wildfire. It includes six components:
 
 * Fine Fuel Moisture Code (FFMC)
 
-<<<<<<< HEAD
   The Fine Fuel Moisture Code (FFMC) is a numeric rating of the moisture content of litter and other cured fine fuels. This code is an indicator of the relative ease of ignition and the flammability of fine fuel.
 
 * Duff Moisture Code (DMC)
@@ -79,7 +73,7 @@ The Forest Fire Weather Index (FWI) System is an estimation of risk of wildfire.
 * Drought Code (DC)
 
   The Drought Code (DC) is a numeric rating of the average moisture content of deep, compact organic layers. This code is a useful indicator of seasonal drought effects on forest fuels and the amount of smoldering in deep duff layers and large logs.
-=======
+
   The Fine Fuel Moisture Code (FFMC) is a numeric rating of the moisture content of litter and other cured fine fuels. It is an indicator of the relative ease of ignition and the flammability of fine fuel.
   
 
@@ -92,7 +86,6 @@ The Forest Fire Weather Index (FWI) System is an estimation of risk of wildfire.
 
   The Drought Code (DC) is a numeric rating of the average moisture content of deep, compact organic layers. It is a useful indicator of seasonal drought effects on forest fuels and the amount of smoldering in deep duff layers and large logs.
   
->>>>>>> 7c8fc84b8a592655a8c70243c6a660fae84bc77e
 
 * Initial Spread Index (ISI)
 
