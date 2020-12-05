@@ -1,5 +1,5 @@
 ---
-title: "Wild Fire in Montesinho National Park"
+title: "Wild Fire in Montesinho Natural Park"
 author: "Team Charmander: Angeline Chen(mc4959), Yanhao Li(yl4612), Yuechen Liu(yl4613), Mufeng Xu(mx2241)."
 output: html_document
 ---
