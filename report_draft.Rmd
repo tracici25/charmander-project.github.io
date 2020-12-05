@@ -40,15 +40,12 @@ Two major wildfire disasters occurred recently: Australia BushFire, and Californ
 
 ## Related work
 
-Our study is mainly inspired by the following idea, articles, website, and research:
+Our study is mainly inspired by the following idea, articles, and website:
 
 * From [Wildfires and Climate Change](https://www.c2es.org/content/wildfires-and-climate-change/), we know that wildfire risk strongly depends on a number of weather factors, including temperature, wind, rain, soil moisture, and the presence of other potential fuel, etc. Thus, it gave us the hint of where we can start when conducting the analysis.
 
 
 * [US Wildfire Map](https://www.esri.com/en-us/disaster-response/disasters/wildfires) is an interactive real-time wildfire map for the United States. It displays current wildfire locations as reported by responding agencies and other sources of information related to wildfires.
-
-
-
 
 
 ***
@@ -107,7 +104,6 @@ The figure below illustrates the six components of the FWI System.
 * Fire Weather Index (FWI)
 
   The Fire Weather Index (FWI) is a numeric rating of fire intensity. It is based on the ISI and the BUI, and is used as a general index of fire danger throughout the forested areas of Canada.
-
 
 
 ***
