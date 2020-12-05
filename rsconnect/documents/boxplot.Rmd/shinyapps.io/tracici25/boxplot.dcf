@@ -5,6 +5,6 @@ account: tracici25
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 3343872
-bundleId: 3937277
+bundleId: 3946342
 url: https://tracici25.shinyapps.io/boxplot/
-when: 1606986612.88269
+when: 1607145011.5673
