@@ -34,7 +34,7 @@ scale_fill_discrete = scale_fill_viridis_d
 
 ## Motivation
 
-Two major wildfire disasters occurred recently: Australia BushFire, and California CampFire. The severe consequences of wildfires on the environment and health catches our attention. We might not have the ability to avoid wildfire, however, we are able to find a better way to minimize the losses. Therefore, this study will be conducted to see the potential factors of wildfire, in order to have some insight of wildfire detection. Since there are plenty of studies focusing on wildfire in the US and Australia, we decided to start our project in a new place to us, Portugal. We will compare the weather and climate conditions of The Montesinho Natural Park, one of the largest natural parks in Portugal.
+Two major wildfire disasters occurred recently: Australia BushFire, and California CampFire. The severe consequences of wildfires on the environment and health catches our attention. We might not have the ability to avoid wildfire, however, we are able to understand more about it, and maybe find a better way to minimize the losses in future. Therefore, this study will be conducted to see the potential factors of wildfire, in order to have some insight into wildfire. Since there are plenty of studies focusing on wildfire in the US and Australia, we decided to start our project in a new place to us, Portugal. In the project, we will compare the weather and climate conditions of The Montesinho Natural Park, one of the largest natural parks in Portugal.
 
 ***
 
@@ -109,7 +109,7 @@ The figure below illustrates the six components of the FWI System.
 ***
 
 ## Questions
-Our questions remained stable throughout the development of our project. They can be concluded in three dimensions.
+Our questions remained stable throughout the development of our project. They can be concluded in two dimensions.
 
 **Overview**
 
@@ -125,13 +125,6 @@ Our questions remained stable throughout the development of our project. They ca
 * Which of the climate variables have significant effect on wild fires?
 
 * How are these variables related to the burned area of forest fire?
-
-
-**Suggestion** 
-
-* For general tourists, what suggestions can we provide from the data? 
-
-* For fire departments, what suggestions can we provide from the data?
 
 
 ***
